@@ -1,0 +1,54 @@
+{
+  "case": "case21",
+  "purpose": "omitted-service-redirection-rule",
+  "program": {
+    "atoms": [
+      "a0",
+      "a1",
+      "a2"
+    ],
+    "facts": [
+      0
+    ],
+    "rules": [
+      {
+        "head": 1,
+        "body": [
+          0
+        ]
+      },
+      {
+        "head": 2,
+        "body": [
+          1
+        ]
+      }
+    ],
+    "queries": [
+      0,
+      1,
+      2
+    ]
+  },
+  "certificate": {
+    "nodes": [
+      {
+        "atom": 0,
+        "rule": -1
+      },
+      {
+        "atom": 1,
+        "rule": 0
+      }
+    ],
+    "reported": [
+      0,
+      1
+    ]
+  },
+  "expected": {
+    "accepted": false,
+    "reason": "closure-violation"
+  },
+  "interpretation": "Checking the incomplete extractor model against itself would wrongly appear successful."
+}

@@ -1,0 +1,5 @@
+{
+  "case": "fault-15",
+  "expected_reason": "upper-schema",
+  "mutation": "upper-schema"
+}

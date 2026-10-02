@@ -1,0 +1,68 @@
+{
+  "anchor": {
+    "literal": "android.Manifest.permission.VIBRATE_ALWAYS_ON",
+    "permission": "android.permission.VIBRATE_ALWAYS_ON",
+    "primitive": "mContext.enforceCallingOrSelfPermission"
+  },
+  "excerpt": "    public boolean setAlwaysOnEffect(int uid, String opPkg, int alwaysOnId,\n            @Nullable CombinedVibration effect, @Nullable VibrationAttributes attrs) {\n        Trace.traceBegin(Trace.TRACE_TAG_VIBRATOR, \"setAlwaysOnEffect\");\n        try {\n            mContext.enforceCallingOrSelfPermission(\n                    android.Manifest.permission.VIBRATE_ALWAYS_ON,\n                    \"setAlwaysOnEffect\");\n",
+  "id": "vibrator-set-always-on",
+  "provenance": {
+    "end_line": 314,
+    "excerpt_sha256": "444e6d355cbfddfcd37d97af0336e838811b98ac2b71b19c89a50a24bdf6655c",
+    "file_blob_sha1": "cb7e54dda5279d5e80a34a279fa0bb1a61ece934",
+    "license": "Apache-2.0",
+    "path": "services/core/java/com/android/server/vibrator/VibratorManagerService.java",
+    "repository": "aosp-mirror/platform_frameworks_base",
+    "start_line": 308,
+    "tag": "android-14.0.0_r1",
+    "url": "https://github.com/aosp-mirror/platform_frameworks_base/blob/android-14.0.0_r1/services/core/java/com/android/server/vibrator/VibratorManagerService.java#L308-L314"
+  },
+  "source": {
+    "classes": [
+      {
+        "fields": [],
+        "methods": [
+          {
+            "body": [
+              {
+                "id": "vibrator_set_always_on_check",
+                "op": "check",
+                "permission": "android.permission.VIBRATE_ALWAYS_ON"
+              },
+              {
+                "id": "vibrator_set_always_on_return",
+                "op": "return",
+                "src": null
+              }
+            ],
+            "locals": [],
+            "name": "api",
+            "params": [],
+            "returns": null
+          }
+        ],
+        "name": "SliceService",
+        "super": null
+      }
+    ],
+    "entries": [
+      {
+        "arg_classes": [],
+        "name": "SliceAPI",
+        "selector": "api",
+        "service": "slice_service"
+      }
+    ],
+    "language": "bfil-1",
+    "permissions": [
+      "android.permission.VIBRATE_ALWAYS_ON"
+    ],
+    "services": [
+      {
+        "declared_class": "SliceService",
+        "implementation_class": "SliceService",
+        "name": "slice_service"
+      }
+    ]
+  }
+}

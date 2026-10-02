@@ -1,0 +1,74 @@
+[
+  {
+    "accepted_transport": 6252,
+    "equal_but_not_transported": 0,
+    "errors": 0,
+    "fact_mask": 0,
+    "pairs": 8127,
+    "semantic_equality": 6252,
+    "witness_only_false_completeness": 1797
+  },
+  {
+    "accepted_transport": 6068,
+    "equal_but_not_transported": 28,
+    "errors": 0,
+    "fact_mask": 1,
+    "pairs": 8127,
+    "semantic_equality": 6096,
+    "witness_only_false_completeness": 1656
+  },
+  {
+    "accepted_transport": 6068,
+    "equal_but_not_transported": 28,
+    "errors": 0,
+    "fact_mask": 2,
+    "pairs": 8127,
+    "semantic_equality": 6096,
+    "witness_only_false_completeness": 1656
+  },
+  {
+    "accepted_transport": 6380,
+    "equal_but_not_transported": 108,
+    "errors": 0,
+    "fact_mask": 3,
+    "pairs": 8127,
+    "semantic_equality": 6488,
+    "witness_only_false_completeness": 1055
+  },
+  {
+    "accepted_transport": 6068,
+    "equal_but_not_transported": 28,
+    "errors": 0,
+    "fact_mask": 4,
+    "pairs": 8127,
+    "semantic_equality": 6096,
+    "witness_only_false_completeness": 1656
+  },
+  {
+    "accepted_transport": 6380,
+    "equal_but_not_transported": 108,
+    "errors": 0,
+    "fact_mask": 5,
+    "pairs": 8127,
+    "semantic_equality": 6488,
+    "witness_only_false_completeness": 1055
+  },
+  {
+    "accepted_transport": 6380,
+    "equal_but_not_transported": 108,
+    "errors": 0,
+    "fact_mask": 6,
+    "pairs": 8127,
+    "semantic_equality": 6488,
+    "witness_only_false_completeness": 1055
+  },
+  {
+    "accepted_transport": 7224,
+    "equal_but_not_transported": 270,
+    "errors": 0,
+    "fact_mask": 7,
+    "pairs": 8127,
+    "semantic_equality": 7494,
+    "witness_only_false_completeness": 0
+  }
+]

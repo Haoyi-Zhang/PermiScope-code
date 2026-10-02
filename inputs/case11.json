@@ -1,0 +1,37 @@
+{
+  "case": "case11",
+  "purpose": "self-supported-cycle",
+  "program": {
+    "atoms": [
+      "a0"
+    ],
+    "facts": [],
+    "rules": [
+      {
+        "head": 0,
+        "body": [
+          0
+        ]
+      }
+    ],
+    "queries": [
+      0
+    ]
+  },
+  "certificate": {
+    "nodes": [
+      {
+        "atom": 0,
+        "rule": 0
+      }
+    ],
+    "reported": [
+      0
+    ]
+  },
+  "expected": {
+    "accepted": false,
+    "reason": "unsupported-premise"
+  },
+  "interpretation": "A closed cyclic set is not necessarily the least model."
+}

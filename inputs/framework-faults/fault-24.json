@@ -1,0 +1,5 @@
+{
+  "case": "fault-24",
+  "expected_reason": "classification-mismatch",
+  "mutation": "classification-mutation"
+}

@@ -1,0 +1,48 @@
+{
+  "case": "case17",
+  "purpose": "rule-position-rebound",
+  "program": {
+    "atoms": [
+      "a0",
+      "a1",
+      "a2"
+    ],
+    "facts": [
+      0
+    ],
+    "rules": [
+      {
+        "head": 2,
+        "body": [
+          0
+        ]
+      }
+    ],
+    "queries": [
+      0,
+      1,
+      2
+    ]
+  },
+  "certificate": {
+    "nodes": [
+      {
+        "atom": 0,
+        "rule": -1
+      },
+      {
+        "atom": 1,
+        "rule": 0
+      }
+    ],
+    "reported": [
+      0,
+      1
+    ]
+  },
+  "expected": {
+    "accepted": false,
+    "reason": "wrong-head"
+  },
+  "interpretation": "Stable array indices do not identify unchanged clauses."
+}

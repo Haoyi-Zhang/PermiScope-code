@@ -1,0 +1,5 @@
+{
+  "case": "fault-02",
+  "expected_reason": "source-unknown super class",
+  "mutation": "source-unknown-super"
+}

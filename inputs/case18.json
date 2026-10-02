@@ -1,0 +1,57 @@
+{
+  "case": "case18",
+  "purpose": "removed-initialization",
+  "program": {
+    "atoms": [
+      "a0",
+      "a1",
+      "a2"
+    ],
+    "facts": [],
+    "rules": [
+      {
+        "head": 1,
+        "body": [
+          0
+        ]
+      },
+      {
+        "head": 2,
+        "body": [
+          1
+        ]
+      }
+    ],
+    "queries": [
+      0,
+      1,
+      2
+    ]
+  },
+  "certificate": {
+    "nodes": [
+      {
+        "atom": 0,
+        "rule": -1
+      },
+      {
+        "atom": 1,
+        "rule": 0
+      },
+      {
+        "atom": 2,
+        "rule": 1
+      }
+    ],
+    "reported": [
+      0,
+      1,
+      2
+    ]
+  },
+  "expected": {
+    "accepted": false,
+    "reason": "unjustified-leaf"
+  },
+  "interpretation": "An old leaf cannot survive removal of its initialization fact."
+}

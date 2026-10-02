@@ -1,0 +1,154 @@
+[
+  {
+    "case": "fork",
+    "program": {
+      "atoms": [
+        "a0",
+        "a1",
+        "a2"
+      ],
+      "facts": [],
+      "rules": [
+        {
+          "head": 2,
+          "body": [
+            0
+          ]
+        },
+        {
+          "head": 2,
+          "body": [
+            1
+          ]
+        }
+      ],
+      "queries": [
+        2
+      ]
+    },
+    "optional": [
+      0,
+      1
+    ],
+    "query": 2
+  },
+  {
+    "case": "different-cardinalities",
+    "program": {
+      "atoms": [
+        "a0",
+        "a1",
+        "a2",
+        "a3"
+      ],
+      "facts": [],
+      "rules": [
+        {
+          "head": 3,
+          "body": [
+            0,
+            1
+          ]
+        },
+        {
+          "head": 3,
+          "body": [
+            2
+          ]
+        }
+      ],
+      "queries": [
+        3
+      ]
+    },
+    "optional": [
+      0,
+      1,
+      2
+    ],
+    "query": 3
+  },
+  {
+    "case": "conjunction",
+    "program": {
+      "atoms": [
+        "a0",
+        "a1",
+        "a2"
+      ],
+      "facts": [],
+      "rules": [
+        {
+          "head": 2,
+          "body": [
+            0,
+            1
+          ]
+        }
+      ],
+      "queries": [
+        2
+      ]
+    },
+    "optional": [
+      0,
+      1
+    ],
+    "query": 2
+  },
+  {
+    "case": "already-known",
+    "program": {
+      "atoms": [
+        "a0",
+        "a1",
+        "a2"
+      ],
+      "facts": [
+        2
+      ],
+      "rules": [
+        {
+          "head": 2,
+          "body": [
+            0
+          ]
+        },
+        {
+          "head": 2,
+          "body": [
+            1
+          ]
+        }
+      ],
+      "queries": [
+        2
+      ]
+    },
+    "optional": [
+      0,
+      1
+    ],
+    "query": 2
+  },
+  {
+    "case": "unreachable",
+    "program": {
+      "atoms": [
+        "a0",
+        "a1",
+        "a2"
+      ],
+      "facts": [],
+      "rules": [],
+      "queries": [
+        2
+      ]
+    },
+    "optional": [
+      0,
+      1
+    ],
+    "query": 2
+  }
+]

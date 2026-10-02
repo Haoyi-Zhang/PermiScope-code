@@ -1,0 +1,1227 @@
+{
+  "classification": [
+    {
+      "inclusion_minimal_opaque_sites": [],
+      "minimum_opaque_uses": null,
+      "query": "P:e0:p0",
+      "status": "impossible",
+      "witness_opaque_sites": []
+    },
+    {
+      "inclusion_minimal_opaque_sites": [],
+      "minimum_opaque_uses": 0,
+      "query": "P:e0:p1",
+      "status": "must",
+      "witness_opaque_sites": []
+    },
+    {
+      "inclusion_minimal_opaque_sites": [],
+      "minimum_opaque_uses": null,
+      "query": "P:e0:p2",
+      "status": "impossible",
+      "witness_opaque_sites": []
+    }
+  ],
+  "language": "bfil-evidence-1",
+  "lower": {
+    "certificate": {
+      "nodes": [
+        {
+          "atom": 5,
+          "rule": -1
+        },
+        {
+          "atom": 16,
+          "rule": -1
+        },
+        {
+          "atom": 14,
+          "rule": 9
+        },
+        {
+          "atom": 22,
+          "rule": 10
+        },
+        {
+          "atom": 1,
+          "rule": 17
+        }
+      ],
+      "reported": [
+        1
+      ]
+    },
+    "coverage": {
+      "entries": [
+        {
+          "facts": 2,
+          "id": "entry:H1_API",
+          "rules": 0
+        }
+      ],
+      "language": "bfil-coverage-1",
+      "statements": [
+        {
+          "facts": 0,
+          "id": "H1_base_return",
+          "method": "H1_BaseService.api",
+          "op": "return",
+          "opaque_effects": 0,
+          "opaque_triggers": 0,
+          "rules": 0
+        },
+        {
+          "facts": 0,
+          "id": "H1_A_call_step_0",
+          "method": "H1_ImplA.api",
+          "op": "direct",
+          "opaque_effects": 0,
+          "opaque_triggers": 0,
+          "rules": 6
+        },
+        {
+          "facts": 0,
+          "id": "H1_A_api_return",
+          "method": "H1_ImplA.api",
+          "op": "return",
+          "opaque_effects": 0,
+          "opaque_triggers": 0,
+          "rules": 0
+        },
+        {
+          "facts": 0,
+          "id": "H1_A_step_check_0",
+          "method": "H1_ImplA.step_0",
+          "op": "check",
+          "opaque_effects": 0,
+          "opaque_triggers": 0,
+          "rules": 3
+        },
+        {
+          "facts": 0,
+          "id": "H1_A_step_return_0",
+          "method": "H1_ImplA.step_0",
+          "op": "return",
+          "opaque_effects": 0,
+          "opaque_triggers": 0,
+          "rules": 0
+        },
+        {
+          "facts": 0,
+          "id": "H1_B_call_step_0",
+          "method": "H1_ImplB.api",
+          "op": "direct",
+          "opaque_effects": 0,
+          "opaque_triggers": 0,
+          "rules": 6
+        },
+        {
+          "facts": 0,
+          "id": "H1_B_api_return",
+          "method": "H1_ImplB.api",
+          "op": "return",
+          "opaque_effects": 0,
+          "opaque_triggers": 0,
+          "rules": 0
+        },
+        {
+          "facts": 0,
+          "id": "H1_B_step_check_0",
+          "method": "H1_ImplB.step_0",
+          "op": "check",
+          "opaque_effects": 0,
+          "opaque_triggers": 0,
+          "rules": 3
+        },
+        {
+          "facts": 0,
+          "id": "H1_B_step_return_0",
+          "method": "H1_ImplB.step_0",
+          "op": "return",
+          "opaque_effects": 0,
+          "opaque_triggers": 0,
+          "rules": 0
+        }
+      ],
+      "totals": {
+        "entries": 1,
+        "facts": 2,
+        "rules": 18,
+        "statements": 9
+      }
+    },
+    "ir": {
+      "atoms": [
+        "P:e0:p0",
+        "P:e0:p1",
+        "P:e0:p2",
+        "R:e0:c0:m1",
+        "R:e0:c0:m2",
+        "R:e0:c0:m3",
+        "R:e0:c0:m4",
+        "R:e0:c1:m1",
+        "R:e0:c1:m2",
+        "R:e0:c1:m3",
+        "R:e0:c1:m4",
+        "R:e0:c2:m1",
+        "R:e0:c2:m2",
+        "R:e0:c2:m3",
+        "R:e0:c2:m4",
+        "V:e0:c0:m1:v0:o0",
+        "V:e0:c0:m3:v0:o0",
+        "V:e0:c1:m1:v0:o0",
+        "V:e0:c1:m2:v0:o0",
+        "V:e0:c1:m3:v0:o0",
+        "V:e0:c2:m1:v0:o0",
+        "V:e0:c2:m3:v0:o0",
+        "V:e0:c2:m4:v0:o0"
+      ],
+      "catalog": {
+        "allocation_classes": {
+          "entry:H1_API:receiver": "H1_ImplB"
+        },
+        "allocations": [
+          "entry:H1_API:receiver"
+        ],
+        "contexts": [
+          "root:H1_API",
+          "site:H1_A_call_step_0",
+          "site:H1_B_call_step_0"
+        ],
+        "entries": [
+          "H1_API"
+        ],
+        "fields": [],
+        "methods": [
+          "H1_BaseService.api",
+          "H1_ImplA.api",
+          "H1_ImplA.step_0",
+          "H1_ImplB.api",
+          "H1_ImplB.step_0"
+        ],
+        "permissions": [
+          "PERM_A",
+          "PERM_B",
+          "PERM_C"
+        ],
+        "statements": [
+          "H1_A_api_return",
+          "H1_A_call_step_0",
+          "H1_A_step_check_0",
+          "H1_A_step_return_0",
+          "H1_B_api_return",
+          "H1_B_call_step_0",
+          "H1_B_step_check_0",
+          "H1_B_step_return_0",
+          "H1_base_return"
+        ],
+        "variables": {
+          "H1_BaseService.api": [
+            "this"
+          ],
+          "H1_ImplA.api": [
+            "this"
+          ],
+          "H1_ImplA.step_0": [
+            "this"
+          ],
+          "H1_ImplB.api": [
+            "this"
+          ],
+          "H1_ImplB.step_0": [
+            "this"
+          ]
+        }
+      },
+      "facts": [
+        {
+          "atom": "R:e0:c0:m3",
+          "origin": "entry:H1_API:target:H1_ImplB.api:reach",
+          "source": "entry:H1_API"
+        },
+        {
+          "atom": "V:e0:c0:m3:v0:o0",
+          "origin": "entry:H1_API:target:H1_ImplB.api:this",
+          "source": "entry:H1_API"
+        }
+      ],
+      "language": "bfil-ir-1",
+      "queries": [
+        "P:e0:p0",
+        "P:e0:p1",
+        "P:e0:p2"
+      ],
+      "rules": [
+        {
+          "body": [
+            "R:e0:c0:m1"
+          ],
+          "certainty": "definite",
+          "head": "R:e0:c1:m2",
+          "origin": "stmt:H1_A_call_step_0:e0:c0:direct:reach",
+          "source": "H1_A_call_step_0",
+          "weight": 0
+        },
+        {
+          "body": [
+            "R:e0:c0:m1",
+            "V:e0:c0:m1:v0:o0"
+          ],
+          "certainty": "definite",
+          "head": "V:e0:c1:m2:v0:o0",
+          "origin": "stmt:H1_A_call_step_0:e0:c0:direct:this:o0",
+          "source": "H1_A_call_step_0",
+          "weight": 0
+        },
+        {
+          "body": [
+            "R:e0:c1:m1"
+          ],
+          "certainty": "definite",
+          "head": "R:e0:c1:m2",
+          "origin": "stmt:H1_A_call_step_0:e0:c1:direct:reach",
+          "source": "H1_A_call_step_0",
+          "weight": 0
+        },
+        {
+          "body": [
+            "R:e0:c1:m1",
+            "V:e0:c1:m1:v0:o0"
+          ],
+          "certainty": "definite",
+          "head": "V:e0:c1:m2:v0:o0",
+          "origin": "stmt:H1_A_call_step_0:e0:c1:direct:this:o0",
+          "source": "H1_A_call_step_0",
+          "weight": 0
+        },
+        {
+          "body": [
+            "R:e0:c2:m1"
+          ],
+          "certainty": "definite",
+          "head": "R:e0:c1:m2",
+          "origin": "stmt:H1_A_call_step_0:e0:c2:direct:reach",
+          "source": "H1_A_call_step_0",
+          "weight": 0
+        },
+        {
+          "body": [
+            "R:e0:c2:m1",
+            "V:e0:c2:m1:v0:o0"
+          ],
+          "certainty": "definite",
+          "head": "V:e0:c1:m2:v0:o0",
+          "origin": "stmt:H1_A_call_step_0:e0:c2:direct:this:o0",
+          "source": "H1_A_call_step_0",
+          "weight": 0
+        },
+        {
+          "body": [
+            "R:e0:c0:m2"
+          ],
+          "certainty": "definite",
+          "head": "P:e0:p0",
+          "origin": "stmt:H1_A_step_check_0:e0:c0:check",
+          "source": "H1_A_step_check_0",
+          "weight": 0
+        },
+        {
+          "body": [
+            "R:e0:c1:m2"
+          ],
+          "certainty": "definite",
+          "head": "P:e0:p0",
+          "origin": "stmt:H1_A_step_check_0:e0:c1:check",
+          "source": "H1_A_step_check_0",
+          "weight": 0
+        },
+        {
+          "body": [
+            "R:e0:c2:m2"
+          ],
+          "certainty": "definite",
+          "head": "P:e0:p0",
+          "origin": "stmt:H1_A_step_check_0:e0:c2:check",
+          "source": "H1_A_step_check_0",
+          "weight": 0
+        },
+        {
+          "body": [
+            "R:e0:c0:m3"
+          ],
+          "certainty": "definite",
+          "head": "R:e0:c2:m4",
+          "origin": "stmt:H1_B_call_step_0:e0:c0:direct:reach",
+          "source": "H1_B_call_step_0",
+          "weight": 0
+        },
+        {
+          "body": [
+            "R:e0:c0:m3",
+            "V:e0:c0:m3:v0:o0"
+          ],
+          "certainty": "definite",
+          "head": "V:e0:c2:m4:v0:o0",
+          "origin": "stmt:H1_B_call_step_0:e0:c0:direct:this:o0",
+          "source": "H1_B_call_step_0",
+          "weight": 0
+        },
+        {
+          "body": [
+            "R:e0:c1:m3"
+          ],
+          "certainty": "definite",
+          "head": "R:e0:c2:m4",
+          "origin": "stmt:H1_B_call_step_0:e0:c1:direct:reach",
+          "source": "H1_B_call_step_0",
+          "weight": 0
+        },
+        {
+          "body": [
+            "R:e0:c1:m3",
+            "V:e0:c1:m3:v0:o0"
+          ],
+          "certainty": "definite",
+          "head": "V:e0:c2:m4:v0:o0",
+          "origin": "stmt:H1_B_call_step_0:e0:c1:direct:this:o0",
+          "source": "H1_B_call_step_0",
+          "weight": 0
+        },
+        {
+          "body": [
+            "R:e0:c2:m3"
+          ],
+          "certainty": "definite",
+          "head": "R:e0:c2:m4",
+          "origin": "stmt:H1_B_call_step_0:e0:c2:direct:reach",
+          "source": "H1_B_call_step_0",
+          "weight": 0
+        },
+        {
+          "body": [
+            "R:e0:c2:m3",
+            "V:e0:c2:m3:v0:o0"
+          ],
+          "certainty": "definite",
+          "head": "V:e0:c2:m4:v0:o0",
+          "origin": "stmt:H1_B_call_step_0:e0:c2:direct:this:o0",
+          "source": "H1_B_call_step_0",
+          "weight": 0
+        },
+        {
+          "body": [
+            "R:e0:c0:m4"
+          ],
+          "certainty": "definite",
+          "head": "P:e0:p1",
+          "origin": "stmt:H1_B_step_check_0:e0:c0:check",
+          "source": "H1_B_step_check_0",
+          "weight": 0
+        },
+        {
+          "body": [
+            "R:e0:c1:m4"
+          ],
+          "certainty": "definite",
+          "head": "P:e0:p1",
+          "origin": "stmt:H1_B_step_check_0:e0:c1:check",
+          "source": "H1_B_step_check_0",
+          "weight": 0
+        },
+        {
+          "body": [
+            "R:e0:c2:m4"
+          ],
+          "certainty": "definite",
+          "head": "P:e0:p1",
+          "origin": "stmt:H1_B_step_check_0:e0:c2:check",
+          "source": "H1_B_step_check_0",
+          "weight": 0
+        }
+      ],
+      "variant": {
+        "context": "1call",
+        "dispatch": "points-to",
+        "fields": "sensitive",
+        "include_opaque": false
+      }
+    },
+    "program": {
+      "atoms": [
+        "P:e0:p0",
+        "P:e0:p1",
+        "P:e0:p2",
+        "R:e0:c0:m1",
+        "R:e0:c0:m2",
+        "R:e0:c0:m3",
+        "R:e0:c0:m4",
+        "R:e0:c1:m1",
+        "R:e0:c1:m2",
+        "R:e0:c1:m3",
+        "R:e0:c1:m4",
+        "R:e0:c2:m1",
+        "R:e0:c2:m2",
+        "R:e0:c2:m3",
+        "R:e0:c2:m4",
+        "V:e0:c0:m1:v0:o0",
+        "V:e0:c0:m3:v0:o0",
+        "V:e0:c1:m1:v0:o0",
+        "V:e0:c1:m2:v0:o0",
+        "V:e0:c1:m3:v0:o0",
+        "V:e0:c2:m1:v0:o0",
+        "V:e0:c2:m3:v0:o0",
+        "V:e0:c2:m4:v0:o0"
+      ],
+      "facts": [
+        5,
+        16
+      ],
+      "queries": [
+        0,
+        1,
+        2
+      ],
+      "rules": [
+        {
+          "body": [
+            3
+          ],
+          "head": 8
+        },
+        {
+          "body": [
+            3,
+            15
+          ],
+          "head": 18
+        },
+        {
+          "body": [
+            7
+          ],
+          "head": 8
+        },
+        {
+          "body": [
+            7,
+            17
+          ],
+          "head": 18
+        },
+        {
+          "body": [
+            11
+          ],
+          "head": 8
+        },
+        {
+          "body": [
+            11,
+            20
+          ],
+          "head": 18
+        },
+        {
+          "body": [
+            4
+          ],
+          "head": 0
+        },
+        {
+          "body": [
+            8
+          ],
+          "head": 0
+        },
+        {
+          "body": [
+            12
+          ],
+          "head": 0
+        },
+        {
+          "body": [
+            5
+          ],
+          "head": 14
+        },
+        {
+          "body": [
+            5,
+            16
+          ],
+          "head": 22
+        },
+        {
+          "body": [
+            9
+          ],
+          "head": 14
+        },
+        {
+          "body": [
+            9,
+            19
+          ],
+          "head": 22
+        },
+        {
+          "body": [
+            13
+          ],
+          "head": 14
+        },
+        {
+          "body": [
+            13,
+            21
+          ],
+          "head": 22
+        },
+        {
+          "body": [
+            6
+          ],
+          "head": 1
+        },
+        {
+          "body": [
+            10
+          ],
+          "head": 1
+        },
+        {
+          "body": [
+            14
+          ],
+          "head": 1
+        }
+      ]
+    }
+  },
+  "upper": {
+    "certificate": {
+      "nodes": [
+        {
+          "atom": 5,
+          "rule": -1
+        },
+        {
+          "atom": 16,
+          "rule": -1
+        },
+        {
+          "atom": 14,
+          "rule": 9
+        },
+        {
+          "atom": 22,
+          "rule": 10
+        },
+        {
+          "atom": 1,
+          "rule": 17
+        }
+      ],
+      "reported": [
+        1
+      ]
+    },
+    "coverage": {
+      "entries": [
+        {
+          "facts": 2,
+          "id": "entry:H1_API",
+          "rules": 0
+        }
+      ],
+      "language": "bfil-coverage-1",
+      "statements": [
+        {
+          "facts": 0,
+          "id": "H1_base_return",
+          "method": "H1_BaseService.api",
+          "op": "return",
+          "opaque_effects": 0,
+          "opaque_triggers": 0,
+          "rules": 0
+        },
+        {
+          "facts": 0,
+          "id": "H1_A_call_step_0",
+          "method": "H1_ImplA.api",
+          "op": "direct",
+          "opaque_effects": 0,
+          "opaque_triggers": 0,
+          "rules": 6
+        },
+        {
+          "facts": 0,
+          "id": "H1_A_api_return",
+          "method": "H1_ImplA.api",
+          "op": "return",
+          "opaque_effects": 0,
+          "opaque_triggers": 0,
+          "rules": 0
+        },
+        {
+          "facts": 0,
+          "id": "H1_A_step_check_0",
+          "method": "H1_ImplA.step_0",
+          "op": "check",
+          "opaque_effects": 0,
+          "opaque_triggers": 0,
+          "rules": 3
+        },
+        {
+          "facts": 0,
+          "id": "H1_A_step_return_0",
+          "method": "H1_ImplA.step_0",
+          "op": "return",
+          "opaque_effects": 0,
+          "opaque_triggers": 0,
+          "rules": 0
+        },
+        {
+          "facts": 0,
+          "id": "H1_B_call_step_0",
+          "method": "H1_ImplB.api",
+          "op": "direct",
+          "opaque_effects": 0,
+          "opaque_triggers": 0,
+          "rules": 6
+        },
+        {
+          "facts": 0,
+          "id": "H1_B_api_return",
+          "method": "H1_ImplB.api",
+          "op": "return",
+          "opaque_effects": 0,
+          "opaque_triggers": 0,
+          "rules": 0
+        },
+        {
+          "facts": 0,
+          "id": "H1_B_step_check_0",
+          "method": "H1_ImplB.step_0",
+          "op": "check",
+          "opaque_effects": 0,
+          "opaque_triggers": 0,
+          "rules": 3
+        },
+        {
+          "facts": 0,
+          "id": "H1_B_step_return_0",
+          "method": "H1_ImplB.step_0",
+          "op": "return",
+          "opaque_effects": 0,
+          "opaque_triggers": 0,
+          "rules": 0
+        }
+      ],
+      "totals": {
+        "entries": 1,
+        "facts": 2,
+        "rules": 18,
+        "statements": 9
+      }
+    },
+    "ir": {
+      "atoms": [
+        "P:e0:p0",
+        "P:e0:p1",
+        "P:e0:p2",
+        "R:e0:c0:m1",
+        "R:e0:c0:m2",
+        "R:e0:c0:m3",
+        "R:e0:c0:m4",
+        "R:e0:c1:m1",
+        "R:e0:c1:m2",
+        "R:e0:c1:m3",
+        "R:e0:c1:m4",
+        "R:e0:c2:m1",
+        "R:e0:c2:m2",
+        "R:e0:c2:m3",
+        "R:e0:c2:m4",
+        "V:e0:c0:m1:v0:o0",
+        "V:e0:c0:m3:v0:o0",
+        "V:e0:c1:m1:v0:o0",
+        "V:e0:c1:m2:v0:o0",
+        "V:e0:c1:m3:v0:o0",
+        "V:e0:c2:m1:v0:o0",
+        "V:e0:c2:m3:v0:o0",
+        "V:e0:c2:m4:v0:o0"
+      ],
+      "catalog": {
+        "allocation_classes": {
+          "entry:H1_API:receiver": "H1_ImplB"
+        },
+        "allocations": [
+          "entry:H1_API:receiver"
+        ],
+        "contexts": [
+          "root:H1_API",
+          "site:H1_A_call_step_0",
+          "site:H1_B_call_step_0"
+        ],
+        "entries": [
+          "H1_API"
+        ],
+        "fields": [],
+        "methods": [
+          "H1_BaseService.api",
+          "H1_ImplA.api",
+          "H1_ImplA.step_0",
+          "H1_ImplB.api",
+          "H1_ImplB.step_0"
+        ],
+        "permissions": [
+          "PERM_A",
+          "PERM_B",
+          "PERM_C"
+        ],
+        "statements": [
+          "H1_A_api_return",
+          "H1_A_call_step_0",
+          "H1_A_step_check_0",
+          "H1_A_step_return_0",
+          "H1_B_api_return",
+          "H1_B_call_step_0",
+          "H1_B_step_check_0",
+          "H1_B_step_return_0",
+          "H1_base_return"
+        ],
+        "variables": {
+          "H1_BaseService.api": [
+            "this"
+          ],
+          "H1_ImplA.api": [
+            "this"
+          ],
+          "H1_ImplA.step_0": [
+            "this"
+          ],
+          "H1_ImplB.api": [
+            "this"
+          ],
+          "H1_ImplB.step_0": [
+            "this"
+          ]
+        }
+      },
+      "facts": [
+        {
+          "atom": "R:e0:c0:m3",
+          "origin": "entry:H1_API:target:H1_ImplB.api:reach",
+          "source": "entry:H1_API"
+        },
+        {
+          "atom": "V:e0:c0:m3:v0:o0",
+          "origin": "entry:H1_API:target:H1_ImplB.api:this",
+          "source": "entry:H1_API"
+        }
+      ],
+      "language": "bfil-ir-1",
+      "queries": [
+        "P:e0:p0",
+        "P:e0:p1",
+        "P:e0:p2"
+      ],
+      "rules": [
+        {
+          "body": [
+            "R:e0:c0:m1"
+          ],
+          "certainty": "definite",
+          "head": "R:e0:c1:m2",
+          "origin": "stmt:H1_A_call_step_0:e0:c0:direct:reach",
+          "source": "H1_A_call_step_0",
+          "weight": 0
+        },
+        {
+          "body": [
+            "R:e0:c0:m1",
+            "V:e0:c0:m1:v0:o0"
+          ],
+          "certainty": "definite",
+          "head": "V:e0:c1:m2:v0:o0",
+          "origin": "stmt:H1_A_call_step_0:e0:c0:direct:this:o0",
+          "source": "H1_A_call_step_0",
+          "weight": 0
+        },
+        {
+          "body": [
+            "R:e0:c1:m1"
+          ],
+          "certainty": "definite",
+          "head": "R:e0:c1:m2",
+          "origin": "stmt:H1_A_call_step_0:e0:c1:direct:reach",
+          "source": "H1_A_call_step_0",
+          "weight": 0
+        },
+        {
+          "body": [
+            "R:e0:c1:m1",
+            "V:e0:c1:m1:v0:o0"
+          ],
+          "certainty": "definite",
+          "head": "V:e0:c1:m2:v0:o0",
+          "origin": "stmt:H1_A_call_step_0:e0:c1:direct:this:o0",
+          "source": "H1_A_call_step_0",
+          "weight": 0
+        },
+        {
+          "body": [
+            "R:e0:c2:m1"
+          ],
+          "certainty": "definite",
+          "head": "R:e0:c1:m2",
+          "origin": "stmt:H1_A_call_step_0:e0:c2:direct:reach",
+          "source": "H1_A_call_step_0",
+          "weight": 0
+        },
+        {
+          "body": [
+            "R:e0:c2:m1",
+            "V:e0:c2:m1:v0:o0"
+          ],
+          "certainty": "definite",
+          "head": "V:e0:c1:m2:v0:o0",
+          "origin": "stmt:H1_A_call_step_0:e0:c2:direct:this:o0",
+          "source": "H1_A_call_step_0",
+          "weight": 0
+        },
+        {
+          "body": [
+            "R:e0:c0:m2"
+          ],
+          "certainty": "definite",
+          "head": "P:e0:p0",
+          "origin": "stmt:H1_A_step_check_0:e0:c0:check",
+          "source": "H1_A_step_check_0",
+          "weight": 0
+        },
+        {
+          "body": [
+            "R:e0:c1:m2"
+          ],
+          "certainty": "definite",
+          "head": "P:e0:p0",
+          "origin": "stmt:H1_A_step_check_0:e0:c1:check",
+          "source": "H1_A_step_check_0",
+          "weight": 0
+        },
+        {
+          "body": [
+            "R:e0:c2:m2"
+          ],
+          "certainty": "definite",
+          "head": "P:e0:p0",
+          "origin": "stmt:H1_A_step_check_0:e0:c2:check",
+          "source": "H1_A_step_check_0",
+          "weight": 0
+        },
+        {
+          "body": [
+            "R:e0:c0:m3"
+          ],
+          "certainty": "definite",
+          "head": "R:e0:c2:m4",
+          "origin": "stmt:H1_B_call_step_0:e0:c0:direct:reach",
+          "source": "H1_B_call_step_0",
+          "weight": 0
+        },
+        {
+          "body": [
+            "R:e0:c0:m3",
+            "V:e0:c0:m3:v0:o0"
+          ],
+          "certainty": "definite",
+          "head": "V:e0:c2:m4:v0:o0",
+          "origin": "stmt:H1_B_call_step_0:e0:c0:direct:this:o0",
+          "source": "H1_B_call_step_0",
+          "weight": 0
+        },
+        {
+          "body": [
+            "R:e0:c1:m3"
+          ],
+          "certainty": "definite",
+          "head": "R:e0:c2:m4",
+          "origin": "stmt:H1_B_call_step_0:e0:c1:direct:reach",
+          "source": "H1_B_call_step_0",
+          "weight": 0
+        },
+        {
+          "body": [
+            "R:e0:c1:m3",
+            "V:e0:c1:m3:v0:o0"
+          ],
+          "certainty": "definite",
+          "head": "V:e0:c2:m4:v0:o0",
+          "origin": "stmt:H1_B_call_step_0:e0:c1:direct:this:o0",
+          "source": "H1_B_call_step_0",
+          "weight": 0
+        },
+        {
+          "body": [
+            "R:e0:c2:m3"
+          ],
+          "certainty": "definite",
+          "head": "R:e0:c2:m4",
+          "origin": "stmt:H1_B_call_step_0:e0:c2:direct:reach",
+          "source": "H1_B_call_step_0",
+          "weight": 0
+        },
+        {
+          "body": [
+            "R:e0:c2:m3",
+            "V:e0:c2:m3:v0:o0"
+          ],
+          "certainty": "definite",
+          "head": "V:e0:c2:m4:v0:o0",
+          "origin": "stmt:H1_B_call_step_0:e0:c2:direct:this:o0",
+          "source": "H1_B_call_step_0",
+          "weight": 0
+        },
+        {
+          "body": [
+            "R:e0:c0:m4"
+          ],
+          "certainty": "definite",
+          "head": "P:e0:p1",
+          "origin": "stmt:H1_B_step_check_0:e0:c0:check",
+          "source": "H1_B_step_check_0",
+          "weight": 0
+        },
+        {
+          "body": [
+            "R:e0:c1:m4"
+          ],
+          "certainty": "definite",
+          "head": "P:e0:p1",
+          "origin": "stmt:H1_B_step_check_0:e0:c1:check",
+          "source": "H1_B_step_check_0",
+          "weight": 0
+        },
+        {
+          "body": [
+            "R:e0:c2:m4"
+          ],
+          "certainty": "definite",
+          "head": "P:e0:p1",
+          "origin": "stmt:H1_B_step_check_0:e0:c2:check",
+          "source": "H1_B_step_check_0",
+          "weight": 0
+        }
+      ],
+      "variant": {
+        "context": "1call",
+        "dispatch": "points-to",
+        "fields": "sensitive",
+        "include_opaque": true
+      }
+    },
+    "minimum": {
+      "distances": [
+        null,
+        0,
+        null,
+        null,
+        null,
+        0,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        0,
+        null,
+        0,
+        null,
+        null,
+        null,
+        null,
+        null,
+        0
+      ],
+      "nodes": [
+        {
+          "atom": 5,
+          "rule": -1
+        },
+        {
+          "atom": 16,
+          "rule": -1
+        },
+        {
+          "atom": 14,
+          "rule": 9
+        },
+        {
+          "atom": 22,
+          "rule": 10
+        },
+        {
+          "atom": 1,
+          "rule": 17
+        }
+      ]
+    },
+    "program": {
+      "atoms": [
+        "P:e0:p0",
+        "P:e0:p1",
+        "P:e0:p2",
+        "R:e0:c0:m1",
+        "R:e0:c0:m2",
+        "R:e0:c0:m3",
+        "R:e0:c0:m4",
+        "R:e0:c1:m1",
+        "R:e0:c1:m2",
+        "R:e0:c1:m3",
+        "R:e0:c1:m4",
+        "R:e0:c2:m1",
+        "R:e0:c2:m2",
+        "R:e0:c2:m3",
+        "R:e0:c2:m4",
+        "V:e0:c0:m1:v0:o0",
+        "V:e0:c0:m3:v0:o0",
+        "V:e0:c1:m1:v0:o0",
+        "V:e0:c1:m2:v0:o0",
+        "V:e0:c1:m3:v0:o0",
+        "V:e0:c2:m1:v0:o0",
+        "V:e0:c2:m3:v0:o0",
+        "V:e0:c2:m4:v0:o0"
+      ],
+      "facts": [
+        5,
+        16
+      ],
+      "queries": [
+        0,
+        1,
+        2
+      ],
+      "rules": [
+        {
+          "body": [
+            3
+          ],
+          "head": 8
+        },
+        {
+          "body": [
+            3,
+            15
+          ],
+          "head": 18
+        },
+        {
+          "body": [
+            7
+          ],
+          "head": 8
+        },
+        {
+          "body": [
+            7,
+            17
+          ],
+          "head": 18
+        },
+        {
+          "body": [
+            11
+          ],
+          "head": 8
+        },
+        {
+          "body": [
+            11,
+            20
+          ],
+          "head": 18
+        },
+        {
+          "body": [
+            4
+          ],
+          "head": 0
+        },
+        {
+          "body": [
+            8
+          ],
+          "head": 0
+        },
+        {
+          "body": [
+            12
+          ],
+          "head": 0
+        },
+        {
+          "body": [
+            5
+          ],
+          "head": 14
+        },
+        {
+          "body": [
+            5,
+            16
+          ],
+          "head": 22
+        },
+        {
+          "body": [
+            9
+          ],
+          "head": 14
+        },
+        {
+          "body": [
+            9,
+            19
+          ],
+          "head": 22
+        },
+        {
+          "body": [
+            13
+          ],
+          "head": 14
+        },
+        {
+          "body": [
+            13,
+            21
+          ],
+          "head": 22
+        },
+        {
+          "body": [
+            6
+          ],
+          "head": 1
+        },
+        {
+          "body": [
+            10
+          ],
+          "head": 1
+        },
+        {
+          "body": [
+            14
+          ],
+          "head": 1
+        }
+      ]
+    }
+  }
+}

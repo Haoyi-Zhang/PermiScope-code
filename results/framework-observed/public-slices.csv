@@ -1,0 +1,13 @@
+id,path,start_line,end_line,permission,slice_anchor_accepted,lexical_projection_accepted,source_evidence_accepted,must_queries,lower_rules,checker_steps
+vibrator-cancel,services/core/java/com/android/server/vibrator/VibratorManagerService.java,442,447,android.permission.VIBRATE,True,True,True,1,1,29
+vibrator-is-vibrating,services/core/java/com/android/server/vibrator/VibratorManagerService.java,277,282,android.permission.ACCESS_VIBRATOR_STATE,True,True,True,1,1,29
+vibrator-register-listener,services/core/java/com/android/server/vibrator/VibratorManagerService.java,285,293,android.permission.ACCESS_VIBRATOR_STATE,True,True,True,1,1,29
+vibrator-set-always-on,services/core/java/com/android/server/vibrator/VibratorManagerService.java,308,314,android.permission.VIBRATE_ALWAYS_ON,True,True,True,1,1,29
+vibrator-unregister-listener,services/core/java/com/android/server/vibrator/VibratorManagerService.java,296,305,android.permission.ACCESS_VIBRATOR_STATE,True,True,True,1,1,29
+vibrator-vibrate-internal,services/core/java/com/android/server/vibrator/VibratorManagerService.java,360,365,android.permission.VIBRATE,True,True,True,1,1,29
+wallpaper-clear,services/core/java/com/android/server/wallpaper/WallpaperManagerService.java,1837,1840,android.permission.SET_WALLPAPER,True,True,True,1,1,29
+wallpaper-dimension-hints,services/core/java/com/android/server/wallpaper/WallpaperManagerService.java,1986,1988,android.permission.SET_WALLPAPER_HINTS,True,True,True,1,1,29
+wallpaper-display-padding,services/core/java/com/android/server/wallpaper/WallpaperManagerService.java,2071,2072,android.permission.SET_WALLPAPER_HINTS,True,True,True,1,1,29
+wallpaper-lock-callback,services/core/java/com/android/server/wallpaper/WallpaperManagerService.java,2519,2524,android.permission.INTERNAL_SYSTEM_WINDOW,True,True,True,1,1,29
+wallpaper-set-dim,services/core/java/com/android/server/wallpaper/WallpaperManagerService.java,2634,2635,android.permission.SET_WALLPAPER_DIM_AMOUNT,True,True,True,1,1,29
+wallpaper-set,services/core/java/com/android/server/wallpaper/WallpaperManagerService.java,2800,2805,android.permission.SET_WALLPAPER,True,True,True,1,1,29

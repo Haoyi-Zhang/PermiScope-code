@@ -1,0 +1,68 @@
+{
+  "anchor": {
+    "literal": "android.Manifest.permission.SET_WALLPAPER_DIM_AMOUNT",
+    "permission": "android.permission.SET_WALLPAPER_DIM_AMOUNT",
+    "primitive": "checkPermission"
+  },
+  "excerpt": "    public void setWallpaperDimAmountForUid(int uid, float dimAmount) {\n        checkPermission(android.Manifest.permission.SET_WALLPAPER_DIM_AMOUNT);\n",
+  "id": "wallpaper-set-dim",
+  "provenance": {
+    "end_line": 2635,
+    "excerpt_sha256": "3679dad437de017ce669d545c3871bbb3b9a6b45701bd6d002cec11138cb5b55",
+    "file_blob_sha1": "cd3d603d831a0478aaea4d09e8db8d589c14a9dc",
+    "license": "Apache-2.0",
+    "path": "services/core/java/com/android/server/wallpaper/WallpaperManagerService.java",
+    "repository": "aosp-mirror/platform_frameworks_base",
+    "start_line": 2634,
+    "tag": "android-14.0.0_r1",
+    "url": "https://github.com/aosp-mirror/platform_frameworks_base/blob/android-14.0.0_r1/services/core/java/com/android/server/wallpaper/WallpaperManagerService.java#L2634-L2635"
+  },
+  "source": {
+    "classes": [
+      {
+        "fields": [],
+        "methods": [
+          {
+            "body": [
+              {
+                "id": "wallpaper_set_dim_check",
+                "op": "check",
+                "permission": "android.permission.SET_WALLPAPER_DIM_AMOUNT"
+              },
+              {
+                "id": "wallpaper_set_dim_return",
+                "op": "return",
+                "src": null
+              }
+            ],
+            "locals": [],
+            "name": "api",
+            "params": [],
+            "returns": null
+          }
+        ],
+        "name": "SliceService",
+        "super": null
+      }
+    ],
+    "entries": [
+      {
+        "arg_classes": [],
+        "name": "SliceAPI",
+        "selector": "api",
+        "service": "slice_service"
+      }
+    ],
+    "language": "bfil-1",
+    "permissions": [
+      "android.permission.SET_WALLPAPER_DIM_AMOUNT"
+    ],
+    "services": [
+      {
+        "declared_class": "SliceService",
+        "implementation_class": "SliceService",
+        "name": "slice_service"
+      }
+    ]
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "case": "case10",
+  "purpose": "omitted-report",
+  "program": {
+    "atoms": [
+      "a0",
+      "a1",
+      "a2",
+      "a3"
+    ],
+    "facts": [
+      0
+    ],
+    "rules": [
+      {
+        "head": 1,
+        "body": [
+          0
+        ]
+      },
+      {
+        "head": 2,
+        "body": [
+          1
+        ]
+      },
+      {
+        "head": 3,
+        "body": [
+          1,
+          2
+        ]
+      }
+    ],
+    "queries": [
+      0,
+      1,
+      2,
+      3
+    ]
+  },
+  "certificate": {
+    "nodes": [
+      {
+        "atom": 0,
+        "rule": -1
+      },
+      {
+        "atom": 1,
+        "rule": 0
+      },
+      {
+        "atom": 2,
+        "rule": 1
+      },
+      {
+        "atom": 3,
+        "rule": 2
+      }
+    ],
+    "reported": [
+      0,
+      1,
+      2
+    ]
+  },
+  "expected": {
+    "accepted": false,
+    "reason": "projection-mismatch"
+  },
+  "interpretation": "Projection must include all certified query atoms."
+}

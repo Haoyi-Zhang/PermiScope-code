@@ -1,0 +1,142 @@
+{
+  "archive_extraction": {
+    "project_zip": {
+      "main_pages": 12,
+      "overfull_boxes": 0,
+      "result": "passed",
+      "root_entries": [
+        "CURRENT-STATE.md",
+        "artifact",
+        "paper",
+        "research-plan.md"
+      ],
+      "supplement_pages": 8,
+      "undefined_or_duplicate_references": 0
+    },
+    "standalone_zip": {
+      "framework_csv_files_equal": 5,
+      "framework_rows_reconciled": 1836,
+      "framework_sample_files_equal": 12,
+      "kernel_semantic_files_equal": 69,
+      "manuscript_audit": {
+        "public_sources": 12,
+        "references": 68,
+        "status": "accepted"
+      },
+      "optimized_unit_tests": 61,
+      "paper_data_export": "exact match",
+      "result": "passed",
+      "unit_tests": 61
+    }
+  },
+  "commands": [
+    {
+      "command": "python -m unittest discover -s tests -v",
+      "exit_code": 0,
+      "result": "passed",
+      "test_methods": 61
+    },
+    {
+      "command": "python -O -m unittest discover -s tests -v",
+      "exit_code": 0,
+      "result": "passed",
+      "test_methods": 61
+    },
+    {
+      "command": "python audit_manuscript.py --paper-dir <project>/paper",
+      "exit_code": 0,
+      "result": {
+        "public_sources": 12,
+        "references": 68,
+        "status": "accepted"
+      }
+    },
+    {
+      "command": "python reproduce.py --out <fresh-kernel-dir>",
+      "exit_code": 0,
+      "result": "fresh ground campaign completed"
+    },
+    {
+      "command": "python reconcile.py <fresh-kernel-dir>",
+      "exit_code": 0,
+      "result": {
+        "accepted_transport": 50820,
+        "candidate_checks": 532736,
+        "equal_but_not_transported": 678,
+        "errors": 0,
+        "ordered_core_queries": 48762,
+        "programs": 33296,
+        "query_classifications": 24381,
+        "revision_pairs": 65016,
+        "witness_only_false_completeness": 9930
+      }
+    },
+    {
+      "command": "python compare_results.py results/observed <fresh-kernel-dir>",
+      "exit_code": 0,
+      "result": {
+        "errors": 0,
+        "files_compared": 69,
+        "semantic_content_equal": true,
+        "timing_and_rss_excluded": true
+      }
+    },
+    {
+      "command": "python run_framework_campaign.py --out <fresh-framework-dir>",
+      "exit_code": 0,
+      "result": "fresh 336-case source campaign completed"
+    },
+    {
+      "command": "python reconcile_framework.py <fresh-framework-dir>",
+      "exit_code": 0,
+      "result": {
+        "completion_models": 528,
+        "endpoint_envelope_exact": 300,
+        "errors": 0,
+        "fault_fixtures": 24,
+        "generated_revisions": 300,
+        "identifier_erased_new_programs": 300,
+        "identifier_erased_revision_pairs": 300,
+        "public_slices": 12,
+        "rows_checked": 1836,
+        "transport_exact": 99
+      }
+    },
+    {
+      "command": "python compare_framework_results.py results/framework-observed <fresh-framework-dir>",
+      "exit_code": 0,
+      "result": {
+        "compared_csv_files": 5,
+        "compared_sample_files": 12,
+        "mismatches": [],
+        "resource_fields_excluded": true
+      }
+    },
+    {
+      "command": "python export_paper_data.py results/observed --framework results/framework-observed --out <fresh-table-dir>",
+      "exit_code": 0,
+      "result": "all generated tables, macros, and metrics exactly match the paper copies"
+    },
+    {
+      "command": "paper/build.sh",
+      "exit_code": 0,
+      "result": {
+        "all_pages_rendered_and_inspected": true,
+        "fonts_embedded": true,
+        "main_pages": 12,
+        "overfull_boxes": 0,
+        "supplement_pages": 8,
+        "undefined_or_duplicate_references": 0
+      }
+    }
+  ],
+  "comparison_exclusions": [
+    "process CPU time",
+    "wall time",
+    "process high-water RSS"
+  ],
+  "independent_external_review": false,
+  "proof_assistant_verification": false,
+  "scope": "Fresh replay directories were used, followed by the same checks after extracting the actual standalone and full-project delivery archives.",
+  "unclaimed": "This record does not establish Java/Android frontend completeness, production scale, independent authorship or review, or proof-assistant verification."
+}

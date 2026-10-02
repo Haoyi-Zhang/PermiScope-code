@@ -1,0 +1,5 @@
+{
+  "case": "fault-19",
+  "expected_reason": "lower-certificate-closure-violation",
+  "mutation": "lower-certificate-omission"
+}

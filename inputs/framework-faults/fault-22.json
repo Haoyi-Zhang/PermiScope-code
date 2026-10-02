@@ -1,0 +1,5 @@
+{
+  "case": "fault-22",
+  "expected_reason": "upper-program-mismatch",
+  "mutation": "upper-program-fact"
+}

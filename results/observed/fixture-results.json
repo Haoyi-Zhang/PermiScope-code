@@ -1,0 +1,242 @@
+[
+  {
+    "accepted": false,
+    "case": "case01",
+    "expected_reason": "unjustified-leaf",
+    "oracle_agreement": true,
+    "passed": true,
+    "purpose": "unjustified-leaf",
+    "reason": "unjustified-leaf",
+    "valid_control_accepted": true
+  },
+  {
+    "accepted": false,
+    "case": "case02",
+    "expected_reason": "missing-initial-fact",
+    "oracle_agreement": true,
+    "passed": true,
+    "purpose": "missing-initial-fact",
+    "reason": "missing-initial-fact",
+    "valid_control_accepted": true
+  },
+  {
+    "accepted": false,
+    "case": "case03",
+    "expected_reason": "wrong-head",
+    "oracle_agreement": true,
+    "passed": true,
+    "purpose": "wrong-rule-head",
+    "reason": "wrong-head",
+    "valid_control_accepted": true
+  },
+  {
+    "accepted": false,
+    "case": "case04",
+    "expected_reason": "unsupported-premise",
+    "oracle_agreement": true,
+    "passed": true,
+    "purpose": "forward-premise",
+    "reason": "unsupported-premise",
+    "valid_control_accepted": true
+  },
+  {
+    "accepted": false,
+    "case": "case05",
+    "expected_reason": "node-identifier",
+    "oracle_agreement": true,
+    "passed": true,
+    "purpose": "duplicate-proof-node",
+    "reason": "node-identifier",
+    "valid_control_accepted": true
+  },
+  {
+    "accepted": false,
+    "case": "case06",
+    "expected_reason": "reason-identifier",
+    "oracle_agreement": true,
+    "passed": true,
+    "purpose": "absent-rule",
+    "reason": "reason-identifier",
+    "valid_control_accepted": true
+  },
+  {
+    "accepted": false,
+    "case": "case07",
+    "expected_reason": "reason-identifier",
+    "oracle_agreement": true,
+    "passed": true,
+    "purpose": "invalid-negative-rule",
+    "reason": "reason-identifier",
+    "valid_control_accepted": true
+  },
+  {
+    "accepted": false,
+    "case": "case08",
+    "expected_reason": "node-identifier",
+    "oracle_agreement": true,
+    "passed": true,
+    "purpose": "absent-atom",
+    "reason": "node-identifier",
+    "valid_control_accepted": true
+  },
+  {
+    "accepted": false,
+    "case": "case09",
+    "expected_reason": "projection-mismatch",
+    "oracle_agreement": true,
+    "passed": true,
+    "purpose": "invented-report",
+    "reason": "projection-mismatch",
+    "valid_control_accepted": true
+  },
+  {
+    "accepted": false,
+    "case": "case10",
+    "expected_reason": "projection-mismatch",
+    "oracle_agreement": true,
+    "passed": true,
+    "purpose": "omitted-report",
+    "reason": "projection-mismatch",
+    "valid_control_accepted": true
+  },
+  {
+    "accepted": false,
+    "case": "case11",
+    "expected_reason": "unsupported-premise",
+    "oracle_agreement": true,
+    "passed": true,
+    "purpose": "self-supported-cycle",
+    "reason": "unsupported-premise",
+    "valid_control_accepted": true
+  },
+  {
+    "accepted": false,
+    "case": "case12",
+    "expected_reason": "unsupported-premise",
+    "oracle_agreement": true,
+    "passed": true,
+    "purpose": "mutual-cycle",
+    "reason": "unsupported-premise",
+    "valid_control_accepted": true
+  },
+  {
+    "accepted": false,
+    "case": "case13",
+    "expected_reason": "closure-violation",
+    "oracle_agreement": true,
+    "passed": true,
+    "purpose": "omitted-alternative-branch",
+    "reason": "closure-violation",
+    "valid_control_accepted": true
+  },
+  {
+    "accepted": false,
+    "case": "case14",
+    "expected_reason": "closure-violation",
+    "oracle_agreement": true,
+    "passed": true,
+    "purpose": "stale-certificate-after-addition",
+    "reason": "closure-violation",
+    "valid_control_accepted": true
+  },
+  {
+    "accepted": false,
+    "case": "case15",
+    "expected_reason": "unsupported-premise",
+    "oracle_agreement": true,
+    "passed": true,
+    "purpose": "removed-support-replaced-by-cycle",
+    "reason": "unsupported-premise",
+    "valid_control_accepted": true
+  },
+  {
+    "accepted": false,
+    "case": "case16",
+    "expected_reason": "unsupported-premise",
+    "oracle_agreement": true,
+    "passed": true,
+    "purpose": "added-alias-premise",
+    "reason": "unsupported-premise",
+    "valid_control_accepted": true
+  },
+  {
+    "accepted": false,
+    "case": "case17",
+    "expected_reason": "wrong-head",
+    "oracle_agreement": true,
+    "passed": true,
+    "purpose": "rule-position-rebound",
+    "reason": "wrong-head",
+    "valid_control_accepted": true
+  },
+  {
+    "accepted": false,
+    "case": "case18",
+    "expected_reason": "unjustified-leaf",
+    "oracle_agreement": true,
+    "passed": true,
+    "purpose": "removed-initialization",
+    "reason": "unjustified-leaf",
+    "valid_control_accepted": true
+  },
+  {
+    "accepted": false,
+    "case": "case19",
+    "expected_reason": "projection-mismatch",
+    "oracle_agreement": true,
+    "passed": true,
+    "purpose": "changed-query-inventory",
+    "reason": "projection-mismatch",
+    "valid_control_accepted": true
+  },
+  {
+    "accepted": false,
+    "case": "case20",
+    "expected_reason": "closure-violation",
+    "oracle_agreement": true,
+    "passed": true,
+    "purpose": "omitted-field-flow-rule",
+    "reason": "closure-violation",
+    "valid_control_accepted": true
+  },
+  {
+    "accepted": false,
+    "case": "case21",
+    "expected_reason": "closure-violation",
+    "oracle_agreement": true,
+    "passed": true,
+    "purpose": "omitted-service-redirection-rule",
+    "reason": "closure-violation",
+    "valid_control_accepted": true
+  },
+  {
+    "accepted": false,
+    "case": "case22",
+    "expected_reason": "body-inventory",
+    "oracle_agreement": null,
+    "passed": true,
+    "purpose": "duplicate-body-atom",
+    "reason": "body-inventory",
+    "valid_control_accepted": null
+  },
+  {
+    "accepted": false,
+    "case": "case23",
+    "expected_reason": "closure-violation",
+    "oracle_agreement": true,
+    "passed": true,
+    "purpose": "missing-empty-body-consequence",
+    "reason": "closure-violation",
+    "valid_control_accepted": true
+  },
+  {
+    "accepted": false,
+    "case": "case24",
+    "expected_reason": "node-identifier",
+    "oracle_agreement": true,
+    "passed": true,
+    "purpose": "boolean-is-not-atom-id",
+    "reason": "node-identifier",
+    "valid_control_accepted": true
+  }
+]

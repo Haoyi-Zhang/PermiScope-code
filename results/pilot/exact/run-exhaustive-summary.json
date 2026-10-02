@@ -1,0 +1,24 @@
+{
+  "chunks": [
+    {
+      "atoms": 4,
+      "candidate_checks": 33296,
+      "checker_steps": 107127,
+      "chunk": "exhaustive-atoms4-facts00",
+      "cpu_seconds": 0.34947886900000014,
+      "errors": 0,
+      "fact_mask": 0,
+      "graph_operations": 12684,
+      "oracle_assignments": 33296,
+      "process_peak_rss_kib": 94516,
+      "programs": 2081,
+      "wall_seconds": 0.350420882000094
+    }
+  ],
+  "errors": 0,
+  "network_used": false,
+  "part": "exhaustive",
+  "process_peak_rss_kib": 94516,
+  "this_process_cpu_seconds": 0.35077895000000003,
+  "workers": 1
+}

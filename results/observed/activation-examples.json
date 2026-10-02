@@ -1,0 +1,124 @@
+[
+  {
+    "case": "fork",
+    "results": [
+      {
+        "core": [
+          1
+        ],
+        "deletion_order": [
+          0,
+          1
+        ],
+        "extractor_calls": 3
+      },
+      {
+        "core": [
+          0
+        ],
+        "deletion_order": [
+          1,
+          0
+        ],
+        "extractor_calls": 3
+      }
+    ]
+  },
+  {
+    "case": "different-cardinalities",
+    "results": [
+      {
+        "core": [
+          2
+        ],
+        "deletion_order": [
+          0,
+          1,
+          2
+        ],
+        "extractor_calls": 4
+      },
+      {
+        "core": [
+          0,
+          1
+        ],
+        "deletion_order": [
+          2,
+          1,
+          0
+        ],
+        "extractor_calls": 4
+      }
+    ]
+  },
+  {
+    "case": "conjunction",
+    "results": [
+      {
+        "core": [
+          0,
+          1
+        ],
+        "deletion_order": [
+          0,
+          1
+        ],
+        "extractor_calls": 3
+      },
+      {
+        "core": [
+          0,
+          1
+        ],
+        "deletion_order": [
+          1,
+          0
+        ],
+        "extractor_calls": 3
+      }
+    ]
+  },
+  {
+    "case": "already-known",
+    "results": [
+      {
+        "core": [],
+        "deletion_order": [
+          0,
+          1
+        ],
+        "extractor_calls": 3
+      },
+      {
+        "core": [],
+        "deletion_order": [
+          1,
+          0
+        ],
+        "extractor_calls": 3
+      }
+    ]
+  },
+  {
+    "case": "unreachable",
+    "results": [
+      {
+        "core": null,
+        "deletion_order": [
+          0,
+          1
+        ],
+        "extractor_calls": 1
+      },
+      {
+        "core": null,
+        "deletion_order": [
+          1,
+          0
+        ],
+        "extractor_calls": 1
+      }
+    ]
+  }
+]

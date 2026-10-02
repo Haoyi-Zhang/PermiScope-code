@@ -1,0 +1,30 @@
+{
+  "case": "case23",
+  "purpose": "missing-empty-body-consequence",
+  "program": {
+    "atoms": [
+      "a0",
+      "a1"
+    ],
+    "facts": [],
+    "rules": [
+      {
+        "head": 1,
+        "body": []
+      }
+    ],
+    "queries": [
+      0,
+      1
+    ]
+  },
+  "certificate": {
+    "nodes": [],
+    "reported": []
+  },
+  "expected": {
+    "accepted": false,
+    "reason": "closure-violation"
+  },
+  "interpretation": "An empty-body clause must be included even without initial facts."
+}

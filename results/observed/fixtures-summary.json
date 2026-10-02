@@ -1,0 +1,14 @@
+{
+  "checker_steps": 400,
+  "chunk": "fixtures",
+  "cpu_seconds": 0.0006974539999999863,
+  "errors": 0,
+  "graph_operations": 185,
+  "malformed_programs": 1,
+  "negative_fixtures": 24,
+  "oracle_assignments": 230,
+  "process_peak_rss_kib": 94508,
+  "rejections": 24,
+  "valid_controls": 23,
+  "wall_seconds": 0.002983970999821395
+}

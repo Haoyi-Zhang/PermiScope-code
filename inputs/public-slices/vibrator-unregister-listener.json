@@ -1,0 +1,68 @@
+{
+  "anchor": {
+    "literal": "android.Manifest.permission.ACCESS_VIBRATOR_STATE",
+    "permission": "android.permission.ACCESS_VIBRATOR_STATE",
+    "primitive": "mContext.enforceCallingOrSelfPermission"
+  },
+  "excerpt": "    public boolean unregisterVibratorStateListener(int vibratorId,\n            IVibratorStateListener listener) {\n        mContext.enforceCallingOrSelfPermission(\n                android.Manifest.permission.ACCESS_VIBRATOR_STATE,\n                \"unregisterVibratorStateListener\");\n        VibratorController controller = mVibrators.get(vibratorId);\n        if (controller == null) {\n            return false;\n        }\n        return controller.unregisterVibratorStateListener(listener);\n",
+  "id": "vibrator-unregister-listener",
+  "provenance": {
+    "end_line": 305,
+    "excerpt_sha256": "a75bef4715700d1c47ac056dedfcf61dc91fb07ed4fec1b781b18e4af43b0aed",
+    "file_blob_sha1": "cb7e54dda5279d5e80a34a279fa0bb1a61ece934",
+    "license": "Apache-2.0",
+    "path": "services/core/java/com/android/server/vibrator/VibratorManagerService.java",
+    "repository": "aosp-mirror/platform_frameworks_base",
+    "start_line": 296,
+    "tag": "android-14.0.0_r1",
+    "url": "https://github.com/aosp-mirror/platform_frameworks_base/blob/android-14.0.0_r1/services/core/java/com/android/server/vibrator/VibratorManagerService.java#L296-L305"
+  },
+  "source": {
+    "classes": [
+      {
+        "fields": [],
+        "methods": [
+          {
+            "body": [
+              {
+                "id": "vibrator_unregister_listener_check",
+                "op": "check",
+                "permission": "android.permission.ACCESS_VIBRATOR_STATE"
+              },
+              {
+                "id": "vibrator_unregister_listener_return",
+                "op": "return",
+                "src": null
+              }
+            ],
+            "locals": [],
+            "name": "api",
+            "params": [],
+            "returns": null
+          }
+        ],
+        "name": "SliceService",
+        "super": null
+      }
+    ],
+    "entries": [
+      {
+        "arg_classes": [],
+        "name": "SliceAPI",
+        "selector": "api",
+        "service": "slice_service"
+      }
+    ],
+    "language": "bfil-1",
+    "permissions": [
+      "android.permission.ACCESS_VIBRATOR_STATE"
+    ],
+    "services": [
+      {
+        "declared_class": "SliceService",
+        "implementation_class": "SliceService",
+        "name": "slice_service"
+      }
+    ]
+  }
+}

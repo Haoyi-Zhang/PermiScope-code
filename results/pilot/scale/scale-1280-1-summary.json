@@ -1,0 +1,18 @@
+{
+  "atoms": 1280,
+  "checker_steps": 12318,
+  "chunk": "scale-1280-1",
+  "cpu_seconds": 0.029025518000000083,
+  "encoded_certificate_bytes": 31653,
+  "encoded_input_bytes": 95809,
+  "errors": 0,
+  "graph_operations": 11920,
+  "initial_facts": 1,
+  "max_rule_body": 2,
+  "premise_incidences": 4000,
+  "process_peak_rss_kib": 96556,
+  "proof_nodes": 1280,
+  "queries": 40,
+  "rules": 2640,
+  "wall_seconds": 0.02967323400002897
+}

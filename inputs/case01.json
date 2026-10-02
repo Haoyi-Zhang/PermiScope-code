@@ -1,0 +1,32 @@
+{
+  "case": "case01",
+  "purpose": "unjustified-leaf",
+  "program": {
+    "atoms": [
+      "a0",
+      "a1"
+    ],
+    "facts": [],
+    "rules": [],
+    "queries": [
+      0,
+      1
+    ]
+  },
+  "certificate": {
+    "nodes": [
+      {
+        "atom": 1,
+        "rule": -1
+      }
+    ],
+    "reported": [
+      1
+    ]
+  },
+  "expected": {
+    "accepted": false,
+    "reason": "unjustified-leaf"
+  },
+  "interpretation": "A claimed initial permission has no input fact."
+}

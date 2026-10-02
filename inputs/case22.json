@@ -1,0 +1,47 @@
+{
+  "case": "case22",
+  "purpose": "duplicate-body-atom",
+  "program": {
+    "atoms": [
+      "a0",
+      "a1"
+    ],
+    "facts": [
+      0
+    ],
+    "rules": [
+      {
+        "head": 1,
+        "body": [
+          0,
+          0
+        ]
+      }
+    ],
+    "queries": [
+      0,
+      1
+    ]
+  },
+  "certificate": {
+    "nodes": [
+      {
+        "atom": 0,
+        "rule": -1
+      },
+      {
+        "atom": 1,
+        "rule": 0
+      }
+    ],
+    "reported": [
+      0,
+      1
+    ]
+  },
+  "expected": {
+    "accepted": false,
+    "reason": "body-inventory"
+  },
+  "interpretation": "The format requires canonical distinct premise identifiers."
+}

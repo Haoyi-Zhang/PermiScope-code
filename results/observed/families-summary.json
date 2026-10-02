@@ -1,0 +1,14 @@
+{
+  "checker_steps": 460293,
+  "chunk": "families",
+  "correlation_counterexamples": 1,
+  "cpu_seconds": 0.4890877520000032,
+  "errors": 0,
+  "families": 6,
+  "graph_operations": 360990,
+  "minimal_sets": 126,
+  "optional_assignments": 5460,
+  "oracle_assignments": 24,
+  "process_peak_rss_kib": 115628,
+  "wall_seconds": 0.4920019610001418
+}

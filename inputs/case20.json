@@ -1,0 +1,58 @@
+{
+  "case": "case20",
+  "purpose": "omitted-field-flow-rule",
+  "program": {
+    "atoms": [
+      "a0",
+      "a1",
+      "a2",
+      "a3"
+    ],
+    "facts": [
+      0,
+      1
+    ],
+    "rules": [
+      {
+        "head": 2,
+        "body": [
+          0,
+          1
+        ]
+      },
+      {
+        "head": 3,
+        "body": [
+          2
+        ]
+      }
+    ],
+    "queries": [
+      0,
+      1,
+      2,
+      3
+    ]
+  },
+  "certificate": {
+    "nodes": [
+      {
+        "atom": 0,
+        "rule": -1
+      },
+      {
+        "atom": 1,
+        "rule": -1
+      }
+    ],
+    "reported": [
+      0,
+      1
+    ]
+  },
+  "expected": {
+    "accepted": false,
+    "reason": "closure-violation"
+  },
+  "interpretation": "A missing lowering rule is detected only against a complete independent rule inventory."
+}

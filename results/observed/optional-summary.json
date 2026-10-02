@@ -1,0 +1,16 @@
+{
+  "activating_cores": 36048,
+  "chunk": "optional",
+  "completion_models": 19264,
+  "completion_oracle_assignments": 154112,
+  "cpu_seconds": 2.968361606,
+  "errors": 0,
+  "extractor_calls_in_core_search": 89460,
+  "graph_operations": 752745,
+  "minimality_oracle_assignments": 410704,
+  "ordered_core_queries": 48762,
+  "partial_programs": 8127,
+  "process_peak_rss_kib": 115628,
+  "query_classifications": 24381,
+  "wall_seconds": 2.9735687329998655
+}

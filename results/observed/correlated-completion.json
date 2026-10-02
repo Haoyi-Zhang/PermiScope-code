@@ -1,0 +1,36 @@
+{
+  "admissible_fact_sets": [
+    [
+      0
+    ],
+    [
+      1
+    ]
+  ],
+  "admissible_query_values": [
+    false,
+    false
+  ],
+  "all_options_query_value": true,
+  "interpretation": "The all-options endpoint is not an admissible completion.",
+  "program": {
+    "atoms": [
+      "u",
+      "v",
+      "q"
+    ],
+    "facts": [],
+    "queries": [
+      2
+    ],
+    "rules": [
+      {
+        "body": [
+          0,
+          1
+        ],
+        "head": 2
+      }
+    ]
+  }
+}

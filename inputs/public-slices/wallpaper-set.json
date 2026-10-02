@@ -1,0 +1,68 @@
+{
+  "anchor": {
+    "literal": "android.Manifest.permission.SET_WALLPAPER",
+    "permission": "android.permission.SET_WALLPAPER",
+    "primitive": "checkPermission"
+  },
+  "excerpt": "    public ParcelFileDescriptor setWallpaper(String name, String callingPackage,\n            Rect cropHint, boolean allowBackup, Bundle extras, int which,\n            IWallpaperManagerCallback completion, int userId) {\n        userId = ActivityManager.handleIncomingUser(getCallingPid(), getCallingUid(), userId,\n                false /* all */, true /* full */, \"changing wallpaper\", null /* pkg */);\n        checkPermission(android.Manifest.permission.SET_WALLPAPER);\n",
+  "id": "wallpaper-set",
+  "provenance": {
+    "end_line": 2805,
+    "excerpt_sha256": "2536cd79bb862d7e0ebfa3cd44c4197a95e464f6ab47a550626361d73c625a09",
+    "file_blob_sha1": "cd3d603d831a0478aaea4d09e8db8d589c14a9dc",
+    "license": "Apache-2.0",
+    "path": "services/core/java/com/android/server/wallpaper/WallpaperManagerService.java",
+    "repository": "aosp-mirror/platform_frameworks_base",
+    "start_line": 2800,
+    "tag": "android-14.0.0_r1",
+    "url": "https://github.com/aosp-mirror/platform_frameworks_base/blob/android-14.0.0_r1/services/core/java/com/android/server/wallpaper/WallpaperManagerService.java#L2800-L2805"
+  },
+  "source": {
+    "classes": [
+      {
+        "fields": [],
+        "methods": [
+          {
+            "body": [
+              {
+                "id": "wallpaper_set_check",
+                "op": "check",
+                "permission": "android.permission.SET_WALLPAPER"
+              },
+              {
+                "id": "wallpaper_set_return",
+                "op": "return",
+                "src": null
+              }
+            ],
+            "locals": [],
+            "name": "api",
+            "params": [],
+            "returns": null
+          }
+        ],
+        "name": "SliceService",
+        "super": null
+      }
+    ],
+    "entries": [
+      {
+        "arg_classes": [],
+        "name": "SliceAPI",
+        "selector": "api",
+        "service": "slice_service"
+      }
+    ],
+    "language": "bfil-1",
+    "permissions": [
+      "android.permission.SET_WALLPAPER"
+    ],
+    "services": [
+      {
+        "declared_class": "SliceService",
+        "implementation_class": "SliceService",
+        "name": "slice_service"
+      }
+    ]
+  }
+}

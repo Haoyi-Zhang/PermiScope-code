@@ -1,0 +1,54 @@
+{
+  "case": "case13",
+  "purpose": "omitted-alternative-branch",
+  "program": {
+    "atoms": [
+      "a0",
+      "a1",
+      "a2"
+    ],
+    "facts": [
+      0
+    ],
+    "rules": [
+      {
+        "head": 1,
+        "body": [
+          0
+        ]
+      },
+      {
+        "head": 2,
+        "body": [
+          0
+        ]
+      }
+    ],
+    "queries": [
+      0,
+      1,
+      2
+    ]
+  },
+  "certificate": {
+    "nodes": [
+      {
+        "atom": 0,
+        "rule": -1
+      },
+      {
+        "atom": 1,
+        "rule": 0
+      }
+    ],
+    "reported": [
+      0,
+      1
+    ]
+  },
+  "expected": {
+    "accepted": false,
+    "reason": "closure-violation"
+  },
+  "interpretation": "All shown witnesses are correct but one dependency is missing."
+}

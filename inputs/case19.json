@@ -1,0 +1,46 @@
+{
+  "case": "case19",
+  "purpose": "changed-query-inventory",
+  "program": {
+    "atoms": [
+      "a0",
+      "a1",
+      "a2"
+    ],
+    "facts": [
+      0
+    ],
+    "rules": [
+      {
+        "head": 1,
+        "body": [
+          0
+        ]
+      }
+    ],
+    "queries": [
+      0,
+      1
+    ]
+  },
+  "certificate": {
+    "nodes": [
+      {
+        "atom": 0,
+        "rule": -1
+      },
+      {
+        "atom": 1,
+        "rule": 0
+      }
+    ],
+    "reported": [
+      1
+    ]
+  },
+  "expected": {
+    "accepted": false,
+    "reason": "projection-mismatch"
+  },
+  "interpretation": "Projection is relative to the new complete query inventory."
+}

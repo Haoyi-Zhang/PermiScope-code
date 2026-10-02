@@ -1,0 +1,5 @@
+{
+  "case": "fault-04",
+  "expected_reason": "source-duplicate class",
+  "mutation": "source-duplicate-class"
+}

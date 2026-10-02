@@ -1,0 +1,5 @@
+{
+  "case": "fault-01",
+  "expected_reason": "source-duplicate statement id",
+  "mutation": "source-duplicate-statement"
+}

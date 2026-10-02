@@ -1,0 +1,25 @@
+case,mutation,expected_reason,observed_reason,rejected,passed
+fault-01,source-duplicate-statement,source-duplicate statement id,source-duplicate statement id,True,True
+fault-02,source-unknown-super,source-unknown super class,source-unknown super class,True,True
+fault-03,source-inheritance-cycle,source-inheritance cycle,source-inheritance cycle,True,True
+fault-04,source-duplicate-class,source-duplicate class,source-duplicate class,True,True
+fault-05,source-unknown-field-type,source-unknown field type,source-unknown field type,True,True
+fault-06,source-override-signature,source-override signature,source-override signature,True,True
+fault-07,source-service-subtype,source-service implementation subtype,source-service implementation subtype,True,True
+fault-08,source-entry-arity,source-entry arity,source-entry arity,True,True
+fault-09,source-unknown-permission,source-unknown permission,source-unknown permission,True,True
+fault-10,source-unknown-variable,source-unknown invoke receiver,source-unknown invoke receiver,True,True
+fault-11,source-invalid-field,source-load field,source-load field,True,True
+fault-12,source-unsupported-candidate,source-statement 3:0:6 candidate unsupported op,source-statement 3:0:6 candidate unsupported op,True,True
+fault-13,evidence-schema,evidence-schema,evidence-schema,True,True
+fault-14,lower-schema,lower-schema,lower-schema,True,True
+fault-15,upper-schema,upper-schema,upper-schema,True,True
+fault-16,lower-ir-omission,lower-ir-mismatch,lower-ir-mismatch,True,True
+fault-17,lower-program-query,lower-program-mismatch,lower-program-mismatch,True,True
+fault-18,lower-coverage-count,lower-coverage-mismatch,lower-coverage-mismatch,True,True
+fault-19,lower-certificate-omission,lower-certificate-closure-violation,lower-certificate-closure-violation,True,True
+fault-20,lower-certificate-reason,lower-certificate-wrong-head,lower-certificate-wrong-head,True,True
+fault-21,upper-ir-origin,upper-ir-mismatch,upper-ir-mismatch,True,True
+fault-22,upper-program-fact,upper-program-mismatch,upper-program-mismatch,True,True
+fault-23,upper-minimum-distance,upper-minimum-witness-cost,upper-minimum-witness-cost,True,True
+fault-24,classification-mutation,classification-mismatch,classification-mismatch,True,True

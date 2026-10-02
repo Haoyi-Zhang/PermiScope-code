@@ -1,0 +1,62 @@
+{
+  "case": "case16",
+  "purpose": "added-alias-premise",
+  "program": {
+    "atoms": [
+      "a0",
+      "a1",
+      "a2",
+      "a3"
+    ],
+    "facts": [
+      0
+    ],
+    "rules": [
+      {
+        "head": 1,
+        "body": [
+          0
+        ]
+      },
+      {
+        "head": 2,
+        "body": [
+          1,
+          3
+        ]
+      }
+    ],
+    "queries": [
+      0,
+      1,
+      2,
+      3
+    ]
+  },
+  "certificate": {
+    "nodes": [
+      {
+        "atom": 0,
+        "rule": -1
+      },
+      {
+        "atom": 1,
+        "rule": 0
+      },
+      {
+        "atom": 2,
+        "rule": 1
+      }
+    ],
+    "reported": [
+      0,
+      1,
+      2
+    ]
+  },
+  "expected": {
+    "accepted": false,
+    "reason": "unsupported-premise"
+  },
+  "interpretation": "A new conjunct cannot be ignored during witness transport."
+}

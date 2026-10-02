@@ -1,0 +1,5 @@
+{
+  "accepted_against_complete_model": false,
+  "accepted_against_omitted_model": true,
+  "complete_model_reason": "closure-violation"
+}

@@ -1,0 +1,15 @@
+{
+  "accepted_transport": 50820,
+  "checker_steps": 2667927,
+  "chunk": "revisions",
+  "cpu_seconds": 5.344161093999999,
+  "equal_but_not_transported": 678,
+  "errors": 0,
+  "graph_operations": 727134,
+  "oracle_assignments": 520128,
+  "process_peak_rss_kib": 115628,
+  "revision_pairs": 65016,
+  "semantic_equality": 51498,
+  "wall_seconds": 5.351500020000003,
+  "witness_only_false_completeness": 9930
+}

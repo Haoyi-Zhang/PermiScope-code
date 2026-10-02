@@ -1,0 +1,68 @@
+{
+  "anchor": {
+    "literal": "android.Manifest.permission.SET_WALLPAPER_HINTS",
+    "permission": "android.permission.SET_WALLPAPER_HINTS",
+    "primitive": "checkPermission"
+  },
+  "excerpt": "    public void setDimensionHints(int width, int height, String callingPackage, int displayId)\n            throws RemoteException {\n        checkPermission(android.Manifest.permission.SET_WALLPAPER_HINTS);\n",
+  "id": "wallpaper-dimension-hints",
+  "provenance": {
+    "end_line": 1988,
+    "excerpt_sha256": "a1d6adb9ae0129b9b449b48c49be1f70fe67c3965393015c9701899b7dde8145",
+    "file_blob_sha1": "cd3d603d831a0478aaea4d09e8db8d589c14a9dc",
+    "license": "Apache-2.0",
+    "path": "services/core/java/com/android/server/wallpaper/WallpaperManagerService.java",
+    "repository": "aosp-mirror/platform_frameworks_base",
+    "start_line": 1986,
+    "tag": "android-14.0.0_r1",
+    "url": "https://github.com/aosp-mirror/platform_frameworks_base/blob/android-14.0.0_r1/services/core/java/com/android/server/wallpaper/WallpaperManagerService.java#L1986-L1988"
+  },
+  "source": {
+    "classes": [
+      {
+        "fields": [],
+        "methods": [
+          {
+            "body": [
+              {
+                "id": "wallpaper_dimension_hints_check",
+                "op": "check",
+                "permission": "android.permission.SET_WALLPAPER_HINTS"
+              },
+              {
+                "id": "wallpaper_dimension_hints_return",
+                "op": "return",
+                "src": null
+              }
+            ],
+            "locals": [],
+            "name": "api",
+            "params": [],
+            "returns": null
+          }
+        ],
+        "name": "SliceService",
+        "super": null
+      }
+    ],
+    "entries": [
+      {
+        "arg_classes": [],
+        "name": "SliceAPI",
+        "selector": "api",
+        "service": "slice_service"
+      }
+    ],
+    "language": "bfil-1",
+    "permissions": [
+      "android.permission.SET_WALLPAPER_HINTS"
+    ],
+    "services": [
+      {
+        "declared_class": "SliceService",
+        "implementation_class": "SliceService",
+        "name": "slice_service"
+      }
+    ]
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "case": "case06",
+  "purpose": "absent-rule",
+  "program": {
+    "atoms": [
+      "a0",
+      "a1",
+      "a2",
+      "a3"
+    ],
+    "facts": [
+      0
+    ],
+    "rules": [
+      {
+        "head": 1,
+        "body": [
+          0
+        ]
+      },
+      {
+        "head": 2,
+        "body": [
+          1
+        ]
+      },
+      {
+        "head": 3,
+        "body": [
+          1,
+          2
+        ]
+      }
+    ],
+    "queries": [
+      0,
+      1,
+      2,
+      3
+    ]
+  },
+  "certificate": {
+    "nodes": [
+      {
+        "atom": 0,
+        "rule": -1
+      },
+      {
+        "atom": 1,
+        "rule": 999
+      },
+      {
+        "atom": 2,
+        "rule": 1
+      },
+      {
+        "atom": 3,
+        "rule": 2
+      }
+    ],
+    "reported": [
+      0,
+      1,
+      2,
+      3
+    ]
+  },
+  "expected": {
+    "accepted": false,
+    "reason": "reason-identifier"
+  },
+  "interpretation": "An out-of-range rule cannot justify a conclusion."
+}

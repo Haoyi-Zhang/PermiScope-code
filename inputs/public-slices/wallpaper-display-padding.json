@@ -1,0 +1,68 @@
+{
+  "anchor": {
+    "literal": "android.Manifest.permission.SET_WALLPAPER_HINTS",
+    "permission": "android.permission.SET_WALLPAPER_HINTS",
+    "primitive": "checkPermission"
+  },
+  "excerpt": "    public void setDisplayPadding(Rect padding, String callingPackage, int displayId) {\n        checkPermission(android.Manifest.permission.SET_WALLPAPER_HINTS);\n",
+  "id": "wallpaper-display-padding",
+  "provenance": {
+    "end_line": 2072,
+    "excerpt_sha256": "3d169745732e962c9e11793d5d49fab9aed14a098931b902bad5ab32edae600e",
+    "file_blob_sha1": "cd3d603d831a0478aaea4d09e8db8d589c14a9dc",
+    "license": "Apache-2.0",
+    "path": "services/core/java/com/android/server/wallpaper/WallpaperManagerService.java",
+    "repository": "aosp-mirror/platform_frameworks_base",
+    "start_line": 2071,
+    "tag": "android-14.0.0_r1",
+    "url": "https://github.com/aosp-mirror/platform_frameworks_base/blob/android-14.0.0_r1/services/core/java/com/android/server/wallpaper/WallpaperManagerService.java#L2071-L2072"
+  },
+  "source": {
+    "classes": [
+      {
+        "fields": [],
+        "methods": [
+          {
+            "body": [
+              {
+                "id": "wallpaper_display_padding_check",
+                "op": "check",
+                "permission": "android.permission.SET_WALLPAPER_HINTS"
+              },
+              {
+                "id": "wallpaper_display_padding_return",
+                "op": "return",
+                "src": null
+              }
+            ],
+            "locals": [],
+            "name": "api",
+            "params": [],
+            "returns": null
+          }
+        ],
+        "name": "SliceService",
+        "super": null
+      }
+    ],
+    "entries": [
+      {
+        "arg_classes": [],
+        "name": "SliceAPI",
+        "selector": "api",
+        "service": "slice_service"
+      }
+    ],
+    "language": "bfil-1",
+    "permissions": [
+      "android.permission.SET_WALLPAPER_HINTS"
+    ],
+    "services": [
+      {
+        "declared_class": "SliceService",
+        "implementation_class": "SliceService",
+        "name": "slice_service"
+      }
+    ]
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "case": "fault-06",
+  "expected_reason": "source-override signature",
+  "mutation": "source-override-signature"
+}

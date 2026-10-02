@@ -1,0 +1,5 @@
+{
+  "case": "fault-12",
+  "expected_reason": "source-statement 3:0:6 candidate unsupported op",
+  "mutation": "source-unsupported-candidate"
+}

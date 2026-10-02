@@ -1,0 +1,68 @@
+{
+  "anchor": {
+    "literal": "android.Manifest.permission.VIBRATE",
+    "permission": "android.permission.VIBRATE",
+    "primitive": "mContext.enforceCallingOrSelfPermission"
+  },
+  "excerpt": "    public void cancelVibrate(int usageFilter, IBinder token) {\n        Trace.traceBegin(Trace.TRACE_TAG_VIBRATOR, \"cancelVibrate\");\n        try {\n            mContext.enforceCallingOrSelfPermission(\n                    android.Manifest.permission.VIBRATE,\n                    \"cancelVibrate\");\n",
+  "id": "vibrator-cancel",
+  "provenance": {
+    "end_line": 447,
+    "excerpt_sha256": "7063d75c3c43355885751bef572f128289edd97aff1aaad0cbece2f961285643",
+    "file_blob_sha1": "cb7e54dda5279d5e80a34a279fa0bb1a61ece934",
+    "license": "Apache-2.0",
+    "path": "services/core/java/com/android/server/vibrator/VibratorManagerService.java",
+    "repository": "aosp-mirror/platform_frameworks_base",
+    "start_line": 442,
+    "tag": "android-14.0.0_r1",
+    "url": "https://github.com/aosp-mirror/platform_frameworks_base/blob/android-14.0.0_r1/services/core/java/com/android/server/vibrator/VibratorManagerService.java#L442-L447"
+  },
+  "source": {
+    "classes": [
+      {
+        "fields": [],
+        "methods": [
+          {
+            "body": [
+              {
+                "id": "vibrator_cancel_check",
+                "op": "check",
+                "permission": "android.permission.VIBRATE"
+              },
+              {
+                "id": "vibrator_cancel_return",
+                "op": "return",
+                "src": null
+              }
+            ],
+            "locals": [],
+            "name": "api",
+            "params": [],
+            "returns": null
+          }
+        ],
+        "name": "SliceService",
+        "super": null
+      }
+    ],
+    "entries": [
+      {
+        "arg_classes": [],
+        "name": "SliceAPI",
+        "selector": "api",
+        "service": "slice_service"
+      }
+    ],
+    "language": "bfil-1",
+    "permissions": [
+      "android.permission.VIBRATE"
+    ],
+    "services": [
+      {
+        "declared_class": "SliceService",
+        "implementation_class": "SliceService",
+        "name": "slice_service"
+      }
+    ]
+  }
+}

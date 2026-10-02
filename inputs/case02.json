@@ -1,0 +1,27 @@
+{
+  "case": "case02",
+  "purpose": "missing-initial-fact",
+  "program": {
+    "atoms": [
+      "a0",
+      "a1"
+    ],
+    "facts": [
+      0
+    ],
+    "rules": [],
+    "queries": [
+      0,
+      1
+    ]
+  },
+  "certificate": {
+    "nodes": [],
+    "reported": []
+  },
+  "expected": {
+    "accepted": false,
+    "reason": "missing-initial-fact"
+  },
+  "interpretation": "Positive witnesses alone do not cover the input inventory."
+}

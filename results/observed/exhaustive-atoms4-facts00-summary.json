@@ -1,0 +1,14 @@
+{
+  "atoms": 4,
+  "candidate_checks": 33296,
+  "checker_steps": 107127,
+  "chunk": "exhaustive-atoms4-facts00",
+  "cpu_seconds": 0.4120209530000001,
+  "errors": 0,
+  "fact_mask": 0,
+  "graph_operations": 12684,
+  "oracle_assignments": 33296,
+  "process_peak_rss_kib": 95020,
+  "programs": 2081,
+  "wall_seconds": 0.4146827080001003
+}

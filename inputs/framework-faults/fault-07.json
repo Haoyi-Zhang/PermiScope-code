@@ -1,0 +1,5 @@
+{
+  "case": "fault-07",
+  "expected_reason": "source-service implementation subtype",
+  "mutation": "source-service-subtype"
+}
