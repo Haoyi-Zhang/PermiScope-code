@@ -24,9 +24,9 @@ def validate_weighted(program: Any, weights: Any, certificate: Any) -> WeightedV
     if type(program) is not dict or set(program) != {"atoms", "facts", "rules", "queries"}:
         return bad("program-schema")
     atoms = program["atoms"]
-    if type(atoms) is not list or not 1 <= len(atoms) <= 20_000 or len(set(atoms)) != len(atoms):
+    if type(atoms) is not list or not 1 <= len(atoms) <= 20_000:
         return bad("atom-inventory")
-    if any(type(x) is not str or not x or len(x) > 160 for x in atoms):
+    if any(type(x) is not str or not x or len(x) > 160 for x in atoms) or len(set(atoms)) != len(atoms):
         return bad("atom-inventory")
     n = len(atoms)
     def ids(xs: Any, limit: int) -> bool:
@@ -56,7 +56,12 @@ def validate_weighted(program: Any, weights: Any, certificate: Any) -> WeightedV
     nodes = certificate["nodes"]
     if type(distances) is not list or len(distances) != n:
         return bad("distance-inventory")
-    if any(x is not None and (type(x) is not int or x < 0 or x > 10**15) for x in distances):
+    # A founded n-node witness unfolds to depth at most n with branching at
+    # most 16. For maximum weight W > 0 its cost is below W * 16**n;
+    # when W = 0 every finite cost is zero.
+    # Bound integer encoding by that structure, not an arbitrary decimal cap.
+    distance_bits = max(1, max(weights, default=0).bit_length()) + 4 * n
+    if any(x is not None and (type(x) is not int or x < 0 or x.bit_length() > distance_bits) for x in distances):
         return bad("distance-value")
     if type(nodes) is not list or len(nodes) > n:
         return bad("node-bound")

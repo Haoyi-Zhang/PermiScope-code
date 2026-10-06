@@ -17,6 +17,12 @@ ROOT = Path(__file__).resolve().parents[1]
 class AuditTests(unittest.TestCase):
     def test_reference_audit_inventory(self):
         self.assertEqual(audit_references(ROOT), {"references": 68})
+        with (ROOT / "reference_audit.csv").open(newline="", encoding="utf-8") as handle:
+            rows = {row["key"]: row for row in csv.DictReader(handle)}
+        self.assertEqual(rows["albert2004"]["year"], "2005")
+        paper = ROOT.parent / "paper"
+        if (paper / "references.tex").is_file():
+            self.assertEqual(audit_references(ROOT, paper), {"references": 68})
 
     def test_public_source_audit_inventory(self):
         self.assertEqual(audit_public_sources(ROOT), {"public_sources": 12})

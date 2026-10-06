@@ -85,6 +85,8 @@ class ReferenceBuilder:
         self.facts: list[dict[str, Any]] = []
         self.rules: list[dict[str, Any]] = []
         self.queries: set[str] = set()
+        self._atoms: set[str] = set()
+        self._premises = 0
 
     def C(self, raw: str) -> str:
         return "*" if self.variant["context"] == "insensitive" else raw
@@ -109,11 +111,27 @@ class ReferenceBuilder:
         return f"U:{self.eid[e]}:{self.cid[c]}:{self.mid[m]}:{self.sid[s]}"
 
     def fact(self, atom: str, source: str, origin: str) -> None:
+        self._admit_atoms((atom,))
         self.facts.append({"atom": atom, "source": source, "origin": origin})
+
+    def _admit_atoms(self, atoms: Iterable[str]) -> None:
+        fresh = set(atoms).difference(self._atoms)
+        if len(self._atoms) + len(fresh) > 20_000 or any(len(x) > 160 for x in fresh):
+            raise ValueError("ground-bound")
+        self._atoms.update(fresh)
+
+    def query(self, atom: str) -> None:
+        self._admit_atoms((atom,))
+        self.queries.add(atom)
 
     def rule(self, head: str, body: Iterable[str], source: str, origin: str,
              weight: int = 0, certainty: str = "definite") -> None:
-        self.rules.append({"head": head, "body": sorted(set(body)), "source": source,
+        premises = sorted(set(body))
+        if len(self.rules) == 40_000 or self._premises + len(premises) > 120_000:
+            raise ValueError("ground-bound")
+        self._admit_atoms([head, *premises])
+        self._premises += len(premises)
+        self.rules.append({"head": head, "body": premises, "source": source,
                            "origin": origin, "weight": weight, "certainty": certainty})
 
 
@@ -153,7 +171,7 @@ def _entries(b: ReferenceBuilder) -> None:
                 b.fact(b.V(entry.name, root, target.key, param.name, f"entry:{entry.name}:arg:{i}"),
                        src, pre + f":arg:{i}")
         for permission in b.source.permissions:
-            b.queries.add(b.P(entry.name, permission))
+            b.query(b.P(entry.name, permission))
 
 
 def _opaque(b: ReferenceBuilder, e: str, c: str, m: Method, stmt: dict[str, Any]) -> None:
@@ -322,15 +340,19 @@ def classify_from_certificates(lower: dict[str,Any], upper: dict[str,Any],
     rows=[]
     def sites_for(atom:int)->list[str]:
         out=[]
-        def walk(a:int)->None:
+        pending=[atom]
+        while pending:
+            a=pending.pop()
+            # A founded zero-cost subtree has no positive-weight occurrences.
+            if distances[a]==0:
+                continue
             rid=chosen[a]
-            if rid==-1:return
+            if rid==-1:continue
             weight=upper["ir"]["rules"][rid]["weight"]
             if weight:
                 out.extend([upper["ir"]["rules"][rid]["source"]]*weight)
-            for premise in upper["program"]["rules"][rid]["body"]:
-                walk(premise)
-        walk(atom);return out
+            pending.extend(reversed(upper["program"]["rules"][rid]["body"]))
+        return out
     for qname in upper["ir"]["queries"]:
         qi=upper["program"]["atoms"].index(qname)
         if qname in low_names:

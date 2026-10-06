@@ -47,7 +47,7 @@ Contexts are roots or one call-site identifiers. Allocations are entry receivers
 
 Every valid source occurrence deterministically generates a finite family of named facts or positive Horn rules. A record identity contains its logical atom or head/body plus source occurrence, origin, certainty, and weight. The catalog is fixed before emission; no rule creates a new catalog element. Canonical sorting yields a unique normalized IR, coverage ledger, and ground program for a valid document and fixed analysis variant.
 
-The implementation rejects more than 20,000 atoms, 40,000 rules, or 120,000 premise incidences. Source limits are 64 classes, 400 methods, 2,000 fields, 4,000 statements, 64 entries, 128 permissions, eight arguments, 32 locals per method, and eight candidates per opaque site.
+Both lowering paths reject at emission before retaining a record that would exceed 20,000 atoms, 40,000 rules, or 120,000 premise incidences. Source limits are 64 classes, 400 methods, 2,000 fields, 4,000 statements, 64 entries, 128 permissions, eight arguments, 32 locals per method, and eight candidates per opaque site. These are inventory bounds, not a uniform elapsed-time or expanded-output bound.
 
 ## 4. Direct source semantics and lowering equivalence
 
@@ -120,6 +120,8 @@ The upper program assigns weight one to opaque trigger rules and zero to all oth
 **Theorem — minimum occurrence cost.** Every accepted finite distance is the minimum number of opaque trigger occurrences among finite derivation trees for that atom.
 
 The metric is not the number of distinct sites: a shared trigger can be counted multiple times when a DAG is unfolded into a tree.
+
+Distances are exact nonnegative integers. With `n` founded nodes, body width at most 16 and maximum positive rule weight `W`, a witness has depth at most `n` and cost below `W * 16**n`. The checker bounds integer bit length by the program structure rather than imposing a fixed decimal ceiling. Its linear graph pass counts integer operations; with `L`-bit distances, additions/comparisons cost `O((n+r+b)L)`. Occurrence serialization uses an explicit stack, skips founded zero-cost subtrees, and preserves preorder and duplicate occurrences. Its output can still be exponential in DAG size.
 
 ## 9. Inclusion-minimal distinct-site core
 

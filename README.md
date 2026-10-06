@@ -41,6 +41,7 @@ The checker is structurally separate from the producer but was developed in the 
 - `results/observed/` — retained finite-kernel rows and summaries.
 - `results/framework-observed/` — historical pre-repair rows/evidence, retained without rewriting; not current-format evidence.
 - `results/framework-replay/` — current semantic-catalog campaign rows, representative evidence, and summary.
+- `results/measurements/` — later Linux measurements and selected raw test/check logs, without a duplicate scientific result corpus.
 - `tests/` — unit and adversarial tests.
 - `docs/` — model/proof, frozen protocol, literature calibration, and reproduction notes.
 - `claim_evidence_ledger.csv` — claim-to-proof/test/result mapping.
@@ -80,7 +81,7 @@ python reconcile_framework.py replay-framework
 python compare_framework_results.py results/framework-replay replay-framework
 ```
 
-The semantic comparators exclude wall time, CPU time, and process high-water RSS because those vary across machines. All claim-bearing rows, classifications, counts, proof structures, public records, and fault outcomes must agree. See `docs/reproduction.md` for expected outputs and the paper-data export command.
+The ground comparator excludes four named timing/RSS fields from JSON and no CSV fields. The source comparator excludes its whole summary resource block, so host configuration, worker count and download bytes must be inspected separately. All claim-bearing rows, classifications, counts, proof structures, public records, and fault outcomes must agree. See `docs/reproduction.md` for expected outputs and the paper-data export command.
 
 ## Retained headline results
 
@@ -91,8 +92,23 @@ The semantic comparators exclude wall time, CPU time, and process high-water RSS
 - All 24 prespecified faults are rejected at their expected first stage.
 - Full lowering is exact on 300/300 new generated documents. Field-insensitive and context-insensitive variants each add 100 permission false positives; class-hierarchy dispatch adds 300. These are designed separators, not production precision estimates.
 - The suite contains 150 permission-preserving and 150 permission-changing revisions. The mapped prefix plus all new facts is already exact in 99 cases; the remaining 201 require rule completion before full checking. The current replay reuses 5,220 of 6,518 certificate nodes (80.09%); the historical local-token count was 4,794/6,518 (73.55%). No checker-speedup claim is made.
-- The current Windows source replay records 2,919,349 checker steps, 2,289,440 graph operations, 51.578 process CPU seconds, 54.328 wall seconds, and 46.73 MiB peak working set, with one worker and zero downloads. POSIX process limits were unavailable; the fixed inventory and source/ground bounds remained enforced. The historical source observation (17.399 CPU seconds, 17.403 wall seconds, 117.17 MiB peak RSS) remains in `framework-observed` and is not a timing of the revised implementation.
+- The retained Windows semantic-catalog replay records 2,919,349 checker steps, 2,289,440 graph operations, 51.578 process CPU seconds, 54.328 wall seconds, and 46.73 MiB peak working set, with one worker and zero downloads. These measurements precede the emission-limit and weighted-boundary changes and are not timings of those changes. POSIX process limits were unavailable. The older source observation (17.399 CPU seconds, 17.403 wall seconds, 117.17 MiB peak RSS) remains in `framework-observed` and is not a timing of the semantic-catalog implementation.
 - The offline manuscript/provenance audit accepts exactly 68 unique, cited references and all 12 source records; every retained excerpt digest is recomputed from the packaged text.
+
+## Later Linux replay
+
+GitHub run `37433546102`, head `b0d4ef6d570845168e53847615b7bd2b7104eb1a`, ran the boundary-repaired artifact in the configured Ubuntu 24.04/Python 3.12 workflow. Its downloaded raw archive was compared locally as data, without executing archive code or rerunning the campaigns. All 69 kernel JSON/CSV files and all 18 framework result files (five CSV files, 12 representative JSON files and the semantic summary) match their retained references. That includes 122,693 kernel CSV rows and 1,836 framework CSV rows. The source resource block was inspected separately: one worker and zero downloads agree with the reference; platform is now POSIX and OS resource limits are available.
+
+| Campaign | Process CPU seconds | Recorded wall seconds | Process peak RSS |
+| --- | ---: | ---: | ---: |
+| Finite ground kernel | 12.956 | 12.952 (sum of 26 chunk timers) | 53,172 KiB (51.93 MiB) |
+| BFIL-1 source | 47.353 | 47.362 (driver body) | 46,140 KiB (45.06 MiB) |
+
+Normal and optimized logs each show all 84 tests passing without skips, failures or errors, in 6.423 and 6.000 seconds respectively. Both reconciliation logs have zero errors; the offline audit accepts 68 reference records and 12 packaged public-source records. This is not full-text verification of every citation or a live upstream-source audit.
+
+`results/measurements/summary.json` retains the exact resource observations and configured caps; adjacent files retain the command list, test logs and selected check logs. The complete scientific outputs remain in their existing reference directories rather than being duplicated here. Paper-data export still uses those reference directories, so its historical measurements are unchanged.
+
+The workflow has a 20-minute job deadline and a 900-second scientific-shell deadline with 15-second kill grace. The shell inherits a 3 GiB address-space cap and an 840-second CPU cap **per process**; the ground driver tightens these to 2 GiB and 600 seconds. The source driver keeps 3 GiB and the inherited 840-second CPU cap. Raw-output upload remains `always()`, including failures. The archive does not contain exact runtime limit values, whole-workflow elapsed time, individual command exit-code records, or the runner image/Python patch version. Run identity comes from the supplied completed-run record, not metadata embedded in the archive. These are single-run Linux observations, separate from the historical Windows working-set measurements above; no cross-host speedup or independent replication is claimed.
 
 ## Licenses and external material
 

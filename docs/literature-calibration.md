@@ -27,7 +27,7 @@ Access depth is explicit. `F` means a full publisher text, author manuscript, or
 | Guyon et al., *Evaluating the Impact of Design Pattern and Anti-Pattern Dependencies on Change-Proneness* (TSE 34(5), 2008) | O | Connects structural dependencies to change-proneness through explicit hypotheses and empirical models. | Multi-system empirical analysis and statistical interpretation. | Structural labels must not silently become causal claims. Our field/context/CHA variants are designed semantic ablations, not estimates of real-world defect causes. |
 | Selby et al., *Cleanroom Software Development: An Empirical Evaluation* (TSE SE-13(9), 1987, DOI 10.1109/TSE.1987.233525) | F | Evaluates a disciplined development method with controlled teams and separates process, product, and human outcomes. | Fifteen three-person teams, ten treatment and five comparison teams. | The paper separates method guarantees from observed process costs and explicitly reports the checker trusted base and lack of independent authorship/replication. |
 
-An additional historical calibration is Weiser's *Program Slicing* (TSE SE-10(4), 1984), which reinforces the value of a precise semantic object and carefully bounded examples. It is cited in the manuscript but is not needed to reach the twelve-paper count.
+An additional historical calibration is Weiser's *Program Slicing* (TSE SE-10(4), 1984), which reinforces the value of a precise semantic object and carefully bounded examples. It is not included in the current manuscript bibliography and is not needed to reach the twelve-paper count.
 
 ### Same-venue narrative pattern extracted
 

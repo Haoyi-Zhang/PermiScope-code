@@ -1,0 +1,60 @@
+name: Bounded scientific checks
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  finite-checks:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      PYTHONUTF8: '1'
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - name: Run finite checks from the flat artifact root
+        shell: bash
+        run: |
+          set -euo pipefail
+          export RAW="$RUNNER_TEMP/p005-scientific-output"
+          mkdir -p "$RAW"
+          ulimit -v 3145728
+          ulimit -t 840
+          timeout --signal=TERM --kill-after=15s 900s bash <<'CHECKS' 2>&1 | tee "$RAW/whole-run.log"
+          set -euo pipefail
+          run() {
+            local label="$1"
+            shift
+            printf '%q ' "$@" >> "$RAW/commands.txt"
+            printf '\n' >> "$RAW/commands.txt"
+            "$@" 2>&1 | tee "$RAW/$label.log"
+          }
+          run unit python -B -m unittest discover -s tests -v
+          run optimized python -B -O -m unittest discover -s tests -v
+          run provenance python -B audit_manuscript.py
+          run kernel python -B reproduce.py --out "$RAW/kernel"
+          run kernel-reconcile python -B reconcile.py "$RAW/kernel"
+          run kernel-compare python -B compare_results.py results/observed "$RAW/kernel"
+          run framework python -B run_framework_campaign.py --out "$RAW/framework"
+          run framework-reconcile python -B reconcile_framework.py "$RAW/framework"
+          run framework-compare python -B compare_framework_results.py results/framework-replay "$RAW/framework"
+          run tables python -B export_paper_data.py results/observed --framework results/framework-replay --out "$RAW/paper-data"
+          CHECKS
+      - name: Retain raw output even after failure
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: p005-scientific-output
+          path: ${{ runner.temp }}/p005-scientific-output
+          if-no-files-found: error
+          retention-days: 14

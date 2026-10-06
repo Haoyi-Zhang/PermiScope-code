@@ -1,0 +1,18 @@
+{
+  "accepted_transport": 50820,
+  "candidate_checks": 532736,
+  "checker_steps": 5839057,
+  "cpu_seconds": 12.955528535000001,
+  "equal_but_not_transported": 678,
+  "errors": 0,
+  "graph_operations": 2386278,
+  "negative_fixtures": 24,
+  "ordered_core_queries": 48762,
+  "process_peak_rss_kib": 53172,
+  "programs": 33296,
+  "query_classifications": 24381,
+  "revision_pairs": 65016,
+  "valid_controls": 23,
+  "wall_seconds_sum_of_chunks": 12.951703479999985,
+  "witness_only_false_completeness": 9930
+}

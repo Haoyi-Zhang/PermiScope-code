@@ -1,0 +1,61 @@
+{
+  "run_id": 37433546102,
+  "head_sha": "b0d4ef6d570845168e53847615b7bd2b7104eb1a",
+  "identity_source": "Completed GitHub Linux run supplied with the downloaded archive; no remote re-query.",
+  "configured_runner": "ubuntu-24.04",
+  "python_minor_configured": "3.12",
+  "actual_runner_image_and_python_patch": "not recorded in this archive",
+  "kernel": {
+    "cpu_seconds": 12.955528535000001,
+    "wall_seconds_sum_of_chunks": 12.951703479999985,
+    "process_peak_rss_kib": 53172
+  },
+  "framework": {
+    "cpu_seconds": 47.352856595999995,
+    "download_bytes_during_campaign": 0,
+    "os_resource_limits": true,
+    "platform": "posix",
+    "process_peak_rss_kib": 46140,
+    "wall_seconds": 47.36163512900001,
+    "workers": 1
+  },
+  "tests": {
+    "normal": {
+      "count": 84,
+      "seconds": 6.423,
+      "status": "OK",
+      "skips": 0
+    },
+    "optimized": {
+      "count": 84,
+      "seconds": 6.0,
+      "status": "OK",
+      "skips": 0
+    }
+  },
+  "whole_run_wall_seconds": null,
+  "memory_units": "KiB; Linux process high-water RSS, not isolated/reset case peaks",
+  "wall_time_scope": "Kernel is sum of 26 chunk timers; framework covers its driver body. Neither is whole workflow elapsed time.",
+  "reference_results": {
+    "kernel": "results/observed",
+    "framework": "results/framework-replay"
+  },
+  "semantic_comparison": {
+    "kernel_files": 69,
+    "framework_csv_files": 5,
+    "framework_sample_files": 12,
+    "framework_semantic_summary_equal": true,
+    "mismatches": 0
+  },
+  "configured_caps": {
+    "job_minutes": 20,
+    "shell_seconds": 900,
+    "kill_grace_seconds": 15,
+    "inherited_cpu_seconds_per_process": 840,
+    "inherited_address_space_kib": 3145728,
+    "kernel_cpu_seconds": 600,
+    "kernel_address_space_bytes": 2147483648
+  },
+  "cap_evidence": "Workflow/driver settings plus successful logs and framework os_resource_limits=true; exact runtime getrlimit values not logged.",
+  "historical_outputs": "Paper table exports still consume the historical reference measurements. This run does not replace their times or justify a speedup."
+}

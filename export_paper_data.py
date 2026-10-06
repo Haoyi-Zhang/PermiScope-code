@@ -200,10 +200,12 @@ def export(kernel: Path, framework: Path, out: Path) -> None:
     _write_table(out / "public-table.tex", "p{0.24\\linewidth}p{0.39\\linewidth}p{0.27\\linewidth}",
                  r"Identifier & Retained lines & Primitive", public_rows)
 
-    fault_rows = [
-        f"{row['case']} & \\texttt{{{row['mutation']}}} & \\texttt{{{row['observed_reason'].replace('_', r'\\_')}}}"
-        for row in faults
-    ]
+    fault_rows = []
+    for row in faults:
+        reason = row["observed_reason"].replace("_", r"\\_")
+        fault_rows.append(
+            f"{row['case']} & \\texttt{{{row['mutation']}}} & \\texttt{{{reason}}}"
+        )
     _write_table(out / "framework-fault-table.tex", "lll", r"Case & Mutation & First rejection", fault_rows)
 
     family_rows = []

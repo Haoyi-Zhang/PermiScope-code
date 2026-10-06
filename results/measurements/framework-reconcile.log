@@ -1,0 +1,73 @@
+{
+  "accepted": true,
+  "errors": [],
+  "files_checked": 6,
+  "recomputed": {
+    "baselines": {
+      "cha": {
+        "exact": 0,
+        "fn": 0,
+        "fp": 300,
+        "precision": 0.5,
+        "recall": 1.0,
+        "tp": 300
+      },
+      "context-insensitive": {
+        "exact": 200,
+        "fn": 0,
+        "fp": 100,
+        "precision": 0.75,
+        "recall": 1.0,
+        "tp": 300
+      },
+      "field-insensitive": {
+        "exact": 200,
+        "fn": 0,
+        "fp": 100,
+        "precision": 0.75,
+        "recall": 1.0,
+        "tp": 300
+      },
+      "full": {
+        "exact": 300,
+        "fn": 0,
+        "fp": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "tp": 300
+      }
+    },
+    "completion_models": 528,
+    "endpoint_envelope_exact": 300,
+    "identifier_erased_new_programs": 300,
+    "identifier_erased_revision_pairs": 300,
+    "inclusion_minimal_core_size_histogram": {
+      "1": 18,
+      "2": 21,
+      "3": 21
+    },
+    "max_opaque_sites": 3,
+    "maxima": {
+      "certificate_nodes": 49,
+      "fields": 7,
+      "lower_atoms": 1415,
+      "lower_rules": 3346,
+      "methods": 32,
+      "premise_incidences": 9254,
+      "statements": 63,
+      "upper_atoms": 1415,
+      "upper_rules": 3486
+    },
+    "mean_reused_fraction": 0.8008591592513041,
+    "minimum_cost_histogram": {
+      "1": 18,
+      "2": 21,
+      "3": 21
+    },
+    "semantic_changing": 150,
+    "semantic_preserving": 150,
+    "transport_exact": 99,
+    "unresolved_queries": 60
+  },
+  "rows_checked": 1836
+}

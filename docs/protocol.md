@@ -31,7 +31,7 @@ Six records come from `VibratorManagerService.java` and six from `WallpaperManag
 - source path and exact line range;
 - exact excerpt, Git blob SHA-1, and excerpt SHA-256;
 - Apache-2.0 attribution;
-- one recognized `enforceCallingOrSelfPermission` permission expression; and
+- one recognized permission-call anchor (`enforceCallingOrSelfPermission` for vibrator records or `checkPermission` for wallpaper records); and
 - a separate BFIL-1 projection.
 
 The validator checks the retained line range, narrow lexical primitive, metadata, and projection. It does not parse surrounding Java, resolve aliases, interpret control flow, or claim whole-method/framework completeness.
@@ -108,7 +108,9 @@ Claim-bearing results are semantic rows and counts. Timing and memory are descri
 - representative source/evidence pairs for two cases per family
 - `results/observed/*.csv` and `*-summary.json` for the finite kernel
 
-Those `framework-observed` paths preserve the historical source campaign. The current `results/framework-replay/` reruns the same workload with structured declaration identities and catalog-decoded reuse. It records 5,220/6,518 semantically reused nodes (80.09%), 2,919,349 checker steps, 2,289,440 graph operations, 51.578 process CPU seconds, 54.328 wall seconds and 46.73 MiB peak Windows working set, one worker and zero downloads. The earlier source timings (17.399 CPU seconds, 17.403 wall seconds, 117.17 MiB RSS) are not observations of revised code. The historical finite kernel records 16.318 CPU seconds and 117.17 MiB peak RSS. These are descriptive observations, not comparative performance claims.
+Those `framework-observed` paths preserve the historical source campaign. The retained `results/framework-replay/` uses structured declaration identities and catalog-decoded reuse. It records 5,220/6,518 semantically reused nodes (80.09%), 2,919,349 checker steps, 2,289,440 graph operations, 51.578 process CPU seconds, 54.328 wall seconds and 46.73 MiB peak Windows working set, one worker and zero downloads. These timings precede the emission-limit and weighted-boundary changes. The older source timings (17.399 CPU seconds, 17.403 wall seconds, 117.17 MiB RSS) are not observations of semantic-catalog code. The historical finite kernel records 16.318 CPU seconds and 117.17 MiB peak RSS. These are descriptive observations, not comparative performance claims.
+
+The later Linux replay of the boundary-repaired artifact is retained separately in `results/measurements/`. It matches the ground and semantic-catalog source references, with changed timing/RSS and the expected Windows-to-POSIX resource metadata. The historical directories above are not overwritten. Exact Linux observations and timer scope are in the measurement summary; no whole-workflow time, cross-host speedup or independent replication is inferred.
 
 ## 7. Inclusion, exclusion, and non-claims
 

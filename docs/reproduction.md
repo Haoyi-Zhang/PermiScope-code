@@ -17,7 +17,7 @@ From the standalone repository root:
 python -m unittest discover -s tests -v
 ```
 
-Expected: 75 tests and final status `OK`. Run the same command with `python -O` as a second control; correctness checks do not rely on removable `assert` statements. The exact duration is machine-dependent. Tests also cover dotted declaration collisions, semantic token remapping, changed permissions/classes, invalid certificate reasons/order, source core closure counts, and acceptance of all six retained scale certificates.
+Expected: 84 tests and final status `OK`. Run the same command with `python -O` as a second control; correctness checks do not rely on removable `assert` statements. The exact duration is machine-dependent. Tests also cover dotted declaration collisions, semantic token remapping, changed permissions/classes, invalid certificate reasons/order, source core closure counts, acceptance of all six retained scale certificates, early emission bounds, large integer distances, and iterative occurrence traversal.
 
 ## 2. Reproduce the finite ground campaign
 
@@ -53,9 +53,11 @@ Expected summary:
 - 99 already-exact prefixes (including all new initial facts), 201 requiring rule completion, and 5,220/6,518 semantically reused certificate nodes (80.09%);
 - zero campaign errors.
 
-`compare_framework_results.py` excludes timing and process RSS but compares semantic summaries, all CSV rows, and representative evidence files.
+`compare_framework_results.py` excludes the entire summary `resources` block but compares semantic summaries, all CSV rows, and representative evidence files. Inspect the excluded block separately: timing/RSS may vary, but worker count, downloads, platform and resource-limit availability are distinct fields, not timings.
 
-`results/framework-replay` contains the current source-campaign output. `results/framework-observed` is the unchanged historical local-token campaign, not a valid byte-equality baseline or current-format certificate package. Comparisons against it are expected to differ. Source-campaign resource limits use POSIX facilities when available; on Windows, the summary explicitly records unavailable OS limits and measures the process peak working set. Source/ground size bounds and the fixed workload apply on both platforms. The ground reproduction driver still requires POSIX `resource`; its historical outputs were reconciled, not rerun on Windows.
+`results/framework-replay` is the retained semantic-catalog baseline. Its timings precede the emission and weighted-boundary changes; they are not measurements of those changes. `results/framework-observed` is the unchanged historical local-token campaign, not a valid byte-equality baseline or current-format certificate package. Comparisons against it are expected to differ. Both campaign drivers use POSIX resource limits when available. On Windows these OS limits are unavailable and the memory field measures peak working set, not Linux RSS. Source/ground bounds and the fixed workload apply on both platforms; run commands under an external timeout when OS limits are unavailable. The ground driver now supports this Windows path as well.
+
+The later Ubuntu 24.04 workflow replay is recorded in `results/measurements/summary.json` and selected raw logs. Its normal and optimized runs both pass 84 tests; its 69 kernel files and 18 framework files match the semantic references. Only timing/RSS vary within the ground results; the source resource block additionally changes platform (`nt` to `posix`) and OS-limit availability (false to true). Worker count remains one and campaign download bytes remain zero. The Linux measurements do not replace the earlier Windows timings in `framework-replay` or the historical ground scale measurements. No whole-workflow elapsed time or independent-replication claim follows from these logs.
 
 ## 4. Check one source/evidence pair
 

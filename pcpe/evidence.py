@@ -147,13 +147,16 @@ def _opaque_witness_sites(upper_item: dict[str, Any], minimum: dict[str, Any], q
     program = upper_item["program"]
     named = upper_item["ir"]["rules"]
     sites: list[str] = []
-    def walk(atom: int) -> None:
+    pending = [query]
+    while pending:
+        atom = pending.pop()
+        if minimum["distances"][atom] == 0:
+            continue
         rid = selected[atom]
         if rid == -1:
-            return
+            continue
         if named[rid]["weight"]:
             sites.extend([named[rid]["source"]] * named[rid]["weight"])
-        for premise in program["rules"][rid]["body"]:
-            walk(premise)
-    walk(query)
+        # Reverse the push order to preserve the former preorder serialization.
+        pending.extend(reversed(program["rules"][rid]["body"]))
     return sites

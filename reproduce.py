@@ -6,7 +6,11 @@ trusts existing successful chunk summaries; it does not recheck saved raw rows;
 for a scientific clean replay omit --resume and use a fresh output directory.
 """
 from __future__ import annotations
-import argparse,csv,itertools,json,os,resource,sys,tempfile,time
+import argparse,csv,itertools,json,os,sys,tempfile,time
+try:
+    import resource
+except ImportError:
+    resource = None
 from pathlib import Path
 from typing import Any,Callable
 from pcpe.model import parse_program
@@ -26,6 +30,8 @@ def require(condition: bool, message: object) -> None:
 def bounded_runtime() -> None:
     if hasattr(os,'sched_getaffinity'):
         allowed=os.sched_getaffinity(0);os.sched_setaffinity(0,{min(allowed)})
+    if resource is None:
+        return
     memory=2*1024**3
     soft,hard=resource.getrlimit(resource.RLIMIT_AS)
     memory=min(memory,hard) if hard>=0 else memory
@@ -33,6 +39,27 @@ def bounded_runtime() -> None:
     soft,hard=resource.getrlimit(resource.RLIMIT_CPU)
     cap=min(600,hard) if hard>=0 else 600
     resource.setrlimit(resource.RLIMIT_CPU,(cap,cap))
+
+def peak_rss_kib() -> int:
+    if resource is not None:
+        return resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
+    import ctypes
+    from ctypes import wintypes
+    class Counters(ctypes.Structure):
+        _fields_=[("cb",wintypes.DWORD),("PageFaultCount",wintypes.DWORD),
+                  ("PeakWorkingSetSize",ctypes.c_size_t),("WorkingSetSize",ctypes.c_size_t),
+                  ("QuotaPeakPagedPoolUsage",ctypes.c_size_t),("QuotaPagedPoolUsage",ctypes.c_size_t),
+                  ("QuotaPeakNonPagedPoolUsage",ctypes.c_size_t),("QuotaNonPagedPoolUsage",ctypes.c_size_t),
+                  ("PagefileUsage",ctypes.c_size_t),("PeakPagefileUsage",ctypes.c_size_t)]
+    kernel=ctypes.WinDLL("kernel32",use_last_error=True)
+    psapi=ctypes.WinDLL("psapi",use_last_error=True)
+    kernel.GetCurrentProcess.restype=wintypes.HANDLE
+    psapi.GetProcessMemoryInfo.argtypes=[wintypes.HANDLE,ctypes.POINTER(Counters),wintypes.DWORD]
+    psapi.GetProcessMemoryInfo.restype=wintypes.BOOL
+    counters=Counters();counters.cb=ctypes.sizeof(counters)
+    if not psapi.GetProcessMemoryInfo(kernel.GetCurrentProcess(),ctypes.byref(counters),counters.cb):
+        raise OSError(ctypes.get_last_error(),"GetProcessMemoryInfo")
+    return counters.PeakWorkingSetSize//1024
 
 def atom_subset(n:int,mask:int)->list[int]:return [i for i in range(n) if mask>>i&1]
 
@@ -56,9 +83,9 @@ def write_json(path:Path,obj:Any)->None:
 def timed(fn:Callable[[],dict[str,Any]]) -> dict[str,Any]:
     cpu=time.process_time();wall=time.monotonic()
     x=fn();x['cpu_seconds']=time.process_time()-cpu;x['wall_seconds']=time.monotonic()-wall
-    # Linux ru_maxrss is KiB; this is process high-water RSS after the chunk,
-    # not a reset per-case peak and not an estimate of framework-tool memory.
-    x['process_peak_rss_kib']=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
+    # Process high-water RSS on Linux or peak working set on Windows;
+    # not a reset per-case peak or an estimate of framework-tool memory.
+    x['process_peak_rss_kib']=peak_rss_kib()
     return x
 
 def fixtures(out:Path)->dict[str,Any]:
@@ -337,6 +364,6 @@ def main()->None:
                 chunk(f'scale-{n}-{int(seeded)}',lambda n=n,edges=edges,seeded=seeded:scale(out,n,edges,seeded))
     write_json(out/(f'run-{args.part}-summary.json'),{'part':args.part,'chunks':records,
                'this_process_cpu_seconds':time.process_time()-start,
-               'process_peak_rss_kib':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
+               'process_peak_rss_kib':peak_rss_kib(),
                'workers':1,'network_used':False,'errors':0})
 if __name__=='__main__':main()

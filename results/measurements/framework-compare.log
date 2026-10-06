@@ -1,0 +1,9 @@
+{
+  "accepted": true,
+  "compared_csv_files": 5,
+  "compared_sample_files": 12,
+  "excluded_summary_fields": [
+    "resources"
+  ],
+  "mismatches": []
+}

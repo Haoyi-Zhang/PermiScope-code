@@ -1,0 +1,10 @@
+python -B -m unittest discover -s tests -v 
+python -B -O -m unittest discover -s tests -v 
+python -B audit_manuscript.py 
+python -B reproduce.py --out /home/runner/work/_temp/p005-scientific-output/kernel 
+python -B reconcile.py /home/runner/work/_temp/p005-scientific-output/kernel 
+python -B compare_results.py results/observed /home/runner/work/_temp/p005-scientific-output/kernel 
+python -B run_framework_campaign.py --out /home/runner/work/_temp/p005-scientific-output/framework 
+python -B reconcile_framework.py /home/runner/work/_temp/p005-scientific-output/framework 
+python -B compare_framework_results.py results/framework-replay /home/runner/work/_temp/p005-scientific-output/framework 
+python -B export_paper_data.py results/observed --framework results/framework-replay --out /home/runner/work/_temp/p005-scientific-output/paper-data 

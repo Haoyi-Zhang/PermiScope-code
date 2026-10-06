@@ -87,6 +87,8 @@ class Builder:
         self.facts: list[dict[str, Any]] = []
         self.rules: list[dict[str, Any]] = []
         self.queries: set[str] = set()
+        self._atoms: set[str] = set()
+        self._premises = 0
 
     def reach(self, entry: str, context: str, method: str) -> str:
         return f"R:{self.eid[entry]}:{self.cid[context]}:{self.mid[method]}"
@@ -112,11 +114,28 @@ class Builder:
         return f"U:{self.eid[entry]}:{self.cid[context]}:{self.mid[method]}:{self.sid[statement]}"
 
     def fact(self, atom: str, *, source: str, origin: str) -> None:
+        self._track_atoms((atom,))
         self.facts.append({"atom": atom, "source": source, "origin": origin})
+
+    def _track_atoms(self, atoms: Iterable[str]) -> None:
+        added = set(atoms) - self._atoms
+        if any(len(atom) > 160 for atom in added):
+            raise ValueError("atom name bound")
+        if len(self._atoms) + len(added) > 20_000:
+            raise ValueError("ground bound")
+        self._atoms.update(added)
+
+    def query(self, atom: str) -> None:
+        self._track_atoms((atom,))
+        self.queries.add(atom)
 
     def rule(self, head: str, body: Iterable[str], *, source: str, origin: str,
              weight: int = 0, certainty: str = "definite") -> None:
         b = sorted(set(body))
+        if len(self.rules) >= 40_000 or self._premises + len(b) > 120_000:
+            raise ValueError("ground bound")
+        self._track_atoms((head, *b))
+        self._premises += len(b)
         self.rules.append({"head": head, "body": b, "source": source,
                            "origin": origin, "weight": weight, "certainty": certainty})
 
@@ -195,7 +214,7 @@ def _compile_entries(b: Builder) -> None:
                 b.fact(b.point(api, root, target.key, param.name, alloc), source=f"entry:{api}",
                        origin=prefix + f":arg:{i}")
         for permission in source.permissions:
-            b.queries.add(b.perm(api, permission))
+            b.query(b.perm(api, permission))
 
 
 def _compile_methods(b: Builder) -> None:
