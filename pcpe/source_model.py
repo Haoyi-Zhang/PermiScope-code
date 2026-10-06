@@ -10,6 +10,7 @@ source-to-rule lowering but deliberately reuses this strict parser and resolver.
 from __future__ import annotations
 
 from dataclasses import dataclass
+import json
 from typing import Any, Iterable
 
 LANGUAGE = "bfil-1"
@@ -24,6 +25,34 @@ MAX_LOCALS = 32
 MAX_CANDIDATES = 8
 
 NAME_CHARS = set("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_.$:-")
+
+
+def member_key(owner: str, member: str) -> str:
+    """Injective serialization of a structured declaration identity.
+
+    A dot is legal in either component, so dotted display names are not keys.
+    JSON delimiters cannot occur in source names.
+    """
+    return json.dumps([owner, member], separators=(",", ":"))
+
+
+def _member_reference(raw: Any, label: str) -> str:
+    if type(raw) is dict:
+        ref = _exact(raw, {"owner", "member"}, label)
+        return member_key(_name(ref["owner"], label + " owner", limit=64),
+                          _name(ref["member"], label + " member", limit=48))
+    return _name(raw, label, limit=96)
+
+
+def _resolve_reference(reference: str, inventory: dict[str, Any], label: str) -> str:
+    if reference in inventory:
+        return reference
+    # Backward-compatible dotted references are accepted only if unique.
+    matches = [item.key for item in inventory.values()
+               if f"{item.owner}.{item.name}" == reference]
+    if len(matches) > 1:
+        raise ValueError("ambiguous " + label + " reference")
+    return matches[0] if matches else reference
 
 
 def _name(value: Any, label: str, *, limit: int = 96) -> str:
@@ -61,7 +90,7 @@ class Field:
 
     @property
     def key(self) -> str:
-        return f"{self.owner}.{self.name}"
+        return member_key(self.owner, self.name)
 
 
 @dataclass(frozen=True)
@@ -75,7 +104,7 @@ class Method:
 
     @property
     def key(self) -> str:
-        return f"{self.owner}.{self.name}"
+        return member_key(self.owner, self.name)
 
     @property
     def variables(self) -> dict[str, str]:
@@ -200,9 +229,12 @@ def _parse_candidate(raw: Any, label: str) -> dict[str, Any]:
     required, optional = schemas[op]
     _exact(raw, required, label, optional)
     out = dict(raw)
-    for key in ("permission", "dst", "src", "base", "field", "recv", "selector", "target"):
+    for key in ("permission", "dst", "src", "base", "recv", "selector"):
         if key in out and out[key] is not None:
             out[key] = _name(out[key], label + " " + key, limit=96)
+    for key in ("field", "target"):
+        if key in out:
+            out[key] = _member_reference(out[key], label + " " + key)
     if "args" in out:
         args = _list(out["args"], label + " args", MAX_ARGS)
         out["args"] = [_name(x, label + " arg", limit=48) for x in args]
@@ -230,9 +262,12 @@ def _parse_statement(raw: Any, label: str) -> dict[str, Any]:
     _exact(raw, required, label, optional)
     out = dict(raw)
     out["id"] = _name(out["id"], label + " id", limit=64)
-    for key in ("dst", "src", "base", "field", "recv", "selector", "target", "permission", "class"):
+    for key in ("dst", "src", "base", "recv", "selector", "permission", "class"):
         if key in out and out[key] is not None:
             out[key] = _name(out[key], label + " " + key, limit=96)
+    for key in ("field", "target"):
+        if key in out:
+            out[key] = _member_reference(out[key], label + " " + key)
     if "args" in out:
         out["args"] = [_name(x, label + " arg", limit=48) for x in _list(out["args"], label + " args", MAX_ARGS)]
     if op == "opaque":
@@ -338,6 +373,15 @@ def parse_source(doc: Any) -> SourceProgram:
         entries.append(entry)
 
     program = SourceProgram(permissions, tuple(classes), tuple(services), tuple(entries))
+    # Normalize every reference before type checking, without dropping any
+    # declaration or silently choosing between colliding display names.
+    for method in program.method_map.values():
+        for statement in method.body:
+            operations = [statement] + statement.get("candidates", [])
+            for operation in operations:
+                for key, inventory in (("field", program.field_map), ("target", program.method_map)):
+                    if key in operation:
+                        operation[key] = _resolve_reference(operation[key], inventory, key)
     _validate_semantics(program)
     return program
 

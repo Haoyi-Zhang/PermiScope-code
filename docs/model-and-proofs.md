@@ -30,6 +30,8 @@ Opaque candidates may be `check`, `move`, `store`, `load`, `invoke`, or `direct`
 
 The strict parser rejects unknown keys and operations, duplicate names or statement identifiers, unknown classes/fields/variables/permissions, inheritance cycles, incompatible overrides, invalid service implementations, entry/call arity errors, and incompatible assignment/field/call/return types. Fixed source and ground bounds make all algorithms total.
 
+Method and field identity is the pair `(owner, member)`, serialized as a canonical JSON array (not `owner + "." + member`). Dots remain legal in both components, so `("A.B", "run")` and `("A", "B.run")` are distinct declarations. Field and direct-target references accept objects `{"owner": "...", "member": "..."}`; legacy dotted strings are resolved only when unambiguous. All declarations remain in the inventories and are type checked.
+
 ## 3. Ground relations and lowering
 
 For entry `e`, context `c`, method `m`, variable `x`, allocations `o,o'`, field `f`, permission `p`, and opaque site `s`, the normalized atoms are:
@@ -53,9 +55,15 @@ A direct state contains finite relations for reachable method contexts, local po
 
 For completion `V` of the opaque sites, the direct interpreter executes candidate operations exactly at sites in `V`. Let `P_V` be the corresponding definite ground program.
 
-**Theorem — direct/lowering equivalence.** For every valid document, fixed full variant, and completion `V`, the representable facts in the direct least fixed point are exactly `L(P_V)`.
+**Theorem — direct/lowering equivalence.** For every valid document within source and emitted-ground bounds, fixed full variant, and completion `V`, `pi(L(P_V)) = lfp(F_V)`, where `pi` decodes the non-activation atoms into direct relations.
 
-**Argument.** Entry facts coincide. Each source transfer is represented by the corresponding rule schema, with identical premises and effect. Dynamic calls use the same receiver allocation, subtype test, overriding resolution, and one-call-site context. Opaque activation selects the same candidate transfers. Therefore one source-transfer iteration and one immediate-consequence iteration add the same corresponding facts. Induction over iterations and finiteness yield equal least fixed points.
+**Argument.** Put `S* = lfp(F_V)` and `M = L(P_V)`. Extend a direct state `S` by encoding its relations and adding `active(e,c,m,s)` exactly when `s in V` is an opaque site in a reachable `(e,c,m)`; call this `ext(S)`. Every direct effect has a ground representative by the templates, with the same receiver classes, subtyping, dispatch, field identities and one-call-site contexts, so `pi(ext(S)) = S` on representable reachable states.
+
+`ext(S*)` contains entry facts and is closed under definite rules because `S*` is direct-transfer closed. It is closed under triggers by the extension definition. An active candidate guard entails reachability at an enabled site; the remaining premises give exactly the candidate's direct effect in `S*`. Thus `ext(S*)` is a ground model, and ground leastness gives `M subseteq ext(S*)`, hence `pi(M) subseteq S*`.
+
+Conversely, `pi(M)` contains direct entry initialization. Every applicable definite transfer has its ground body in `M` and hence its effect there. At an enabled reachable opaque site, closure derives the active atom and then each applicable candidate effect. Thus `pi(M)` is direct-transfer closed; direct leastness gives `S* subseteq pi(M)`. The two inclusions prove the projection equality. Ground closure also supplies every active atom in `ext(S*)`, giving `M = ext(S*)`. Activation is an auxiliary representation step, so finite iteration prefixes need not be equal.
+
+The campaign compares permission projections at the two endpoints against direct interpretation and enumerates direct completion permission sets. It does not test full Horn-atom equality or construct a Horn program for each intermediate completion.
 
 The theorem is relative to BFIL-1. It does not prove that an external Java/bytecode/native source was completely translated into BFIL-1.
 
@@ -71,7 +79,7 @@ A certificate lists each derived atom at most once in topological order. A node 
 - every rule is closed over the listed set; and
 - the reported query set is exactly the intersection of listed atoms and queries.
 
-**Theorem — ground exactness.** A certificate is accepted iff the listed atoms are exactly `L(P)` and the report is `Q ∩ L(P)`.
+**Theorem — ground soundness and existential completeness.** Acceptance implies the listed atoms are exactly `L(P)` and the report is `Q ∩ L(P)`. Every finite valid program admits an accepted founded topological certificate for that exact set and report, with at most `|A|` nodes. An arbitrary certificate with the exact set but a wrong reason or order need not be accepted.
 
 **Argument.** Topological witness induction gives `C subseteq L(P)`. Required facts and full closure make `C` a model; leastness gives `L(P) subseteq C`. Conversely, fixed-point iteration yields a topological selected reason for every first-derived atom.
 
@@ -121,9 +129,11 @@ For an unresolved query, deterministic deletion starts with all sites and remove
 
 Monotonicity proves that if deleting a retained site made the query unreachable at the time of the test, the final smaller set without that site is also unreachable. The result is inclusion-minimal, not minimum-cardinality or unique.
 
+The implemented source checker uses exactly `u+k+2 <= 2u+2` closures per unresolved query: initial sufficiency, `u` greedy deletion trials, final sufficiency and `k` deletion audits for the returned `k`-site core. This differs from the simpler optional-fact kernel's `u+1` construction.
+
 ## 10. Revision transport
 
-Transport uses stable names only to find candidates; reuse requires equality of the entire named fact or rule record. Old selected nodes replay in topological order only when their premises are already established. New facts are inserted, then deterministic scans complete the new least model. The ordinary checker validates the result, and the source checker independently reconstructs the entire new source.
+Transport decodes each version's local atom and origin tokens under that version's catalog. Reuse requires equality of entire structured semantic fact/rule records, including decoded head/body, source, origin, certainty, weight, allocation classes and analysis variant. A stable tuple is then mapped to the new local atom/rule indices. Equal `p0` or `e0` tokens alone never establish reuse. Old selected nodes replay in topological order only when their mapped premises are already established. All new facts are inserted, then deterministic scans complete the new least model. The ordinary checker validates the result, and the source checker independently reconstructs the entire new source. The tested pre-completion prefix includes all new initial facts, not old nodes alone.
 
 **Theorem — transport safety.** Every accepted revised result is the exact least-model permission semantics of the revised BFIL-1 source, regardless of reuse count.
 
@@ -134,7 +144,7 @@ A structurally conservative prefix may reject an equal model if a selected witne
 | Claim | General argument | Executable control | Maturity |
 |---|---|---|---|
 | Finite unique lowering | Finite catalog enumeration | Parser/lowering tests and canonical equality | Handwritten proof + tested implementation |
-| Direct/lowering equivalence | Transfer-operator correspondence | Independent direct interpreter on generated cases/completions | Handwritten proof + finite checked |
+| Direct/lowering equivalence | Projection/extension and leastness in both directions | Independent direct permission projections on generated endpoints and completions; no full-atom empirical comparison | Handwritten proof + permission projection finite checked |
 | Ground exactness | Witness induction and model sandwich | Exhaustive four-atom oracle | Handwritten proof + exhaustive bounded check |
 | Source coverage | Complete enumeration and exact equality | Omission/substitution fixtures | Handwritten proof + adversarial tests |
 | Completion endpoints | Positive monotonicity and endpoint worlds | All 528 retained completions | Handwritten proof + exact campaign control |

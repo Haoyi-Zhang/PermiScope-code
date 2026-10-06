@@ -1,0 +1,225 @@
+{
+  "classes": [
+    {
+      "fields": [],
+      "methods": [
+        {
+          "body": [
+            {
+              "id": "F0_base_return",
+              "op": "return",
+              "src": null
+            }
+          ],
+          "locals": [],
+          "name": "guard",
+          "params": [],
+          "returns": null
+        }
+      ],
+      "name": "F0_Guard",
+      "super": null
+    },
+    {
+      "fields": [],
+      "methods": [
+        {
+          "body": [
+            {
+              "id": "F0_check_a",
+              "op": "check",
+              "permission": "PERM_A"
+            },
+            {
+              "id": "F0_a_return",
+              "op": "return",
+              "src": null
+            }
+          ],
+          "locals": [],
+          "name": "guard",
+          "params": [],
+          "returns": null
+        }
+      ],
+      "name": "F0_GuardA",
+      "super": "F0_Guard"
+    },
+    {
+      "fields": [],
+      "methods": [
+        {
+          "body": [
+            {
+              "id": "F0_check_b",
+              "op": "check",
+              "permission": "PERM_B"
+            },
+            {
+              "id": "F0_b_return",
+              "op": "return",
+              "src": null
+            }
+          ],
+          "locals": [],
+          "name": "guard",
+          "params": [],
+          "returns": null
+        }
+      ],
+      "name": "F0_GuardB",
+      "super": "F0_Guard"
+    },
+    {
+      "fields": [
+        {
+          "name": "selected",
+          "type": "F0_Guard"
+        },
+        {
+          "name": "other",
+          "type": "F0_Guard"
+        }
+      ],
+      "methods": [
+        {
+          "body": [
+            {
+              "class": "F0_GuardA",
+              "dst": "a",
+              "id": "F0_new_a",
+              "op": "new"
+            },
+            {
+              "class": "F0_GuardB",
+              "dst": "b",
+              "id": "F0_new_b",
+              "op": "new"
+            },
+            {
+              "base": "this",
+              "field": "F0_Service.selected",
+              "id": "F0_store_a",
+              "op": "store",
+              "src": "a"
+            },
+            {
+              "base": "this",
+              "field": "F0_Service.other",
+              "id": "F0_store_b",
+              "op": "store",
+              "src": "b"
+            },
+            {
+              "base": "this",
+              "dst": "x",
+              "field": "F0_Service.selected",
+              "id": "F0_load",
+              "op": "load"
+            },
+            {
+              "dst": "preserved",
+              "id": "F0_preserving_move",
+              "op": "move",
+              "src": "x"
+            },
+            {
+              "args": [],
+              "dst": null,
+              "id": "F0_invoke_guard",
+              "op": "invoke",
+              "recv": "preserved",
+              "selector": "guard"
+            },
+            {
+              "candidates": [
+                {
+                  "args": [],
+                  "dst": null,
+                  "op": "direct",
+                  "target": "F0_Service.opaque_step_1"
+                }
+              ],
+              "id": "F0_opaque_0",
+              "op": "opaque",
+              "summary": "declared unknown helper dispatch"
+            },
+            {
+              "id": "F0_return",
+              "op": "return",
+              "src": null
+            }
+          ],
+          "locals": [
+            {
+              "name": "a",
+              "type": "F0_Guard"
+            },
+            {
+              "name": "b",
+              "type": "F0_Guard"
+            },
+            {
+              "name": "x",
+              "type": "F0_Guard"
+            },
+            {
+              "name": "preserved",
+              "type": "F0_Guard"
+            }
+          ],
+          "name": "api",
+          "params": [],
+          "returns": null
+        },
+        {
+          "body": [
+            {
+              "candidates": [
+                {
+                  "op": "check",
+                  "permission": "PERM_C"
+                }
+              ],
+              "id": "F0_opaque_1",
+              "op": "opaque",
+              "summary": "declared unknown helper effect"
+            },
+            {
+              "id": "F0_opaque_return_1",
+              "op": "return",
+              "src": null
+            }
+          ],
+          "locals": [],
+          "name": "opaque_step_1",
+          "params": [],
+          "returns": null
+        }
+      ],
+      "name": "F0_Service",
+      "super": null
+    }
+  ],
+  "entries": [
+    {
+      "arg_classes": [],
+      "name": "F0_API",
+      "selector": "api",
+      "service": "F0_svc"
+    }
+  ],
+  "language": "bfil-1",
+  "permissions": [
+    "PERM_A",
+    "PERM_B",
+    "PERM_C"
+  ],
+  "services": [
+    {
+      "declared_class": "F0_Service",
+      "implementation_class": "F0_Service",
+      "name": "F0_svc"
+    }
+  ]
+}

@@ -1,0 +1,135 @@
+{
+  "classes": [
+    {
+      "fields": [],
+      "methods": [
+        {
+          "body": [
+            {
+              "id": "H1_base_return",
+              "op": "return",
+              "src": null
+            }
+          ],
+          "locals": [],
+          "name": "api",
+          "params": [],
+          "returns": null
+        }
+      ],
+      "name": "H1_BaseService",
+      "super": null
+    },
+    {
+      "fields": [],
+      "methods": [
+        {
+          "body": [
+            {
+              "args": [],
+              "dst": null,
+              "id": "H1_A_call_step_0",
+              "op": "direct",
+              "target": "H1_ImplA.step_0"
+            },
+            {
+              "id": "H1_A_api_return",
+              "op": "return",
+              "src": null
+            }
+          ],
+          "locals": [],
+          "name": "api",
+          "params": [],
+          "returns": null
+        },
+        {
+          "body": [
+            {
+              "id": "H1_A_step_check_0",
+              "op": "check",
+              "permission": "PERM_A"
+            },
+            {
+              "id": "H1_A_step_return_0",
+              "op": "return",
+              "src": null
+            }
+          ],
+          "locals": [],
+          "name": "step_0",
+          "params": [],
+          "returns": null
+        }
+      ],
+      "name": "H1_ImplA",
+      "super": "H1_BaseService"
+    },
+    {
+      "fields": [],
+      "methods": [
+        {
+          "body": [
+            {
+              "args": [],
+              "dst": null,
+              "id": "H1_B_call_step_0",
+              "op": "direct",
+              "target": "H1_ImplB.step_0"
+            },
+            {
+              "id": "H1_B_api_return",
+              "op": "return",
+              "src": null
+            }
+          ],
+          "locals": [],
+          "name": "api",
+          "params": [],
+          "returns": null
+        },
+        {
+          "body": [
+            {
+              "id": "H1_B_step_check_0",
+              "op": "check",
+              "permission": "PERM_B"
+            },
+            {
+              "id": "H1_B_step_return_0",
+              "op": "return",
+              "src": null
+            }
+          ],
+          "locals": [],
+          "name": "step_0",
+          "params": [],
+          "returns": null
+        }
+      ],
+      "name": "H1_ImplB",
+      "super": "H1_BaseService"
+    }
+  ],
+  "entries": [
+    {
+      "arg_classes": [],
+      "name": "H1_API",
+      "selector": "api",
+      "service": "H1_svc"
+    }
+  ],
+  "language": "bfil-1",
+  "permissions": [
+    "PERM_A",
+    "PERM_B",
+    "PERM_C"
+  ],
+  "services": [
+    {
+      "declared_class": "H1_BaseService",
+      "implementation_class": "H1_ImplB",
+      "name": "H1_svc"
+    }
+  ]
+}

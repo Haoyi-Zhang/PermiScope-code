@@ -112,7 +112,7 @@ def export(kernel: Path, framework: Path, out: Path) -> None:
             f"Enumerated completion models & {fs['classification']['completion_models']:,}",
             f"Checker steps / graph operations & {fs['counters']['checker_steps']:,} / {fs['counters']['graph_operations']:,}",
             f"Process CPU seconds & {fs['resources']['cpu_seconds']:.3f}",
-            f"Peak process RSS (MiB) & {fs['resources']['process_peak_rss_kib'] / 1024:.2f}",
+            f"{'Peak working set' if fs['resources'].get('platform') == 'nt' else 'Peak process RSS'} (MiB) & {fs['resources']['process_peak_rss_kib'] / 1024:.2f}",
         ],
     )
 

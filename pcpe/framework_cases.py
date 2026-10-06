@@ -18,6 +18,8 @@ from dataclasses import dataclass
 import json
 from typing import Any
 
+from .source_model import member_key, parse_source
+
 
 def _var(name: str, type_: str) -> dict[str, str]:
     return {"name": name, "type": type_}
@@ -635,6 +637,7 @@ def structural_signature(document: dict[str, Any]) -> str:
     equality and diversity checks; it is not a cryptographic digest.
     """
     raw_classes = document["classes"]
+    source = parse_source(document)
     classes = {raw["name"]: f"c{index}" for index, raw in enumerate(raw_classes)}
     permissions = {name: f"p{index}" for index, name in enumerate(document["permissions"])}
     services = {raw["name"]: f"s{index}" for index, raw in enumerate(document["services"])}
@@ -648,13 +651,13 @@ def structural_signature(document: dict[str, Any]) -> str:
     fields: dict[str, str] = {}
     for ci, raw in enumerate(raw_classes):
         for fi, field in enumerate(raw["fields"]):
-            fields[f"{raw['name']}.{field['name']}"] = f"f{ci}.{fi}"
+            fields[member_key(raw["name"], field["name"])] = f"f{ci}.{fi}"
         for mi, method in enumerate(raw["methods"]):
-            methods[f"{raw['name']}.{method['name']}"] = f"m{ci}.{mi}"
+            methods[member_key(raw["name"], method["name"])] = f"m{ci}.{mi}"
 
     class_rows: list[Any] = []
     for raw in raw_classes:
-        field_rows = tuple((fields[f"{raw['name']}.{f['name']}"], classes[f["type"]]) for f in raw["fields"])
+        field_rows = tuple((fields[member_key(raw["name"], f["name"])], classes[f["type"]]) for f in raw["fields"])
         method_rows: list[Any] = []
         for method in raw["methods"]:
             variables = {"this": "v0"}
@@ -670,11 +673,11 @@ def structural_signature(document: dict[str, Any]) -> str:
                     selectors=selectors,
                     permissions=permissions,
                 )
-                for stmt in method["body"]
+                for stmt in source.method_map[member_key(raw["name"], method["name"])].body
             )
             method_rows.append(
                 (
-                    methods[f"{raw['name']}.{method['name']}"],
+                    methods[member_key(raw["name"], method["name"])],
                     selectors[method["name"]],
                     tuple(classes[x["type"]] for x in method["params"]),
                     None if method["returns"] is None else classes[method["returns"]],

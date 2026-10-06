@@ -1,0 +1,126 @@
+{
+  "baselines": {
+    "cha": {
+      "exact": 0,
+      "fn": 0,
+      "fp": 300,
+      "precision": 0.5,
+      "recall": 1.0,
+      "tp": 300
+    },
+    "context-insensitive": {
+      "exact": 200,
+      "fn": 0,
+      "fp": 100,
+      "precision": 0.75,
+      "recall": 1.0,
+      "tp": 300
+    },
+    "field-insensitive": {
+      "exact": 200,
+      "fn": 0,
+      "fp": 100,
+      "precision": 0.75,
+      "recall": 1.0,
+      "tp": 300
+    },
+    "full": {
+      "exact": 300,
+      "fn": 0,
+      "fp": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "tp": 300
+    }
+  },
+  "cases": {
+    "fault_fixtures": 24,
+    "generated_revisions": 300,
+    "public_slices": 12,
+    "total": 336
+  },
+  "classification": {
+    "completion_models": 528,
+    "endpoint_envelope_exact": 300,
+    "inclusion_minimal_core_size_histogram": {
+      "1": 18,
+      "2": 21,
+      "3": 21
+    },
+    "max_opaque_sites": 3,
+    "minimum_cost_histogram": {
+      "1": 18,
+      "2": 21,
+      "3": 21
+    },
+    "unresolved_queries": 60
+  },
+  "counters": {
+    "checker_steps": 2919349,
+    "completion_models": 528,
+    "completion_oracle_events": 36264,
+    "completion_oracle_iterations": 2386,
+    "core_closure_calls": 732,
+    "core_rule_scans": 2495024,
+    "graph_operations": 2289440,
+    "oracle_events": 41767,
+    "oracle_iterations": 2850,
+    "transport_rule_scans": 496537,
+    "weighted_rule_scans": 1805130
+  },
+  "diversity": {
+    "identifier_erased_new_programs": 300,
+    "identifier_erased_revision_pairs": 300,
+    "profile_grid": {
+      "alias_depth": [
+        0,
+        4
+      ],
+      "opaque_depth": [
+        0,
+        3
+      ],
+      "structure_depth": [
+        0,
+        3
+      ],
+      "width": [
+        0,
+        4
+      ]
+    },
+    "profiles_per_family": 100
+  },
+  "errors": 0,
+  "maxima": {
+    "certificate_nodes": 49,
+    "fields": 7,
+    "lower_atoms": 1415,
+    "lower_rules": 3346,
+    "methods": 32,
+    "premise_incidences": 9254,
+    "statements": 63,
+    "upper_atoms": 1415,
+    "upper_rules": 3486
+  },
+  "resources": {
+    "cpu_seconds": 51.578125,
+    "download_bytes_during_campaign": 0,
+    "os_resource_limits": false,
+    "platform": "nt",
+    "process_peak_rss_kib": 47848,
+    "wall_seconds": 54.32800000000134,
+    "workers": 1
+  },
+  "revisions": {
+    "certificate_nodes": 6518,
+    "completion_required": 201,
+    "conservative_transport_exact": 99,
+    "conservative_transport_exact_changing": 0,
+    "conservative_transport_exact_preserving": 99,
+    "mean_reused_fraction": 0.8008591592513041,
+    "reused_nodes": 5220,
+    "semantic_changing": 150,
+    "semantic_preserving": 150
+  }
+}

@@ -5,6 +5,10 @@ module.  It shares only the declared parser/type-model base in
 :mod:`pcpe.source_model`.  The lowering is deterministic and emits named
 facts/rules before converting them to the finite ground format checked by the
 existing Horn checker.
+
+Method/field catalog keys are canonical owner/member pairs supplied by the
+strict source model. Compact e0/p0/... tokens are local to this catalog, not
+cross-revision identities; transport decodes them before comparison.
 """
 from __future__ import annotations
 

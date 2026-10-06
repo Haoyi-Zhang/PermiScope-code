@@ -17,7 +17,7 @@ From the standalone repository root:
 python -m unittest discover -s tests -v
 ```
 
-Expected: 61 tests and final status `OK`. Run the same command with `python -O` as a second control; correctness checks do not rely on removable `assert` statements. The exact duration is machine-dependent. Tests cover strict parsing and bounds, all statement templates, source-checker separation, lower/upper classifications, all-completion endpoint checks, minimum trigger costs, site-core replay, revision transport, public records, and the finite kernel.
+Expected: 75 tests and final status `OK`. Run the same command with `python -O` as a second control; correctness checks do not rely on removable `assert` statements. The exact duration is machine-dependent. Tests also cover dotted declaration collisions, semantic token remapping, changed permissions/classes, invalid certificate reasons/order, source core closure counts, and acceptance of all six retained scale certificates.
 
 ## 2. Reproduce the finite ground campaign
 
@@ -34,7 +34,7 @@ Expected comparator result: semantic match. `reconcile.py` recounts every raw ta
 ```bash
 python run_framework_campaign.py --out replay-framework
 python reconcile_framework.py replay-framework
-python compare_framework_results.py results/framework-observed replay-framework
+python compare_framework_results.py results/framework-replay replay-framework
 ```
 
 Expected summary:
@@ -50,17 +50,19 @@ Expected summary:
 - field-insensitive and context-insensitive precision 0.75 on the designed aggregate;
 - class-hierarchy precision 0.50 on the designed aggregate;
 - 300 identifier-erased unique revision-pair structures and 300 unique new-program structures;
-- 99 already-exact transported prefixes, 201 requiring completion, and 4,794/6,518 reused final nodes;
+- 99 already-exact prefixes (including all new initial facts), 201 requiring rule completion, and 5,220/6,518 semantically reused certificate nodes (80.09%);
 - zero campaign errors.
 
 `compare_framework_results.py` excludes timing and process RSS but compares semantic summaries, all CSV rows, and representative evidence files.
+
+`results/framework-replay` contains the current source-campaign output. `results/framework-observed` is the unchanged historical local-token campaign, not a valid byte-equality baseline or current-format certificate package. Comparisons against it are expected to differ. Source-campaign resource limits use POSIX facilities when available; on Windows, the summary explicitly records unavailable OS limits and measures the process peak working set. Source/ground size bounds and the fixed workload apply on both platforms. The ground reproduction driver still requires POSIX `resource`; its historical outputs were reconciled, not rerun on Windows.
 
 ## 4. Check one source/evidence pair
 
 ```bash
 python check_framework.py \
-  results/framework-observed/sample-000-source.json \
-  results/framework-observed/sample-000-evidence.json
+  results/framework-replay/sample-000-source.json \
+  results/framework-replay/sample-000-evidence.json
 ```
 
 Expected: accepted source evidence. This case contains the field-sensitive running example and two nested opaque sites.
@@ -87,7 +89,7 @@ When the artifact is beside the project paper directory:
 ```bash
 python export_paper_data.py \
   results/observed \
-  --framework results/framework-observed \
+  --framework results/framework-replay \
   --out ../paper/data
 ```
 

@@ -5,6 +5,9 @@ trusted base) but does not import the untrusted lowering, producer, revision,
 or weighted producer.  It independently rebuilds every expected ground fact
 and rule from every source occurrence, compares the complete named inventory,
 then delegates only the already-independent ground and weighted checks.
+
+Declaration keys come from the parser's injective owner/member serialization.
+Compact atom tokens are interpreted under the reconstructed endpoint catalog.
 """
 from __future__ import annotations
 

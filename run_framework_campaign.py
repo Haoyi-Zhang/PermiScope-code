@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
 """Run the 336-case BFIL framework campaign with one bounded worker."""
 from __future__ import annotations
-import argparse,csv,json,os,resource,time
+import argparse,csv,json,os,time
+try:
+    import resource
+except ImportError:
+    resource = None
 from pathlib import Path
 from typing import Any
 
@@ -29,11 +33,36 @@ def require(condition:bool,message:str)->None:
 def bounded_runtime()->None:
     if hasattr(os,'sched_getaffinity'):
         allowed=os.sched_getaffinity(0);os.sched_setaffinity(0,{min(allowed)})
+    if resource is None:
+        # Windows: the fixed case inventory and parser/ground bounds still
+        # apply; POSIX process limits are unavailable and are not claimed.
+        return
     memory=3*1024**3
     _,hard=resource.getrlimit(resource.RLIMIT_AS);memory=min(memory,hard) if hard>=0 else memory
     resource.setrlimit(resource.RLIMIT_AS,(memory,memory))
     _,hard=resource.getrlimit(resource.RLIMIT_CPU);cap=min(1800,hard) if hard>=0 else 1800
     resource.setrlimit(resource.RLIMIT_CPU,(cap,cap))
+
+def peak_rss_kib()->int:
+    if resource is not None:
+        return resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
+    import ctypes
+    from ctypes import wintypes
+    class Counters(ctypes.Structure):
+        _fields_=[("cb",wintypes.DWORD),("PageFaultCount",wintypes.DWORD),
+                  ("PeakWorkingSetSize",ctypes.c_size_t),("WorkingSetSize",ctypes.c_size_t),
+                  ("QuotaPeakPagedPoolUsage",ctypes.c_size_t),("QuotaPagedPoolUsage",ctypes.c_size_t),
+                  ("QuotaPeakNonPagedPoolUsage",ctypes.c_size_t),("QuotaNonPagedPoolUsage",ctypes.c_size_t),
+                  ("PagefileUsage",ctypes.c_size_t),("PeakPagefileUsage",ctypes.c_size_t)]
+    kernel=ctypes.WinDLL("kernel32",use_last_error=True)
+    psapi=ctypes.WinDLL("psapi",use_last_error=True)
+    kernel.GetCurrentProcess.restype=wintypes.HANDLE
+    psapi.GetProcessMemoryInfo.argtypes=[wintypes.HANDLE,ctypes.POINTER(Counters),wintypes.DWORD]
+    psapi.GetProcessMemoryInfo.restype=wintypes.BOOL
+    counters=Counters();counters.cb=ctypes.sizeof(counters)
+    if not psapi.GetProcessMemoryInfo(kernel.GetCurrentProcess(),ctypes.byref(counters),counters.cb):
+        raise OSError(ctypes.get_last_error(),"GetProcessMemoryInfo")
+    return counters.PeakWorkingSetSize//1024
 
 def write_json(path:Path,obj:Any)->None:
     path.parent.mkdir(parents=True,exist_ok=True);path.write_text(json.dumps(obj,indent=2,sort_keys=True)+'\n')
@@ -228,7 +257,8 @@ def main()->None:
                         'completion_models':completion_models_total,'endpoint_envelope_exact':endpoint_exact,
                         'max_opaque_sites':max_opaque_sites},
       'baselines':baseline_agg,'maxima':maxima,'counters':totals,
-      'resources':{'cpu_seconds':cpu,'wall_seconds':wall,'process_peak_rss_kib':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
+      'resources':{'cpu_seconds':cpu,'wall_seconds':wall,'process_peak_rss_kib':peak_rss_kib(),
+                   'platform':os.name,'os_resource_limits':resource is not None,
                    'workers':1,'download_bytes_during_campaign':0},'errors':0}
     write_json(out/'summary.json',summary)
     print(json.dumps(summary,indent=2,sort_keys=True))

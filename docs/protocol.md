@@ -21,7 +21,7 @@ No hypothesis depends on a preselected speedup. A mismatch, accepted fault, endp
 
 Each family has 50 permission-preserving and 50 permission-changing pairs. The 100 profiles per family form a deterministic grid over alias depth 0--4, width 0--4, and inheritance/call depth 0--3. Twenty profiles per family contain one to three opaque sites arranged so that every site is required for the additional permission. Preserving revisions deliberately mix three situations: unchanged proof-relevant structure, reachable semantics-preserving refactoring, and closure-neutral additions. Family labels and expected revision class are fixed by construction, not inferred after running.
 
-The campaign computes canonical signatures after erasing identifiers and rejects the suite unless all 300 revision pairs and all 300 new programs remain structurally distinct. The largest retained new document has 32 methods, seven fields, and 63 statements; the largest retained upper program has 1,415 atoms, 3,486 rules, 9,254 premise incidences, and a 49-node selected certificate.
+The campaign computes canonical signatures after erasing identifiers and rejects the suite unless all 300 revision pairs and all 300 new programs remain structurally distinct. Separate maxima across the retained suite are 32 methods, seven fields, 63 statements, 1,415 upper atoms, 3,486 upper rules, 9,254 premise incidences, and 49 selected certificate nodes. These maxima occur in different items and do not describe one joint workload.
 
 ### 2.2 Public line-bounded anchors: 12
 
@@ -94,7 +94,7 @@ For every three-atom theory, each atom is known, optional, or absent: 8,127 part
 
 Independent-pair families of size one through six establish an elementary exponential output count for enumerating all minimal cores. An exactly-one completion demonstrates that the lower/upper union theorem requires admissible all-enabled choices.
 
-Scale inputs have 128, 1,280, and 12,800 atoms with 400, 4,000, and 40,000 premise incidences, each with empty and full certificates. These are ground checker probes, not framework methods or call-graph edges.
+Scale inputs have 128, 1,280, and 12,800 atoms with 400, 4,000, and 40,000 premise incidences, with zero or one seed respectively. The empty and complete certificates are both accepted on their distinct inputs. The retained 190.4/212.0 ms observations are end-to-end wall times including construction, extraction, validation and JSON output, not isolated checker latency or an empty-certificate rejection time. These are ground probes, not framework methods or call-graph edges.
 
 ## 6. Measurements and retained outputs
 
@@ -108,7 +108,7 @@ Claim-bearing results are semantic rows and counts. Timing and memory are descri
 - representative source/evidence pairs for two cases per family
 - `results/observed/*.csv` and `*-summary.json` for the finite kernel
 
-The source campaign records 2,919,349 checker steps, 2,289,440 graph operations, 17.399 process CPU seconds, 17.403 wall seconds, 117.17 MiB process high-water RSS, one worker, and zero campaign downloads. The finite kernel records 16.318 process CPU seconds and 117.17 MiB peak RSS. These are descriptive single-process observations, not comparative performance claims.
+Those `framework-observed` paths preserve the historical source campaign. The current `results/framework-replay/` reruns the same workload with structured declaration identities and catalog-decoded reuse. It records 5,220/6,518 semantically reused nodes (80.09%), 2,919,349 checker steps, 2,289,440 graph operations, 51.578 process CPU seconds, 54.328 wall seconds and 46.73 MiB peak Windows working set, one worker and zero downloads. The earlier source timings (17.399 CPU seconds, 17.403 wall seconds, 117.17 MiB RSS) are not observations of revised code. The historical finite kernel records 16.318 CPU seconds and 117.17 MiB peak RSS. These are descriptive observations, not comparative performance claims.
 
 ## 7. Inclusion, exclusion, and non-claims
 
