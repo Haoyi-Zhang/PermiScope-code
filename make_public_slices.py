@@ -12,14 +12,14 @@ BLOB_SHA1={
     WPATH:'cd3d603d831a0478aaea4d09e8db8d589c14a9dc',
 }
 CASES=[
-('vibrator-is-vibrating',VPATH,277,282,'mContext.enforceCallingOrSelfPermission','android.Manifest.permission.ACCESS_VIBRATOR_STATE','android.permission.ACCESS_VIBRATOR_STATE','''    public boolean isVibrating(int vibratorId) {
+('vibrator-is-vibrating',VPATH,302,307,'mContext.enforceCallingOrSelfPermission','android.Manifest.permission.ACCESS_VIBRATOR_STATE','android.permission.ACCESS_VIBRATOR_STATE','''    public boolean isVibrating(int vibratorId) {
         mContext.enforceCallingOrSelfPermission(
                 android.Manifest.permission.ACCESS_VIBRATOR_STATE,
                 "isVibrating");
         VibratorController controller = mVibrators.get(vibratorId);
         return controller != null && controller.isVibrating();
 '''),
-('vibrator-register-listener',VPATH,285,293,'mContext.enforceCallingOrSelfPermission','android.Manifest.permission.ACCESS_VIBRATOR_STATE','android.permission.ACCESS_VIBRATOR_STATE','''    public boolean registerVibratorStateListener(int vibratorId, IVibratorStateListener listener) {
+('vibrator-register-listener',VPATH,311,319,'mContext.enforceCallingOrSelfPermission','android.Manifest.permission.ACCESS_VIBRATOR_STATE','android.permission.ACCESS_VIBRATOR_STATE','''    public boolean registerVibratorStateListener(int vibratorId, IVibratorStateListener listener) {
         mContext.enforceCallingOrSelfPermission(
                 android.Manifest.permission.ACCESS_VIBRATOR_STATE,
                 "registerVibratorStateListener");
@@ -29,7 +29,7 @@ CASES=[
         }
         return controller.registerVibratorStateListener(listener);
 '''),
-('vibrator-unregister-listener',VPATH,296,305,'mContext.enforceCallingOrSelfPermission','android.Manifest.permission.ACCESS_VIBRATOR_STATE','android.permission.ACCESS_VIBRATOR_STATE','''    public boolean unregisterVibratorStateListener(int vibratorId,
+('vibrator-unregister-listener',VPATH,323,332,'mContext.enforceCallingOrSelfPermission','android.Manifest.permission.ACCESS_VIBRATOR_STATE','android.permission.ACCESS_VIBRATOR_STATE','''    public boolean unregisterVibratorStateListener(int vibratorId,
             IVibratorStateListener listener) {
         mContext.enforceCallingOrSelfPermission(
                 android.Manifest.permission.ACCESS_VIBRATOR_STATE,
@@ -40,7 +40,7 @@ CASES=[
         }
         return controller.unregisterVibratorStateListener(listener);
 '''),
-('vibrator-set-always-on',VPATH,308,314,'mContext.enforceCallingOrSelfPermission','android.Manifest.permission.VIBRATE_ALWAYS_ON','android.permission.VIBRATE_ALWAYS_ON','''    public boolean setAlwaysOnEffect(int uid, String opPkg, int alwaysOnId,
+('vibrator-set-always-on',VPATH,336,342,'mContext.enforceCallingOrSelfPermission','android.Manifest.permission.VIBRATE_ALWAYS_ON','android.permission.VIBRATE_ALWAYS_ON','''    public boolean setAlwaysOnEffect(int uid, String opPkg, int alwaysOnId,
             @Nullable CombinedVibration effect, @Nullable VibrationAttributes attrs) {
         Trace.traceBegin(Trace.TRACE_TAG_VIBRATOR, "setAlwaysOnEffect");
         try {
@@ -48,43 +48,43 @@ CASES=[
                     android.Manifest.permission.VIBRATE_ALWAYS_ON,
                     "setAlwaysOnEffect");
 '''),
-('vibrator-vibrate-internal',VPATH,360,365,'mContext.enforceCallingOrSelfPermission','android.Manifest.permission.VIBRATE','android.permission.VIBRATE','''    HalVibration vibrateInternal(int uid, int displayId, String opPkg,
+('vibrator-vibrate-internal',VPATH,391,396,'mContext.enforceCallingOrSelfPermission','android.Manifest.permission.VIBRATE','android.permission.VIBRATE','''    HalVibration vibrateInternal(int uid, int displayId, String opPkg,
             @NonNull CombinedVibration effect, @Nullable VibrationAttributes attrs,
             String reason, IBinder token) {
         Trace.traceBegin(Trace.TRACE_TAG_VIBRATOR, "vibrate, reason = " + reason);
         try {
             mContext.enforceCallingOrSelfPermission(android.Manifest.permission.VIBRATE, "vibrate");
 '''),
-('vibrator-cancel',VPATH,442,447,'mContext.enforceCallingOrSelfPermission','android.Manifest.permission.VIBRATE','android.permission.VIBRATE','''    public void cancelVibrate(int usageFilter, IBinder token) {
+('vibrator-cancel',VPATH,479,484,'mContext.enforceCallingOrSelfPermission','android.Manifest.permission.VIBRATE','android.permission.VIBRATE','''    public void cancelVibrate(int usageFilter, IBinder token) {
         Trace.traceBegin(Trace.TRACE_TAG_VIBRATOR, "cancelVibrate");
         try {
             mContext.enforceCallingOrSelfPermission(
                     android.Manifest.permission.VIBRATE,
                     "cancelVibrate");
 '''),
-('wallpaper-clear',WPATH,1837,1840,'checkPermission','android.Manifest.permission.SET_WALLPAPER','android.permission.SET_WALLPAPER','''    public void clearWallpaper(String callingPackage, int which, int userId) {
+('wallpaper-clear',WPATH,1980,1983,'checkPermission','android.Manifest.permission.SET_WALLPAPER','android.permission.SET_WALLPAPER','''    public void clearWallpaper(String callingPackage, int which, int userId) {
         if (DEBUG) Slog.v(TAG, "clearWallpaper");
         checkPermission(android.Manifest.permission.SET_WALLPAPER);
         if (!isWallpaperSupported(callingPackage) || !isSetWallpaperAllowed(callingPackage)) {
 '''),
-('wallpaper-dimension-hints',WPATH,1986,1988,'checkPermission','android.Manifest.permission.SET_WALLPAPER_HINTS','android.permission.SET_WALLPAPER_HINTS','''    public void setDimensionHints(int width, int height, String callingPackage, int displayId)
+('wallpaper-dimension-hints',WPATH,2141,2143,'checkPermission','android.Manifest.permission.SET_WALLPAPER_HINTS','android.permission.SET_WALLPAPER_HINTS','''    public void setDimensionHints(int width, int height, String callingPackage, int displayId)
             throws RemoteException {
         checkPermission(android.Manifest.permission.SET_WALLPAPER_HINTS);
 '''),
-('wallpaper-display-padding',WPATH,2071,2072,'checkPermission','android.Manifest.permission.SET_WALLPAPER_HINTS','android.permission.SET_WALLPAPER_HINTS','''    public void setDisplayPadding(Rect padding, String callingPackage, int displayId) {
+('wallpaper-display-padding',WPATH,2232,2233,'checkPermission','android.Manifest.permission.SET_WALLPAPER_HINTS','android.permission.SET_WALLPAPER_HINTS','''    public void setDisplayPadding(Rect padding, String callingPackage, int displayId) {
         checkPermission(android.Manifest.permission.SET_WALLPAPER_HINTS);
 '''),
-('wallpaper-lock-callback',WPATH,2519,2524,'checkPermission','android.Manifest.permission.INTERNAL_SYSTEM_WINDOW','android.permission.INTERNAL_SYSTEM_WINDOW','''    public boolean setLockWallpaperCallback(IWallpaperManagerCallback cb) {
+('wallpaper-lock-callback',WPATH,2708,2713,'checkPermission','android.Manifest.permission.INTERNAL_SYSTEM_WINDOW','android.permission.INTERNAL_SYSTEM_WINDOW','''    public boolean setLockWallpaperCallback(IWallpaperManagerCallback cb) {
         checkPermission(android.Manifest.permission.INTERNAL_SYSTEM_WINDOW);
         synchronized (mLock) {
             mKeyguardListener = cb;
         }
         return true;
 '''),
-('wallpaper-set-dim',WPATH,2634,2635,'checkPermission','android.Manifest.permission.SET_WALLPAPER_DIM_AMOUNT','android.permission.SET_WALLPAPER_DIM_AMOUNT','''    public void setWallpaperDimAmountForUid(int uid, float dimAmount) {
+('wallpaper-set-dim',WPATH,2831,2832,'checkPermission','android.Manifest.permission.SET_WALLPAPER_DIM_AMOUNT','android.permission.SET_WALLPAPER_DIM_AMOUNT','''    public void setWallpaperDimAmountForUid(int uid, float dimAmount) {
         checkPermission(android.Manifest.permission.SET_WALLPAPER_DIM_AMOUNT);
 '''),
-('wallpaper-set',WPATH,2800,2805,'checkPermission','android.Manifest.permission.SET_WALLPAPER','android.permission.SET_WALLPAPER','''    public ParcelFileDescriptor setWallpaper(String name, String callingPackage,
+('wallpaper-set',WPATH,3009,3014,'checkPermission','android.Manifest.permission.SET_WALLPAPER','android.permission.SET_WALLPAPER','''    public ParcelFileDescriptor setWallpaper(String name, String callingPackage,
             Rect cropHint, boolean allowBackup, Bundle extras, int which,
             IWallpaperManagerCallback completion, int userId) {
         userId = ActivityManager.handleIncomingUser(getCallingPid(), getCallingUid(), userId,

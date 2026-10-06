@@ -7,15 +7,15 @@
   "excerpt": "    public void setDisplayPadding(Rect padding, String callingPackage, int displayId) {\n        checkPermission(android.Manifest.permission.SET_WALLPAPER_HINTS);\n",
   "id": "wallpaper-display-padding",
   "provenance": {
-    "end_line": 2072,
+    "end_line": 2233,
     "excerpt_sha256": "3d169745732e962c9e11793d5d49fab9aed14a098931b902bad5ab32edae600e",
     "file_blob_sha1": "cd3d603d831a0478aaea4d09e8db8d589c14a9dc",
     "license": "Apache-2.0",
     "path": "services/core/java/com/android/server/wallpaper/WallpaperManagerService.java",
     "repository": "aosp-mirror/platform_frameworks_base",
-    "start_line": 2071,
+    "start_line": 2232,
     "tag": "android-14.0.0_r1",
-    "url": "https://github.com/aosp-mirror/platform_frameworks_base/blob/android-14.0.0_r1/services/core/java/com/android/server/wallpaper/WallpaperManagerService.java#L2071-L2072"
+    "url": "https://github.com/aosp-mirror/platform_frameworks_base/blob/android-14.0.0_r1/services/core/java/com/android/server/wallpaper/WallpaperManagerService.java#L2232-L2233"
   },
   "source": {
     "classes": [

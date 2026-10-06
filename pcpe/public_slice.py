@@ -4,7 +4,9 @@ This is intentionally not a Java frontend.  Each retained slice is a small,
 line-bounded Apache-2.0 AOSP excerpt whose declared permission call is anchored
 by exact text.  The semantic BFIL projection is checked separately.  Statements
 outside the retained line range are not covered and no whole-method or
-whole-framework guarantee follows.
+whole-framework guarantee follows. This offline validator checks packaged
+self-consistency and the lexical projection; it does not fetch upstream files
+or authenticate the declared physical source location.
 """
 from __future__ import annotations
 from dataclasses import dataclass

@@ -7,15 +7,15 @@
   "excerpt": "    public void clearWallpaper(String callingPackage, int which, int userId) {\n        if (DEBUG) Slog.v(TAG, \"clearWallpaper\");\n        checkPermission(android.Manifest.permission.SET_WALLPAPER);\n        if (!isWallpaperSupported(callingPackage) || !isSetWallpaperAllowed(callingPackage)) {\n",
   "id": "wallpaper-clear",
   "provenance": {
-    "end_line": 1840,
+    "end_line": 1983,
     "excerpt_sha256": "7acd5ab3e15e3f34477dd333a9732cbda98c1db982f8147f6199a9e2f52798cd",
     "file_blob_sha1": "cd3d603d831a0478aaea4d09e8db8d589c14a9dc",
     "license": "Apache-2.0",
     "path": "services/core/java/com/android/server/wallpaper/WallpaperManagerService.java",
     "repository": "aosp-mirror/platform_frameworks_base",
-    "start_line": 1837,
+    "start_line": 1980,
     "tag": "android-14.0.0_r1",
-    "url": "https://github.com/aosp-mirror/platform_frameworks_base/blob/android-14.0.0_r1/services/core/java/com/android/server/wallpaper/WallpaperManagerService.java#L1837-L1840"
+    "url": "https://github.com/aosp-mirror/platform_frameworks_base/blob/android-14.0.0_r1/services/core/java/com/android/server/wallpaper/WallpaperManagerService.java#L1980-L1983"
   },
   "source": {
     "classes": [

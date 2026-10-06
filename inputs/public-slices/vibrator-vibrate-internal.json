@@ -7,15 +7,15 @@
   "excerpt": "    HalVibration vibrateInternal(int uid, int displayId, String opPkg,\n            @NonNull CombinedVibration effect, @Nullable VibrationAttributes attrs,\n            String reason, IBinder token) {\n        Trace.traceBegin(Trace.TRACE_TAG_VIBRATOR, \"vibrate, reason = \" + reason);\n        try {\n            mContext.enforceCallingOrSelfPermission(android.Manifest.permission.VIBRATE, \"vibrate\");\n",
   "id": "vibrator-vibrate-internal",
   "provenance": {
-    "end_line": 365,
+    "end_line": 396,
     "excerpt_sha256": "e299efe92af971d4bf704ae4245d4ca904b77b8c9fc9225ac51cd134e4597c47",
     "file_blob_sha1": "cb7e54dda5279d5e80a34a279fa0bb1a61ece934",
     "license": "Apache-2.0",
     "path": "services/core/java/com/android/server/vibrator/VibratorManagerService.java",
     "repository": "aosp-mirror/platform_frameworks_base",
-    "start_line": 360,
+    "start_line": 391,
     "tag": "android-14.0.0_r1",
-    "url": "https://github.com/aosp-mirror/platform_frameworks_base/blob/android-14.0.0_r1/services/core/java/com/android/server/vibrator/VibratorManagerService.java#L360-L365"
+    "url": "https://github.com/aosp-mirror/platform_frameworks_base/blob/android-14.0.0_r1/services/core/java/com/android/server/vibrator/VibratorManagerService.java#L391-L396"
   },
   "source": {
     "classes": [

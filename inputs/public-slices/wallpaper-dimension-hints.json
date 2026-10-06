@@ -7,15 +7,15 @@
   "excerpt": "    public void setDimensionHints(int width, int height, String callingPackage, int displayId)\n            throws RemoteException {\n        checkPermission(android.Manifest.permission.SET_WALLPAPER_HINTS);\n",
   "id": "wallpaper-dimension-hints",
   "provenance": {
-    "end_line": 1988,
+    "end_line": 2143,
     "excerpt_sha256": "a1d6adb9ae0129b9b449b48c49be1f70fe67c3965393015c9701899b7dde8145",
     "file_blob_sha1": "cd3d603d831a0478aaea4d09e8db8d589c14a9dc",
     "license": "Apache-2.0",
     "path": "services/core/java/com/android/server/wallpaper/WallpaperManagerService.java",
     "repository": "aosp-mirror/platform_frameworks_base",
-    "start_line": 1986,
+    "start_line": 2141,
     "tag": "android-14.0.0_r1",
-    "url": "https://github.com/aosp-mirror/platform_frameworks_base/blob/android-14.0.0_r1/services/core/java/com/android/server/wallpaper/WallpaperManagerService.java#L1986-L1988"
+    "url": "https://github.com/aosp-mirror/platform_frameworks_base/blob/android-14.0.0_r1/services/core/java/com/android/server/wallpaper/WallpaperManagerService.java#L2141-L2143"
   },
   "source": {
     "classes": [

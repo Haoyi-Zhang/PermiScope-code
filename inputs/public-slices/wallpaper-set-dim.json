@@ -7,15 +7,15 @@
   "excerpt": "    public void setWallpaperDimAmountForUid(int uid, float dimAmount) {\n        checkPermission(android.Manifest.permission.SET_WALLPAPER_DIM_AMOUNT);\n",
   "id": "wallpaper-set-dim",
   "provenance": {
-    "end_line": 2635,
+    "end_line": 2832,
     "excerpt_sha256": "3679dad437de017ce669d545c3871bbb3b9a6b45701bd6d002cec11138cb5b55",
     "file_blob_sha1": "cd3d603d831a0478aaea4d09e8db8d589c14a9dc",
     "license": "Apache-2.0",
     "path": "services/core/java/com/android/server/wallpaper/WallpaperManagerService.java",
     "repository": "aosp-mirror/platform_frameworks_base",
-    "start_line": 2634,
+    "start_line": 2831,
     "tag": "android-14.0.0_r1",
-    "url": "https://github.com/aosp-mirror/platform_frameworks_base/blob/android-14.0.0_r1/services/core/java/com/android/server/wallpaper/WallpaperManagerService.java#L2634-L2635"
+    "url": "https://github.com/aosp-mirror/platform_frameworks_base/blob/android-14.0.0_r1/services/core/java/com/android/server/wallpaper/WallpaperManagerService.java#L2831-L2832"
   },
   "source": {
     "classes": [

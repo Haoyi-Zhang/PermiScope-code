@@ -7,15 +7,15 @@
   "excerpt": "    public boolean isVibrating(int vibratorId) {\n        mContext.enforceCallingOrSelfPermission(\n                android.Manifest.permission.ACCESS_VIBRATOR_STATE,\n                \"isVibrating\");\n        VibratorController controller = mVibrators.get(vibratorId);\n        return controller != null && controller.isVibrating();\n",
   "id": "vibrator-is-vibrating",
   "provenance": {
-    "end_line": 282,
+    "end_line": 307,
     "excerpt_sha256": "737ffb6431479ce06e4cd0a3f75e17e2f0c16ce84f2f143c63765b911aed6017",
     "file_blob_sha1": "cb7e54dda5279d5e80a34a279fa0bb1a61ece934",
     "license": "Apache-2.0",
     "path": "services/core/java/com/android/server/vibrator/VibratorManagerService.java",
     "repository": "aosp-mirror/platform_frameworks_base",
-    "start_line": 277,
+    "start_line": 302,
     "tag": "android-14.0.0_r1",
-    "url": "https://github.com/aosp-mirror/platform_frameworks_base/blob/android-14.0.0_r1/services/core/java/com/android/server/vibrator/VibratorManagerService.java#L277-L282"
+    "url": "https://github.com/aosp-mirror/platform_frameworks_base/blob/android-14.0.0_r1/services/core/java/com/android/server/vibrator/VibratorManagerService.java#L302-L307"
   },
   "source": {
     "classes": [

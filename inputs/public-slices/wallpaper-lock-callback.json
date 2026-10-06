@@ -7,15 +7,15 @@
   "excerpt": "    public boolean setLockWallpaperCallback(IWallpaperManagerCallback cb) {\n        checkPermission(android.Manifest.permission.INTERNAL_SYSTEM_WINDOW);\n        synchronized (mLock) {\n            mKeyguardListener = cb;\n        }\n        return true;\n",
   "id": "wallpaper-lock-callback",
   "provenance": {
-    "end_line": 2524,
+    "end_line": 2713,
     "excerpt_sha256": "b4d948f9baf2c92d6044cbce5a3513af400732fb3beb8f658d87009849c460ca",
     "file_blob_sha1": "cd3d603d831a0478aaea4d09e8db8d589c14a9dc",
     "license": "Apache-2.0",
     "path": "services/core/java/com/android/server/wallpaper/WallpaperManagerService.java",
     "repository": "aosp-mirror/platform_frameworks_base",
-    "start_line": 2519,
+    "start_line": 2708,
     "tag": "android-14.0.0_r1",
-    "url": "https://github.com/aosp-mirror/platform_frameworks_base/blob/android-14.0.0_r1/services/core/java/com/android/server/wallpaper/WallpaperManagerService.java#L2519-L2524"
+    "url": "https://github.com/aosp-mirror/platform_frameworks_base/blob/android-14.0.0_r1/services/core/java/com/android/server/wallpaper/WallpaperManagerService.java#L2708-L2713"
   },
   "source": {
     "classes": [

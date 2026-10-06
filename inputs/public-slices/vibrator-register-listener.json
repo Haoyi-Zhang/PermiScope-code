@@ -7,15 +7,15 @@
   "excerpt": "    public boolean registerVibratorStateListener(int vibratorId, IVibratorStateListener listener) {\n        mContext.enforceCallingOrSelfPermission(\n                android.Manifest.permission.ACCESS_VIBRATOR_STATE,\n                \"registerVibratorStateListener\");\n        VibratorController controller = mVibrators.get(vibratorId);\n        if (controller == null) {\n            return false;\n        }\n        return controller.registerVibratorStateListener(listener);\n",
   "id": "vibrator-register-listener",
   "provenance": {
-    "end_line": 293,
+    "end_line": 319,
     "excerpt_sha256": "c669a7fd3193f375ef244ea6a3c9282a2592542b661e3dee6dba88a3157c2bce",
     "file_blob_sha1": "cb7e54dda5279d5e80a34a279fa0bb1a61ece934",
     "license": "Apache-2.0",
     "path": "services/core/java/com/android/server/vibrator/VibratorManagerService.java",
     "repository": "aosp-mirror/platform_frameworks_base",
-    "start_line": 285,
+    "start_line": 311,
     "tag": "android-14.0.0_r1",
-    "url": "https://github.com/aosp-mirror/platform_frameworks_base/blob/android-14.0.0_r1/services/core/java/com/android/server/vibrator/VibratorManagerService.java#L285-L293"
+    "url": "https://github.com/aosp-mirror/platform_frameworks_base/blob/android-14.0.0_r1/services/core/java/com/android/server/vibrator/VibratorManagerService.java#L311-L319"
   },
   "source": {
     "classes": [
