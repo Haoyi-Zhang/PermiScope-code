@@ -390,20 +390,29 @@ def _finish(b: Builder) -> dict[str, Any]:
 
 def make_coverage(source: SourceProgram, facts: list[dict[str, Any]],
                   rules: list[dict[str, Any]]) -> dict[str, Any]:
+    rule_counts: dict[str, list[int]] = {}
+    for rule in rules:
+        counts = rule_counts.setdefault(rule["source"], [0, 0, 0])
+        counts[0] += 1
+        counts[1] += rule["certainty"] == "opaque-trigger"
+        counts[2] += rule["certainty"] == "opaque-effect"
+    fact_counts: dict[str, int] = {}
+    for fact in facts:
+        key = fact["source"]
+        fact_counts[key] = fact_counts.get(key, 0) + 1
     rows: list[dict[str, Any]] = []
     for method in sorted(source.method_map.values(), key=lambda x: x.key):
         for stmt in method.body:
-            related = [r for r in rules if r["source"] == stmt["id"]]
+            counts = rule_counts.get(stmt["id"], (0, 0, 0))
             rows.append({"id": stmt["id"], "method": method.key, "op": stmt["op"],
-                         "facts": 0, "rules": len(related),
-                         "opaque_triggers": sum(r["certainty"] == "opaque-trigger" for r in related),
-                         "opaque_effects": sum(r["certainty"] == "opaque-effect" for r in related)})
+                         "facts": 0, "rules": counts[0],
+                         "opaque_triggers": counts[1], "opaque_effects": counts[2]})
     entry_rows = []
     for entry in sorted(source.entries, key=lambda x: x.name):
         key = f"entry:{entry.name}"
         entry_rows.append({"id": key,
-                           "facts": sum(x["source"] == key for x in facts),
-                           "rules": sum(x["source"] == key for x in rules)})
+                           "facts": fact_counts.get(key, 0),
+                           "rules": rule_counts.get(key, (0, 0, 0))[0]})
     return {"language": COVERAGE_LANGUAGE, "entries": entry_rows, "statements": rows,
             "totals": {"facts": len(facts), "rules": len(rules),
                        "statements": len(rows), "entries": len(entry_rows)}}

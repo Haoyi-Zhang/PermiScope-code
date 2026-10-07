@@ -273,18 +273,31 @@ def _finish(b: ReferenceBuilder) -> dict[str, Any]:
              "variables":{k:list(v) for k,v in sorted(b.variables.items())},"statements":list(b.statements)}
     ir={"language":"bfil-ir-1","variant":b.variant,"catalog":catalog,"atoms":atoms,
         "facts":b.facts,"rules":b.rules,"queries":sorted(b.queries)}
+    obligations={}
+    for r in b.rules:
+        key=r["source"]
+        if key not in obligations:
+            obligations[key]=[0,0,0]
+        obligations[key][0]+=1
+        if r["certainty"]=="opaque-trigger":
+            obligations[key][1]+=1
+        elif r["certainty"]=="opaque-effect":
+            obligations[key][2]+=1
+    entry_facts={}
+    for f in b.facts:
+        key=f["source"]
+        entry_facts[key]=entry_facts.get(key,0)+1
     rows=[]
     for m in sorted(b.source.method_map.values(),key=lambda x:x.key):
         for s in m.body:
-            rel=[r for r in b.rules if r["source"]==s["id"]]
-            rows.append({"id":s["id"],"method":m.key,"op":s["op"],"facts":0,"rules":len(rel),
-                         "opaque_triggers":sum(r["certainty"]=="opaque-trigger" for r in rel),
-                         "opaque_effects":sum(r["certainty"]=="opaque-effect" for r in rel)})
+            count,trigger,effect=obligations.get(s["id"],(0,0,0))
+            rows.append({"id":s["id"],"method":m.key,"op":s["op"],"facts":0,"rules":count,
+                         "opaque_triggers":trigger,"opaque_effects":effect})
     erows=[]
     for e in sorted(b.source.entries,key=lambda x:x.name):
         key=f"entry:{e.name}"
-        erows.append({"id":key,"facts":sum(x["source"]==key for x in b.facts),
-                      "rules":sum(x["source"]==key for x in b.rules)})
+        erows.append({"id":key,"facts":entry_facts.get(key,0),
+                      "rules":obligations.get(key,(0,0,0))[0]})
     coverage={"language":"bfil-coverage-1","entries":erows,"statements":rows,
               "totals":{"facts":len(b.facts),"rules":len(b.rules),"statements":len(rows),"entries":len(erows)}}
     return {"ir":ir,"program":program,"coverage":coverage}

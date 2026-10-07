@@ -42,6 +42,7 @@ The checker is structurally separate from the producer but was developed in the 
 - `results/framework-observed/` — historical pre-repair rows/evidence, retained without rewriting; not current-format evidence.
 - `results/framework-replay/` — current semantic-catalog campaign rows, representative evidence, and summary.
 - `results/measurements/` — later Linux measurements and selected raw test/check logs, without a duplicate scientific result corpus.
+- `results/coverage-aggregation/` — exact coverage comparisons and same-input aggregation timings; not a full-campaign timing.
 - `tests/` — unit and adversarial tests.
 - `docs/` — model/proof, frozen protocol, literature calibration, and reproduction notes.
 - `claim_evidence_ledger.csv` — claim-to-proof/test/result mapping.
@@ -57,6 +58,25 @@ Run from this repository root with Python 3.11 or later. The implementation uses
 python -m unittest discover -s tests -v
 python -O -m unittest discover -s tests -v
 python audit_manuscript.py
+```
+
+Coverage rows are accumulated by source identity in one pass in each lowering
+implementation. Their canonical order, zero-obligation entries, and exact
+source-to-rule comparisons are unchanged. The separate checker does not import
+the producer's counting code. `tests/test_coverage_counts.py` compares all 300
+old/new revision pairs under five variants (3,000 complete objects), plus two
+empty-body cases, against both independent reconstruction and a scan-based
+coverage reference. The normal local suite passes all 86 tests.
+
+The ten preselected aggregation cases retain every paired timing in
+`results/coverage-aggregation/measurement.json`. Their median scan-to-indexed
+ratios are 1.87–6.81 on the recorded Windows/Python 3.12.14 host. Parsing,
+canonical rule construction and full evidence checking are outside the timed
+region; these ratios are not end-to-end improvements. A separate replay can
+be written without replacing the retained data:
+
+```bash
+python -B measure_coverage.py --out replay-coverage/measurement.json
 ```
 
 Validate one retained public projection or any BFIL-1 source/evidence pair:

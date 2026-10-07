@@ -1,0 +1,13 @@
+{
+  "scope": "Exact coverage and complete lowering objects on owned finite source documents; not a complete campaign rerun or external source audit.",
+  "revision_pairs": 300,
+  "endpoints_per_pair": 2,
+  "variants_per_endpoint": 5,
+  "complete_object_comparisons": 3000,
+  "empty_body_comparisons": 2,
+  "disagreements": 0,
+  "normal_unit_tests": 86,
+  "failures": 0,
+  "optimized_unit_suite_rerun": false,
+  "test_source": "tests/test_coverage_counts.py"
+}

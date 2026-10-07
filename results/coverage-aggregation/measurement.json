@@ -1,0 +1,1352 @@
+{
+  "scope": "Coverage aggregation only, with parsed source and canonical facts/rules precomputed. No full-lowering or end-to-end campaign timing.",
+  "environment": {
+    "platform": "Windows-11-10.0.28000-SP0",
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "processor": "Intel64 Family 6 Model 151 Stepping 2, GenuineIntel",
+    "affinity": null
+  },
+  "protocol": {
+    "revisions": [
+      0,
+      49,
+      99,
+      199,
+      299
+    ],
+    "endpoints": [
+      false,
+      true
+    ],
+    "warmup": 20,
+    "pairs": 11,
+    "iterations": 64,
+    "workers": 1
+  },
+  "cases": [
+    {
+      "revision": 0,
+      "include_opaque": false,
+      "statements": 16,
+      "entries": 1,
+      "facts": 2,
+      "rules": 114,
+      "pairs": [
+        {
+          "order": [
+            "scan",
+            "indexed"
+          ],
+          "nanoseconds": {
+            "scan": 175585.9375,
+            "indexed": 99525.0
+          },
+          "scan_over_indexed": 1.764239512685255
+        },
+        {
+          "order": [
+            "indexed",
+            "scan"
+          ],
+          "nanoseconds": {
+            "indexed": 94025.0,
+            "scan": 191337.5
+          },
+          "scan_over_indexed": 2.034964105291146
+        },
+        {
+          "order": [
+            "scan",
+            "indexed"
+          ],
+          "nanoseconds": {
+            "scan": 218771.875,
+            "indexed": 98237.5
+          },
+          "scan_over_indexed": 2.226969080035628
+        },
+        {
+          "order": [
+            "indexed",
+            "scan"
+          ],
+          "nanoseconds": {
+            "indexed": 104800.0,
+            "scan": 181859.375
+          },
+          "scan_over_indexed": 1.7352993797709924
+        },
+        {
+          "order": [
+            "scan",
+            "indexed"
+          ],
+          "nanoseconds": {
+            "scan": 186192.1875,
+            "indexed": 99481.25
+          },
+          "scan_over_indexed": 1.8716309606081547
+        },
+        {
+          "order": [
+            "indexed",
+            "scan"
+          ],
+          "nanoseconds": {
+            "indexed": 99937.5,
+            "scan": 182862.5
+          },
+          "scan_over_indexed": 1.8297686053783615
+        },
+        {
+          "order": [
+            "scan",
+            "indexed"
+          ],
+          "nanoseconds": {
+            "scan": 187125.0,
+            "indexed": 112720.3125
+          },
+          "scan_over_indexed": 1.6600823387532748
+        },
+        {
+          "order": [
+            "indexed",
+            "scan"
+          ],
+          "nanoseconds": {
+            "indexed": 101635.9375,
+            "scan": 191350.0
+          },
+          "scan_over_indexed": 1.8827002013928391
+        },
+        {
+          "order": [
+            "scan",
+            "indexed"
+          ],
+          "nanoseconds": {
+            "scan": 184139.0625,
+            "indexed": 102575.0
+          },
+          "scan_over_indexed": 1.7951651230806727
+        },
+        {
+          "order": [
+            "indexed",
+            "scan"
+          ],
+          "nanoseconds": {
+            "indexed": 99746.875,
+            "scan": 186354.6875
+          },
+          "scan_over_indexed": 1.868275948494627
+        },
+        {
+          "order": [
+            "scan",
+            "indexed"
+          ],
+          "nanoseconds": {
+            "scan": 206671.875,
+            "indexed": 100714.0625
+          },
+          "scan_over_indexed": 2.0520657182307587
+        }
+      ],
+      "median_ratio": 1.868275948494627
+    },
+    {
+      "revision": 0,
+      "include_opaque": true,
+      "statements": 16,
+      "entries": 1,
+      "facts": 2,
+      "rules": 135,
+      "pairs": [
+        {
+          "order": [
+            "scan",
+            "indexed"
+          ],
+          "nanoseconds": {
+            "scan": 199473.4375,
+            "indexed": 111800.0
+          },
+          "scan_over_indexed": 1.784198904293381
+        },
+        {
+          "order": [
+            "indexed",
+            "scan"
+          ],
+          "nanoseconds": {
+            "indexed": 102126.5625,
+            "scan": 219257.8125
+          },
+          "scan_over_indexed": 2.1469224767062927
+        },
+        {
+          "order": [
+            "scan",
+            "indexed"
+          ],
+          "nanoseconds": {
+            "scan": 238753.125,
+            "indexed": 110164.0625
+          },
+          "scan_over_indexed": 2.1672505496064107
+        },
+        {
+          "order": [
+            "indexed",
+            "scan"
+          ],
+          "nanoseconds": {
+            "indexed": 119820.3125,
+            "scan": 223770.3125
+          },
+          "scan_over_indexed": 1.8675490643541761
+        },
+        {
+          "order": [
+            "scan",
+            "indexed"
+          ],
+          "nanoseconds": {
+            "scan": 227964.0625,
+            "indexed": 114232.8125
+          },
+          "scan_over_indexed": 1.9956092957091467
+        },
+        {
+          "order": [
+            "indexed",
+            "scan"
+          ],
+          "nanoseconds": {
+            "indexed": 112684.375,
+            "scan": 220554.6875
+          },
+          "scan_over_indexed": 1.9572783493718628
+        },
+        {
+          "order": [
+            "scan",
+            "indexed"
+          ],
+          "nanoseconds": {
+            "scan": 208604.6875,
+            "indexed": 107696.875
+          },
+          "scan_over_indexed": 1.9369613788700926
+        },
+        {
+          "order": [
+            "indexed",
+            "scan"
+          ],
+          "nanoseconds": {
+            "indexed": 102840.625,
+            "scan": 200178.125
+          },
+          "scan_over_indexed": 1.9464888024552554
+        },
+        {
+          "order": [
+            "scan",
+            "indexed"
+          ],
+          "nanoseconds": {
+            "scan": 202890.625,
+            "indexed": 111273.4375
+          },
+          "scan_over_indexed": 1.8233518219476235
+        },
+        {
+          "order": [
+            "indexed",
+            "scan"
+          ],
+          "nanoseconds": {
+            "indexed": 113875.0,
+            "scan": 212453.125
+          },
+          "scan_over_indexed": 1.8656695938529089
+        },
+        {
+          "order": [
+            "scan",
+            "indexed"
+          ],
+          "nanoseconds": {
+            "scan": 210540.625,
+            "indexed": 103295.3125
+          },
+          "scan_over_indexed": 2.038239876567487
+        }
+      ],
+      "median_ratio": 1.9464888024552554
+    },
+    {
+      "revision": 49,
+      "include_opaque": false,
+      "statements": 30,
+      "entries": 1,
+      "facts": 2,
+      "rules": 1344,
+      "pairs": [
+        {
+          "order": [
+            "scan",
+            "indexed"
+          ],
+          "nanoseconds": {
+            "scan": 2025153.125,
+            "indexed": 411829.6875
+          },
+          "scan_over_indexed": 4.917452982308372
+        },
+        {
+          "order": [
+            "indexed",
+            "scan"
+          ],
+          "nanoseconds": {
+            "indexed": 444198.4375,
+            "scan": 1990876.5625
+          },
+          "scan_over_indexed": 4.481953096694538
+        },
+        {
+          "order": [
+            "scan",
+            "indexed"
+          ],
+          "nanoseconds": {
+            "scan": 2086718.75,
+            "indexed": 455662.5
+          },
+          "scan_over_indexed": 4.579527062244534
+        },
+        {
+          "order": [
+            "indexed",
+            "scan"
+          ],
+          "nanoseconds": {
+            "indexed": 483837.5,
+            "scan": 2253948.4375
+          },
+          "scan_over_indexed": 4.65848231586018
+        },
+        {
+          "order": [
+            "scan",
+            "indexed"
+          ],
+          "nanoseconds": {
+            "scan": 2082839.0625,
+            "indexed": 413203.125
+          },
+          "scan_over_indexed": 5.040714690867839
+        },
+        {
+          "order": [
+            "indexed",
+            "scan"
+          ],
+          "nanoseconds": {
+            "indexed": 423148.4375,
+            "scan": 2044275.0
+          },
+          "scan_over_indexed": 4.831106105644074
+        },
+        {
+          "order": [
+            "scan",
+            "indexed"
+          ],
+          "nanoseconds": {
+            "scan": 2017539.0625,
+            "indexed": 422329.6875
+          },
+          "scan_over_indexed": 4.777166091360793
+        },
+        {
+          "order": [
+            "indexed",
+            "scan"
+          ],
+          "nanoseconds": {
+            "indexed": 427048.4375,
+            "scan": 1975931.25
+          },
+          "scan_over_indexed": 4.626948787278961
+        },
+        {
+          "order": [
+            "scan",
+            "indexed"
+          ],
+          "nanoseconds": {
+            "scan": 1982765.625,
+            "indexed": 418062.5
+          },
+          "scan_over_indexed": 4.742749289878906
+        },
+        {
+          "order": [
+            "indexed",
+            "scan"
+          ],
+          "nanoseconds": {
+            "indexed": 405117.1875,
+            "scan": 2020617.1875
+          },
+          "scan_over_indexed": 4.987735030373156
+        },
+        {
+          "order": [
+            "scan",
+            "indexed"
+          ],
+          "nanoseconds": {
+            "scan": 2307701.5625,
+            "indexed": 429289.0625
+          },
+          "scan_over_indexed": 5.375635589364683
+        }
+      ],
+      "median_ratio": 4.777166091360793
+    },
+    {
+      "revision": 49,
+      "include_opaque": true,
+      "statements": 30,
+      "entries": 1,
+      "facts": 2,
+      "rules": 1344,
+      "pairs": [
+        {
+          "order": [
+            "scan",
+            "indexed"
+          ],
+          "nanoseconds": {
+            "scan": 1962921.875,
+            "indexed": 429548.4375
+          },
+          "scan_over_indexed": 4.569733477379952
+        },
+        {
+          "order": [
+            "indexed",
+            "scan"
+          ],
+          "nanoseconds": {
+            "indexed": 420853.125,
+            "scan": 2055420.3125
+          },
+          "scan_over_indexed": 4.8839373890831865
+        },
+        {
+          "order": [
+            "scan",
+            "indexed"
+          ],
+          "nanoseconds": {
+            "scan": 2018215.625,
+            "indexed": 418767.1875
+          },
+          "scan_over_indexed": 4.819421590904851
+        },
+        {
+          "order": [
+            "indexed",
+            "scan"
+          ],
+          "nanoseconds": {
+            "indexed": 411721.875,
+            "scan": 2052234.375
+          },
+          "scan_over_indexed": 4.984516246556003
+        },
+        {
+          "order": [
+            "scan",
+            "indexed"
+          ],
+          "nanoseconds": {
+            "scan": 2087787.5,
+            "indexed": 474928.125
+          },
+          "scan_over_indexed": 4.396007290576864
+        },
+        {
+          "order": [
+            "indexed",
+            "scan"
+          ],
+          "nanoseconds": {
+            "indexed": 476048.4375,
+            "scan": 2612881.25
+          },
+          "scan_over_indexed": 5.488687797657145
+        },
+        {
+          "order": [
+            "scan",
+            "indexed"
+          ],
+          "nanoseconds": {
+            "scan": 2289690.625,
+            "indexed": 477351.5625
+          },
+          "scan_over_indexed": 4.796654719235365
+        },
+        {
+          "order": [
+            "indexed",
+            "scan"
+          ],
+          "nanoseconds": {
+            "indexed": 474462.5,
+            "scan": 3034760.9375
+          },
+          "scan_over_indexed": 6.396208209289459
+        },
+        {
+          "order": [
+            "scan",
+            "indexed"
+          ],
+          "nanoseconds": {
+            "scan": 2489954.6875,
+            "indexed": 502606.25
+          },
+          "scan_over_indexed": 4.954086200678961
+        },
+        {
+          "order": [
+            "indexed",
+            "scan"
+          ],
+          "nanoseconds": {
+            "indexed": 526232.8125,
+            "scan": 2062365.625
+          },
+          "scan_over_indexed": 3.9191125600895518
+        },
+        {
+          "order": [
+            "scan",
+            "indexed"
+          ],
+          "nanoseconds": {
+            "scan": 2609896.875,
+            "indexed": 497806.25
+          },
+          "scan_over_indexed": 5.242796519730317
+        }
+      ],
+      "median_ratio": 4.8839373890831865
+    },
+    {
+      "revision": 99,
+      "include_opaque": false,
+      "statements": 34,
+      "entries": 1,
+      "facts": 2,
+      "rules": 2530,
+      "pairs": [
+        {
+          "order": [
+            "scan",
+            "indexed"
+          ],
+          "nanoseconds": {
+            "scan": 4395026.5625,
+            "indexed": 720454.6875
+          },
+          "scan_over_indexed": 6.1003511237478065
+        },
+        {
+          "order": [
+            "indexed",
+            "scan"
+          ],
+          "nanoseconds": {
+            "indexed": 729118.75,
+            "scan": 4115957.8125
+          },
+          "scan_over_indexed": 5.645113107432774
+        },
+        {
+          "order": [
+            "scan",
+            "indexed"
+          ],
+          "nanoseconds": {
+            "scan": 4814573.4375,
+            "indexed": 730217.1875
+          },
+          "scan_over_indexed": 6.593344445894736
+        },
+        {
+          "order": [
+            "indexed",
+            "scan"
+          ],
+          "nanoseconds": {
+            "indexed": 808581.25,
+            "scan": 4251898.4375
+          },
+          "scan_over_indexed": 5.258467763752869
+        },
+        {
+          "order": [
+            "scan",
+            "indexed"
+          ],
+          "nanoseconds": {
+            "scan": 4337064.0625,
+            "indexed": 742539.0625
+          },
+          "scan_over_indexed": 5.840856436424851
+        },
+        {
+          "order": [
+            "indexed",
+            "scan"
+          ],
+          "nanoseconds": {
+            "indexed": 767548.4375,
+            "scan": 5031409.375
+          },
+          "scan_over_indexed": 6.555168545959029
+        },
+        {
+          "order": [
+            "scan",
+            "indexed"
+          ],
+          "nanoseconds": {
+            "scan": 4285873.4375,
+            "indexed": 707700.0
+          },
+          "scan_over_indexed": 6.056059682775187
+        },
+        {
+          "order": [
+            "indexed",
+            "scan"
+          ],
+          "nanoseconds": {
+            "indexed": 722342.1875,
+            "scan": 4161746.875
+          },
+          "scan_over_indexed": 5.761461737966122
+        },
+        {
+          "order": [
+            "scan",
+            "indexed"
+          ],
+          "nanoseconds": {
+            "scan": 4938490.625,
+            "indexed": 789071.875
+          },
+          "scan_over_indexed": 6.258606828433722
+        },
+        {
+          "order": [
+            "indexed",
+            "scan"
+          ],
+          "nanoseconds": {
+            "indexed": 776693.75,
+            "scan": 4746770.3125
+          },
+          "scan_over_indexed": 6.111508316501839
+        },
+        {
+          "order": [
+            "scan",
+            "indexed"
+          ],
+          "nanoseconds": {
+            "scan": 4123660.9375,
+            "indexed": 741607.8125
+          },
+          "scan_over_indexed": 5.56043351754739
+        }
+      ],
+      "median_ratio": 6.056059682775187
+    },
+    {
+      "revision": 99,
+      "include_opaque": true,
+      "statements": 34,
+      "entries": 1,
+      "facts": 2,
+      "rules": 2530,
+      "pairs": [
+        {
+          "order": [
+            "scan",
+            "indexed"
+          ],
+          "nanoseconds": {
+            "scan": 7246781.25,
+            "indexed": 946706.25
+          },
+          "scan_over_indexed": 7.654730546037908
+        },
+        {
+          "order": [
+            "indexed",
+            "scan"
+          ],
+          "nanoseconds": {
+            "indexed": 841434.375,
+            "scan": 5737781.25
+          },
+          "scan_over_indexed": 6.819047831270264
+        },
+        {
+          "order": [
+            "scan",
+            "indexed"
+          ],
+          "nanoseconds": {
+            "scan": 5672804.6875,
+            "indexed": 823317.1875
+          },
+          "scan_over_indexed": 6.890181297836686
+        },
+        {
+          "order": [
+            "indexed",
+            "scan"
+          ],
+          "nanoseconds": {
+            "indexed": 820093.75,
+            "scan": 5705104.6875
+          },
+          "scan_over_indexed": 6.9566493922188775
+        },
+        {
+          "order": [
+            "scan",
+            "indexed"
+          ],
+          "nanoseconds": {
+            "scan": 6051859.375,
+            "indexed": 831601.5625
+          },
+          "scan_over_indexed": 7.277354502325144
+        },
+        {
+          "order": [
+            "indexed",
+            "scan"
+          ],
+          "nanoseconds": {
+            "indexed": 965706.25,
+            "scan": 4731590.625
+          },
+          "scan_over_indexed": 4.899616860717221
+        },
+        {
+          "order": [
+            "scan",
+            "indexed"
+          ],
+          "nanoseconds": {
+            "scan": 4219493.75,
+            "indexed": 1026465.625
+          },
+          "scan_over_indexed": 4.110701466500644
+        },
+        {
+          "order": [
+            "indexed",
+            "scan"
+          ],
+          "nanoseconds": {
+            "indexed": 1173985.9375,
+            "scan": 5602746.875
+          },
+          "scan_over_indexed": 4.7724139583230745
+        },
+        {
+          "order": [
+            "scan",
+            "indexed"
+          ],
+          "nanoseconds": {
+            "scan": 4947685.9375,
+            "indexed": 726073.4375
+          },
+          "scan_over_indexed": 6.814305112903955
+        },
+        {
+          "order": [
+            "indexed",
+            "scan"
+          ],
+          "nanoseconds": {
+            "indexed": 733692.1875,
+            "scan": 4503323.4375
+          },
+          "scan_over_indexed": 6.137892040045744
+        },
+        {
+          "order": [
+            "scan",
+            "indexed"
+          ],
+          "nanoseconds": {
+            "scan": 4504018.75,
+            "indexed": 729795.3125
+          },
+          "scan_over_indexed": 6.1716191826047115
+        }
+      ],
+      "median_ratio": 6.814305112903955
+    },
+    {
+      "revision": 199,
+      "include_opaque": false,
+      "statements": 21,
+      "entries": 1,
+      "facts": 2,
+      "rules": 712,
+      "pairs": [
+        {
+          "order": [
+            "scan",
+            "indexed"
+          ],
+          "nanoseconds": {
+            "scan": 868253.125,
+            "indexed": 247396.875
+          },
+          "scan_over_indexed": 3.5095557492389506
+        },
+        {
+          "order": [
+            "indexed",
+            "scan"
+          ],
+          "nanoseconds": {
+            "indexed": 263660.9375,
+            "scan": 862623.4375
+          },
+          "scan_over_indexed": 3.271714974843401
+        },
+        {
+          "order": [
+            "scan",
+            "indexed"
+          ],
+          "nanoseconds": {
+            "scan": 865279.6875,
+            "indexed": 244559.375
+          },
+          "scan_over_indexed": 3.538117021684407
+        },
+        {
+          "order": [
+            "indexed",
+            "scan"
+          ],
+          "nanoseconds": {
+            "indexed": 284781.25,
+            "scan": 857075.0
+          },
+          "scan_over_indexed": 3.0095906946120925
+        },
+        {
+          "order": [
+            "scan",
+            "indexed"
+          ],
+          "nanoseconds": {
+            "scan": 903732.8125,
+            "indexed": 255059.375
+          },
+          "scan_over_indexed": 3.5432252294196203
+        },
+        {
+          "order": [
+            "indexed",
+            "scan"
+          ],
+          "nanoseconds": {
+            "indexed": 268131.25,
+            "scan": 852695.3125
+          },
+          "scan_over_indexed": 3.1801414885433905
+        },
+        {
+          "order": [
+            "scan",
+            "indexed"
+          ],
+          "nanoseconds": {
+            "scan": 874889.0625,
+            "indexed": 255523.4375
+          },
+          "scan_over_indexed": 3.423909254899563
+        },
+        {
+          "order": [
+            "indexed",
+            "scan"
+          ],
+          "nanoseconds": {
+            "indexed": 281206.25,
+            "scan": 930795.3125
+          },
+          "scan_over_indexed": 3.310009334785411
+        },
+        {
+          "order": [
+            "scan",
+            "indexed"
+          ],
+          "nanoseconds": {
+            "scan": 881417.1875,
+            "indexed": 255437.5
+          },
+          "scan_over_indexed": 3.450617812576462
+        },
+        {
+          "order": [
+            "indexed",
+            "scan"
+          ],
+          "nanoseconds": {
+            "indexed": 261204.6875,
+            "scan": 890921.875
+          },
+          "scan_over_indexed": 3.410818862123215
+        },
+        {
+          "order": [
+            "scan",
+            "indexed"
+          ],
+          "nanoseconds": {
+            "scan": 944989.0625,
+            "indexed": 287121.875
+          },
+          "scan_over_indexed": 3.2912471837960795
+        }
+      ],
+      "median_ratio": 3.410818862123215
+    },
+    {
+      "revision": 199,
+      "include_opaque": true,
+      "statements": 21,
+      "entries": 1,
+      "facts": 2,
+      "rules": 712,
+      "pairs": [
+        {
+          "order": [
+            "scan",
+            "indexed"
+          ],
+          "nanoseconds": {
+            "scan": 972239.0625,
+            "indexed": 326481.25
+          },
+          "scan_over_indexed": 2.9779323085169516
+        },
+        {
+          "order": [
+            "indexed",
+            "scan"
+          ],
+          "nanoseconds": {
+            "indexed": 323278.125,
+            "scan": 1126053.125
+          },
+          "scan_over_indexed": 3.4832332840336786
+        },
+        {
+          "order": [
+            "scan",
+            "indexed"
+          ],
+          "nanoseconds": {
+            "scan": 935239.0625,
+            "indexed": 264781.25
+          },
+          "scan_over_indexed": 3.532119674259412
+        },
+        {
+          "order": [
+            "indexed",
+            "scan"
+          ],
+          "nanoseconds": {
+            "indexed": 247003.125,
+            "scan": 903692.1875
+          },
+          "scan_over_indexed": 3.6586265355954506
+        },
+        {
+          "order": [
+            "scan",
+            "indexed"
+          ],
+          "nanoseconds": {
+            "scan": 1889265.625,
+            "indexed": 282976.5625
+          },
+          "scan_over_indexed": 6.676403191518732
+        },
+        {
+          "order": [
+            "indexed",
+            "scan"
+          ],
+          "nanoseconds": {
+            "indexed": 290209.375,
+            "scan": 969342.1875
+          },
+          "scan_over_indexed": 3.3401477381631794
+        },
+        {
+          "order": [
+            "scan",
+            "indexed"
+          ],
+          "nanoseconds": {
+            "scan": 881348.4375,
+            "indexed": 256218.75
+          },
+          "scan_over_indexed": 3.4398280278082694
+        },
+        {
+          "order": [
+            "indexed",
+            "scan"
+          ],
+          "nanoseconds": {
+            "indexed": 252389.0625,
+            "scan": 910060.9375
+          },
+          "scan_over_indexed": 3.605785957939441
+        },
+        {
+          "order": [
+            "scan",
+            "indexed"
+          ],
+          "nanoseconds": {
+            "scan": 871254.6875,
+            "indexed": 244385.9375
+          },
+          "scan_over_indexed": 3.565077010619729
+        },
+        {
+          "order": [
+            "indexed",
+            "scan"
+          ],
+          "nanoseconds": {
+            "indexed": 267476.5625,
+            "scan": 880128.125
+          },
+          "scan_over_indexed": 3.2904869001372785
+        },
+        {
+          "order": [
+            "scan",
+            "indexed"
+          ],
+          "nanoseconds": {
+            "scan": 881523.4375,
+            "indexed": 246289.0625
+          },
+          "scan_over_indexed": 3.5792228390166536
+        }
+      ],
+      "median_ratio": 3.532119674259412
+    },
+    {
+      "revision": 299,
+      "include_opaque": false,
+      "statements": 61,
+      "entries": 1,
+      "facts": 2,
+      "rules": 1350,
+      "pairs": [
+        {
+          "order": [
+            "scan",
+            "indexed"
+          ],
+          "nanoseconds": {
+            "scan": 4002065.625,
+            "indexed": 651110.9375
+          },
+          "scan_over_indexed": 6.1465188103985735
+        },
+        {
+          "order": [
+            "indexed",
+            "scan"
+          ],
+          "nanoseconds": {
+            "indexed": 635196.875,
+            "scan": 4151306.25
+          },
+          "scan_over_indexed": 6.535463906367612
+        },
+        {
+          "order": [
+            "scan",
+            "indexed"
+          ],
+          "nanoseconds": {
+            "scan": 4018282.8125,
+            "indexed": 636900.0
+          },
+          "scan_over_indexed": 6.309126727115717
+        },
+        {
+          "order": [
+            "indexed",
+            "scan"
+          ],
+          "nanoseconds": {
+            "indexed": 640420.3125,
+            "scan": 3990298.4375
+          },
+          "scan_over_indexed": 6.23074933698328
+        },
+        {
+          "order": [
+            "scan",
+            "indexed"
+          ],
+          "nanoseconds": {
+            "scan": 4055218.75,
+            "indexed": 647735.9375
+          },
+          "scan_over_indexed": 6.260604847172001
+        },
+        {
+          "order": [
+            "indexed",
+            "scan"
+          ],
+          "nanoseconds": {
+            "indexed": 647306.25,
+            "scan": 4165420.3125
+          },
+          "scan_over_indexed": 6.43500709671813
+        },
+        {
+          "order": [
+            "scan",
+            "indexed"
+          ],
+          "nanoseconds": {
+            "scan": 4009748.4375,
+            "indexed": 653770.3125
+          },
+          "scan_over_indexed": 6.133267847796316
+        },
+        {
+          "order": [
+            "indexed",
+            "scan"
+          ],
+          "nanoseconds": {
+            "indexed": 642714.0625,
+            "scan": 4012631.25
+          },
+          "scan_over_indexed": 6.243260392330376
+        },
+        {
+          "order": [
+            "scan",
+            "indexed"
+          ],
+          "nanoseconds": {
+            "scan": 4050840.625,
+            "indexed": 639035.9375
+          },
+          "scan_over_indexed": 6.338987195066788
+        },
+        {
+          "order": [
+            "indexed",
+            "scan"
+          ],
+          "nanoseconds": {
+            "indexed": 645371.875,
+            "scan": 4240276.5625
+          },
+          "scan_over_indexed": 6.570284090083721
+        },
+        {
+          "order": [
+            "scan",
+            "indexed"
+          ],
+          "nanoseconds": {
+            "scan": 3996596.875,
+            "indexed": 666103.125
+          },
+          "scan_over_indexed": 5.999967159739717
+        }
+      ],
+      "median_ratio": 6.260604847172001
+    },
+    {
+      "revision": 299,
+      "include_opaque": true,
+      "statements": 61,
+      "entries": 1,
+      "facts": 2,
+      "rules": 1350,
+      "pairs": [
+        {
+          "order": [
+            "scan",
+            "indexed"
+          ],
+          "nanoseconds": {
+            "scan": 4399800.0,
+            "indexed": 641479.6875
+          },
+          "scan_over_indexed": 6.858829805113666
+        },
+        {
+          "order": [
+            "indexed",
+            "scan"
+          ],
+          "nanoseconds": {
+            "indexed": 633868.75,
+            "scan": 4009745.3125
+          },
+          "scan_over_indexed": 6.325828986679024
+        },
+        {
+          "order": [
+            "scan",
+            "indexed"
+          ],
+          "nanoseconds": {
+            "scan": 4026481.25,
+            "indexed": 648476.5625
+          },
+          "scan_over_indexed": 6.2091392084814165
+        },
+        {
+          "order": [
+            "indexed",
+            "scan"
+          ],
+          "nanoseconds": {
+            "indexed": 642810.9375,
+            "scan": 4428757.8125
+          },
+          "scan_over_indexed": 6.889674014764256
+        },
+        {
+          "order": [
+            "scan",
+            "indexed"
+          ],
+          "nanoseconds": {
+            "scan": 4277081.25,
+            "indexed": 655592.1875
+          },
+          "scan_over_indexed": 6.52399667285541
+        },
+        {
+          "order": [
+            "indexed",
+            "scan"
+          ],
+          "nanoseconds": {
+            "indexed": 655171.875,
+            "scan": 3991556.25
+          },
+          "scan_over_indexed": 6.092380339128568
+        },
+        {
+          "order": [
+            "scan",
+            "indexed"
+          ],
+          "nanoseconds": {
+            "scan": 4296468.75,
+            "indexed": 644498.4375
+          },
+          "scan_over_indexed": 6.666375742765086
+        },
+        {
+          "order": [
+            "indexed",
+            "scan"
+          ],
+          "nanoseconds": {
+            "indexed": 663740.625,
+            "scan": 4000450.0
+          },
+          "scan_over_indexed": 6.027128443433758
+        },
+        {
+          "order": [
+            "scan",
+            "indexed"
+          ],
+          "nanoseconds": {
+            "scan": 4006381.25,
+            "indexed": 650837.5
+          },
+          "scan_over_indexed": 6.155732037566981
+        },
+        {
+          "order": [
+            "indexed",
+            "scan"
+          ],
+          "nanoseconds": {
+            "indexed": 646150.0,
+            "scan": 4229523.4375
+          },
+          "scan_over_indexed": 6.545729996904743
+        },
+        {
+          "order": [
+            "scan",
+            "indexed"
+          ],
+          "nanoseconds": {
+            "scan": 4855603.125,
+            "indexed": 697815.625
+          },
+          "scan_over_indexed": 6.958289483701372
+        }
+      ],
+      "median_ratio": 6.52399667285541
+    }
+  ],
+  "ratio_range": [
+    1.868275948494627,
+    6.814305112903955
+  ]
+}
