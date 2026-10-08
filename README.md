@@ -66,7 +66,10 @@ source-to-rule comparisons are unchanged. The separate checker does not import
 the producer's counting code. `tests/test_coverage_counts.py` compares all 300
 old/new revision pairs under five variants (3,000 complete objects), plus two
 empty-body cases, against both independent reconstruction and a scan-based
-coverage reference. The normal local suite passes all 86 tests.
+coverage reference. Entry rows count generated facts and have zero generated
+rules; statement rows count rules, even when a legal statement ID equals an
+entry's display label. The row totals partition the complete inventories.
+The normal local suite passes all 87 tests, including the cross-kind label regression.
 
 The ten preselected aggregation cases retain every paired timing in
 `results/coverage-aggregation/measurement.json`. Their median scan-to-indexed

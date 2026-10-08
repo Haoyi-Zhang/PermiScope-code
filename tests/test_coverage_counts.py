@@ -21,7 +21,7 @@ def scan_coverage(source, facts, rules):
     for entry in sorted(source.entries, key=lambda item: item.name):
         key = 'entry:' + entry.name
         entries.append(dict(id=key, facts=sum(fact['source'] == key for fact in facts),
-                            rules=sum(rule['source'] == key for rule in rules)))
+                            rules=0))
     return dict(language='bfil-coverage-1', entries=entries, statements=statements,
                 totals=dict(facts=len(facts), rules=len(rules),
                             statements=len(statements), entries=len(entries)))
@@ -34,6 +34,9 @@ class CoverageCountTests(unittest.TestCase):
         self.assertEqual(compiled, reference)
         expected = scan_coverage(parse_source(document), compiled['ir']['facts'], compiled['ir']['rules'])
         self.assertEqual(compiled['coverage'], expected)
+        rows = expected['entries'] + expected['statements']
+        self.assertEqual(sum(row['facts'] for row in rows), len(compiled['ir']['facts']))
+        self.assertEqual(sum(row['rules'] for row in rows), len(compiled['ir']['rules']))
 
     def test_frozen_revision_endpoints(self):
         variants = (Variant(), Variant(include_opaque=True), Variant(fields='insensitive'),
@@ -52,6 +55,22 @@ class CoverageCountTests(unittest.TestCase):
                 method['body'] = []
         self.check_source(source, Variant())
         self.check_source(source, Variant(include_opaque=True))
+
+    def test_statement_id_can_equal_entry_label(self):
+        source = dict(language='bfil-1', permissions=['PERM_A'],
+            classes=[dict(name='Svc', super=None, fields=[], methods=[dict(
+                name='run', params=[], returns=None, locals=[], body=[dict(
+                    id='entry:API', op='check', permission='PERM_A')])])],
+            services=[dict(name='service', declared_class='Svc', implementation_class='Svc')],
+            entries=[dict(name='API', service='service', selector='run', arg_classes=[])])
+        for variant in (Variant(), Variant(include_opaque=True), Variant(fields='insensitive'),
+                        Variant(context='insensitive'), Variant(dispatch='cha')):
+            with self.subTest(variant=variant):
+                self.check_source(source, variant)
+                coverage = lower(source, variant)['coverage']
+                self.assertEqual(coverage['totals']['rules'], 1)
+                self.assertEqual(coverage['entries'][0]['rules'], 0)
+                self.assertEqual(coverage['statements'][0]['rules'], 1)
 
 
 if __name__ == '__main__':

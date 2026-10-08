@@ -17,7 +17,7 @@ From the standalone repository root:
 python -m unittest discover -s tests -v
 ```
 
-Expected: 84 tests and final status `OK`. Run the same command with `python -O` as a second control; correctness checks do not rely on removable `assert` statements. The exact duration is machine-dependent. Tests also cover dotted declaration collisions, semantic token remapping, changed permissions/classes, invalid certificate reasons/order, source core closure counts, acceptance of all six retained scale certificates, early emission bounds, large integer distances, and iterative occurrence traversal.
+Expected: 87 tests and final status `OK`. Run the same command with `python -O` as a second control; correctness checks do not rely on removable `assert` statements. The exact duration is machine-dependent. Tests also cover dotted declaration collisions, semantic token remapping, changed permissions/classes, invalid certificate reasons/order, source core closure counts, acceptance of all six retained scale certificates, early emission bounds, large integer distances, iterative occurrence traversal, and statement IDs that equal entry display labels. Entry and statement rows partition the fact/rule inventories without double-counting.
 
 ## 2. Reproduce the finite ground campaign
 

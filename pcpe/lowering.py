@@ -412,7 +412,10 @@ def make_coverage(source: SourceProgram, facts: list[dict[str, Any]],
         key = f"entry:{entry.name}"
         entry_rows.append({"id": key,
                            "facts": fact_counts.get(key, 0),
-                           "rules": rule_counts.get(key, (0, 0, 0))[0]})
+                           # Entry lowering emits facts only. Statement IDs may
+                           # legally match this display label, so rule counts
+                           # must not be looked up in the statement namespace.
+                           "rules": 0})
     return {"language": COVERAGE_LANGUAGE, "entries": entry_rows, "statements": rows,
             "totals": {"facts": len(facts), "rules": len(rules),
                        "statements": len(rows), "entries": len(entry_rows)}}

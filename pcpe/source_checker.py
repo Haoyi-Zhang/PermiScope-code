@@ -297,7 +297,8 @@ def _finish(b: ReferenceBuilder) -> dict[str, Any]:
     for e in sorted(b.source.entries,key=lambda x:x.name):
         key=f"entry:{e.name}"
         erows.append({"id":key,"facts":entry_facts.get(key,0),
-                      "rules":obligations.get(key,(0,0,0))[0]})
+                      # Only statement occurrences generate rules in BFIL-1.
+                      "rules":0})
     coverage={"language":"bfil-coverage-1","entries":erows,"statements":rows,
               "totals":{"facts":len(b.facts),"rules":len(b.rules),"statements":len(rows),"entries":len(erows)}}
     return {"ir":ir,"program":program,"coverage":coverage}
