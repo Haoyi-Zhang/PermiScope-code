@@ -11,6 +11,17 @@ from typing import Any
 class SemanticCatalog:
     def __init__(self, ir: dict[str, Any]):
         self.catalog = ir["catalog"]
+        variant = ir["variant"]
+        if (type(variant) is not dict or
+            set(variant) != {"context", "fields", "dispatch", "include_opaque"} or
+            type(variant["include_opaque"]) is not bool or
+            variant["context"] not in ("1call", "insensitive") or
+            variant["fields"] not in ("sensitive", "insensitive") or
+            variant["dispatch"] not in ("points-to", "cha")):
+            raise ValueError("semantic variant schema")
+        for record in ir["rules"]:
+            if type(record["weight"]) is not int or not 0 <= record["weight"] <= 1_000_000:
+                raise ValueError("semantic rule weight")
         self.variant = tuple(sorted(ir["variant"].items()))
         self.tokens: dict[str, tuple[Any, ...]] = {}
         for prefix, column in (("e", "entries"), ("p", "permissions"),

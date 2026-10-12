@@ -1,0 +1,188 @@
+{
+  "classes": [
+    {
+      "fields": [],
+      "methods": [
+        {
+          "body": [
+            {
+              "id": "F1_base_return",
+              "op": "return",
+              "src": null
+            }
+          ],
+          "locals": [],
+          "name": "guard",
+          "params": [],
+          "returns": null
+        }
+      ],
+      "name": "F1_Guard",
+      "super": null
+    },
+    {
+      "fields": [],
+      "methods": [
+        {
+          "body": [
+            {
+              "id": "F1_check_a",
+              "op": "check",
+              "permission": "PERM_A"
+            },
+            {
+              "id": "F1_a_return",
+              "op": "return",
+              "src": null
+            }
+          ],
+          "locals": [],
+          "name": "guard",
+          "params": [],
+          "returns": null
+        }
+      ],
+      "name": "F1_GuardA",
+      "super": "F1_Guard"
+    },
+    {
+      "fields": [],
+      "methods": [
+        {
+          "body": [
+            {
+              "id": "F1_check_b",
+              "op": "check",
+              "permission": "PERM_B"
+            },
+            {
+              "id": "F1_b_return",
+              "op": "return",
+              "src": null
+            }
+          ],
+          "locals": [],
+          "name": "guard",
+          "params": [],
+          "returns": null
+        }
+      ],
+      "name": "F1_GuardB",
+      "super": "F1_Guard"
+    },
+    {
+      "fields": [
+        {
+          "name": "selected",
+          "type": "F1_Guard"
+        },
+        {
+          "name": "other",
+          "type": "F1_Guard"
+        }
+      ],
+      "methods": [
+        {
+          "body": [
+            {
+              "class": "F1_GuardA",
+              "dst": "a",
+              "id": "F1_new_a",
+              "op": "new"
+            },
+            {
+              "class": "F1_GuardB",
+              "dst": "b",
+              "id": "F1_new_b",
+              "op": "new"
+            },
+            {
+              "base": "this",
+              "field": "F1_Service.selected",
+              "id": "F1_store_a",
+              "op": "store",
+              "src": "a"
+            },
+            {
+              "base": "this",
+              "field": "F1_Service.other",
+              "id": "F1_store_b",
+              "op": "store",
+              "src": "b"
+            },
+            {
+              "base": "this",
+              "dst": "x",
+              "field": "F1_Service.other",
+              "id": "F1_load",
+              "op": "load"
+            },
+            {
+              "dst": "alias_0",
+              "id": "F1_alias_move_0",
+              "op": "move",
+              "src": "x"
+            },
+            {
+              "args": [],
+              "dst": null,
+              "id": "F1_invoke_guard",
+              "op": "invoke",
+              "recv": "alias_0",
+              "selector": "guard"
+            },
+            {
+              "id": "F1_return",
+              "op": "return",
+              "src": null
+            }
+          ],
+          "locals": [
+            {
+              "name": "a",
+              "type": "F1_Guard"
+            },
+            {
+              "name": "b",
+              "type": "F1_Guard"
+            },
+            {
+              "name": "x",
+              "type": "F1_Guard"
+            },
+            {
+              "name": "alias_0",
+              "type": "F1_Guard"
+            }
+          ],
+          "name": "api",
+          "params": [],
+          "returns": null
+        }
+      ],
+      "name": "F1_Service",
+      "super": null
+    }
+  ],
+  "entries": [
+    {
+      "arg_classes": [],
+      "name": "F1_API",
+      "selector": "api",
+      "service": "F1_svc"
+    }
+  ],
+  "language": "bfil-1",
+  "permissions": [
+    "PERM_A",
+    "PERM_B",
+    "PERM_C"
+  ],
+  "services": [
+    {
+      "declared_class": "F1_Service",
+      "implementation_class": "F1_Service",
+      "name": "F1_svc"
+    }
+  ]
+}

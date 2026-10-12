@@ -18,6 +18,10 @@ def transport_complete(old_item: dict[str,Any], new_compiled: dict[str,Any]) -> 
     new_program=new_compiled["program"];new_ir=new_compiled["ir"]
     if not validate(old_program, old_cert).accepted:
         raise ValueError("invalid old certificate")
+    # Validate the new ground schema before using its identifiers as indices.
+    admission=validate(new_program,{"nodes":[],"reported":[]})
+    if admission.reason not in {"accepted","missing-initial-fact","closure-violation"}:
+        raise ValueError("invalid new program: "+admission.reason)
     old_semantics=SemanticCatalog(old_ir);new_semantics=SemanticCatalog(new_ir)
     old_names=old_program["atoms"]
     new_index={new_semantics.atom(x):i for i,x in enumerate(new_program["atoms"])}

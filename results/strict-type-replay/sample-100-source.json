@@ -1,0 +1,254 @@
+{
+  "classes": [
+    {
+      "fields": [],
+      "methods": [
+        {
+          "body": [
+            {
+              "id": "C0_base_return",
+              "op": "return",
+              "src": null
+            }
+          ],
+          "locals": [],
+          "name": "guard",
+          "params": [],
+          "returns": null
+        }
+      ],
+      "name": "C0_Guard",
+      "super": null
+    },
+    {
+      "fields": [],
+      "methods": [
+        {
+          "body": [
+            {
+              "id": "C0_check_a",
+              "op": "check",
+              "permission": "PERM_A"
+            },
+            {
+              "id": "C0_a_return",
+              "op": "return",
+              "src": null
+            }
+          ],
+          "locals": [],
+          "name": "guard",
+          "params": [],
+          "returns": null
+        }
+      ],
+      "name": "C0_GuardA",
+      "super": "C0_Guard"
+    },
+    {
+      "fields": [],
+      "methods": [
+        {
+          "body": [
+            {
+              "id": "C0_check_b",
+              "op": "check",
+              "permission": "PERM_B"
+            },
+            {
+              "id": "C0_b_return",
+              "op": "return",
+              "src": null
+            }
+          ],
+          "locals": [],
+          "name": "guard",
+          "params": [],
+          "returns": null
+        }
+      ],
+      "name": "C0_GuardB",
+      "super": "C0_Guard"
+    },
+    {
+      "fields": [],
+      "methods": [
+        {
+          "body": [
+            {
+              "id": "C0_id_return",
+              "op": "return",
+              "src": "value"
+            }
+          ],
+          "locals": [],
+          "name": "identity",
+          "params": [
+            {
+              "name": "value",
+              "type": "C0_Guard"
+            }
+          ],
+          "returns": "C0_Guard"
+        }
+      ],
+      "name": "C0_Helper",
+      "super": null
+    },
+    {
+      "fields": [],
+      "methods": [
+        {
+          "body": [
+            {
+              "class": "C0_Helper",
+              "dst": "h",
+              "id": "C0_new_h",
+              "op": "new"
+            },
+            {
+              "class": "C0_GuardA",
+              "dst": "a",
+              "id": "C0_new_a",
+              "op": "new"
+            },
+            {
+              "class": "C0_GuardB",
+              "dst": "b",
+              "id": "C0_new_b",
+              "op": "new"
+            },
+            {
+              "args": [
+                "a"
+              ],
+              "dst": "ra",
+              "id": "C0_call_a",
+              "op": "invoke",
+              "recv": "h",
+              "selector": "identity"
+            },
+            {
+              "args": [
+                "b"
+              ],
+              "dst": "rb",
+              "id": "C0_call_b",
+              "op": "invoke",
+              "recv": "h",
+              "selector": "identity"
+            },
+            {
+              "dst": "preserved",
+              "id": "C0_preserving_move",
+              "op": "move",
+              "src": "ra"
+            },
+            {
+              "args": [],
+              "dst": null,
+              "id": "C0_invoke_guard",
+              "op": "invoke",
+              "recv": "preserved",
+              "selector": "guard"
+            },
+            {
+              "candidates": [
+                {
+                  "args": [],
+                  "dst": null,
+                  "op": "direct",
+                  "target": "C0_Service.opaque_step_1"
+                }
+              ],
+              "id": "C0_opaque_0",
+              "op": "opaque",
+              "summary": "declared unknown helper dispatch"
+            },
+            {
+              "id": "C0_return",
+              "op": "return",
+              "src": null
+            }
+          ],
+          "locals": [
+            {
+              "name": "h",
+              "type": "C0_Helper"
+            },
+            {
+              "name": "a",
+              "type": "C0_Guard"
+            },
+            {
+              "name": "b",
+              "type": "C0_Guard"
+            },
+            {
+              "name": "ra",
+              "type": "C0_Guard"
+            },
+            {
+              "name": "rb",
+              "type": "C0_Guard"
+            },
+            {
+              "name": "preserved",
+              "type": "C0_Guard"
+            }
+          ],
+          "name": "api",
+          "params": [],
+          "returns": null
+        },
+        {
+          "body": [
+            {
+              "candidates": [
+                {
+                  "op": "check",
+                  "permission": "PERM_C"
+                }
+              ],
+              "id": "C0_opaque_1",
+              "op": "opaque",
+              "summary": "declared unknown helper effect"
+            },
+            {
+              "id": "C0_opaque_return_1",
+              "op": "return",
+              "src": null
+            }
+          ],
+          "locals": [],
+          "name": "opaque_step_1",
+          "params": [],
+          "returns": null
+        }
+      ],
+      "name": "C0_Service",
+      "super": null
+    }
+  ],
+  "entries": [
+    {
+      "arg_classes": [],
+      "name": "C0_API",
+      "selector": "api",
+      "service": "C0_svc"
+    }
+  ],
+  "language": "bfil-1",
+  "permissions": [
+    "PERM_A",
+    "PERM_B",
+    "PERM_C"
+  ],
+  "services": [
+    {
+      "declared_class": "C0_Service",
+      "implementation_class": "C0_Service",
+      "name": "C0_svc"
+    }
+  ]
+}

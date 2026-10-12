@@ -1,0 +1,217 @@
+{
+  "classes": [
+    {
+      "fields": [],
+      "methods": [
+        {
+          "body": [
+            {
+              "id": "C1_base_return",
+              "op": "return",
+              "src": null
+            }
+          ],
+          "locals": [],
+          "name": "guard",
+          "params": [],
+          "returns": null
+        }
+      ],
+      "name": "C1_Guard",
+      "super": null
+    },
+    {
+      "fields": [],
+      "methods": [
+        {
+          "body": [
+            {
+              "id": "C1_check_a",
+              "op": "check",
+              "permission": "PERM_A"
+            },
+            {
+              "id": "C1_a_return",
+              "op": "return",
+              "src": null
+            }
+          ],
+          "locals": [],
+          "name": "guard",
+          "params": [],
+          "returns": null
+        }
+      ],
+      "name": "C1_GuardA",
+      "super": "C1_Guard"
+    },
+    {
+      "fields": [],
+      "methods": [
+        {
+          "body": [
+            {
+              "id": "C1_check_b",
+              "op": "check",
+              "permission": "PERM_B"
+            },
+            {
+              "id": "C1_b_return",
+              "op": "return",
+              "src": null
+            }
+          ],
+          "locals": [],
+          "name": "guard",
+          "params": [],
+          "returns": null
+        }
+      ],
+      "name": "C1_GuardB",
+      "super": "C1_Guard"
+    },
+    {
+      "fields": [],
+      "methods": [
+        {
+          "body": [
+            {
+              "id": "C1_id_return",
+              "op": "return",
+              "src": "value"
+            }
+          ],
+          "locals": [],
+          "name": "identity",
+          "params": [
+            {
+              "name": "value",
+              "type": "C1_Guard"
+            }
+          ],
+          "returns": "C1_Guard"
+        }
+      ],
+      "name": "C1_Helper",
+      "super": null
+    },
+    {
+      "fields": [],
+      "methods": [
+        {
+          "body": [
+            {
+              "class": "C1_Helper",
+              "dst": "h",
+              "id": "C1_new_h",
+              "op": "new"
+            },
+            {
+              "class": "C1_GuardA",
+              "dst": "a",
+              "id": "C1_new_a",
+              "op": "new"
+            },
+            {
+              "class": "C1_GuardB",
+              "dst": "b",
+              "id": "C1_new_b",
+              "op": "new"
+            },
+            {
+              "args": [
+                "a"
+              ],
+              "dst": "ra",
+              "id": "C1_call_a",
+              "op": "invoke",
+              "recv": "h",
+              "selector": "identity"
+            },
+            {
+              "args": [
+                "b"
+              ],
+              "dst": "rb",
+              "id": "C1_call_b",
+              "op": "invoke",
+              "recv": "h",
+              "selector": "identity"
+            },
+            {
+              "dst": "alias_0",
+              "id": "C1_alias_move_0",
+              "op": "move",
+              "src": "rb"
+            },
+            {
+              "args": [],
+              "dst": null,
+              "id": "C1_invoke_guard",
+              "op": "invoke",
+              "recv": "alias_0",
+              "selector": "guard"
+            },
+            {
+              "id": "C1_return",
+              "op": "return",
+              "src": null
+            }
+          ],
+          "locals": [
+            {
+              "name": "h",
+              "type": "C1_Helper"
+            },
+            {
+              "name": "a",
+              "type": "C1_Guard"
+            },
+            {
+              "name": "b",
+              "type": "C1_Guard"
+            },
+            {
+              "name": "ra",
+              "type": "C1_Guard"
+            },
+            {
+              "name": "rb",
+              "type": "C1_Guard"
+            },
+            {
+              "name": "alias_0",
+              "type": "C1_Guard"
+            }
+          ],
+          "name": "api",
+          "params": [],
+          "returns": null
+        }
+      ],
+      "name": "C1_Service",
+      "super": null
+    }
+  ],
+  "entries": [
+    {
+      "arg_classes": [],
+      "name": "C1_API",
+      "selector": "api",
+      "service": "C1_svc"
+    }
+  ],
+  "language": "bfil-1",
+  "permissions": [
+    "PERM_A",
+    "PERM_B",
+    "PERM_C"
+  ],
+  "services": [
+    {
+      "declared_class": "C1_Service",
+      "implementation_class": "C1_Service",
+      "name": "C1_svc"
+    }
+  ]
+}

@@ -69,7 +69,6 @@ empty-body cases, against both independent reconstruction and a scan-based
 coverage reference. Entry rows count generated facts and have zero generated
 rules; statement rows count rules, even when a legal statement ID equals an
 entry's display label. The row totals partition the complete inventories.
-The normal local suite passes all 87 tests, including the cross-kind label regression.
 
 The ten preselected aggregation cases retain every paired timing in
 `results/coverage-aggregation/measurement.json`. Their median scan-to-indexed
@@ -132,6 +131,39 @@ Normal and optimized logs each show all 84 tests passing without skips, failures
 `results/measurements/summary.json` retains the exact resource observations and configured caps; adjacent files retain the command list, test logs and selected check logs. The complete scientific outputs remain in their existing reference directories rather than being duplicated here. Paper-data export still uses those reference directories, so its historical measurements are unchanged.
 
 The workflow has a 20-minute job deadline and a 900-second scientific-shell deadline with 15-second kill grace. The shell inherits a 3 GiB address-space cap and an 840-second CPU cap **per process**; the ground driver tightens these to 2 GiB and 600 seconds. The source driver keeps 3 GiB and the inherited 840-second CPU cap. Raw-output upload remains `always()`, including failures. The archive does not contain exact runtime limit values, whole-workflow elapsed time, individual command exit-code records, or the runner image/Python patch version. Run identity comes from the supplied completed-run record, not metadata embedded in the archive. These are single-run Linux observations, separate from the historical Windows working-set measurements above; no cross-host speedup or independent replication is claimed.
+
+## Strict JSON admission and owned executable source comparison
+
+Source evidence compares reconstructed records recursively with exact scalar
+types, rather than Python's equal-valued Boolean/integer/real comparison.
+Ground IDs, rule weights, finite distances, coverage counts and finite classification
+costs require integers; `include_opaque` requires a Boolean. Ordinary and weighted
+checkers retain their own strict input gates. The truth-table oracle now also
+admits the complete ground schema before constructing bit masks, and source
+transport checks new ground IDs before indexing and semantic weights/flags
+before record reuse. `tests/test_strict_types.py` exercises these consumers
+with harmless decoded-JSON substitutions; no external target is involved.
+
+`inputs/source-semantics/old.py` and `new.py` are owned executable examples, not
+AOSP excerpts. `pcpe/owned_subset.py` translates a narrow annotated class/method
+subset to BFIL. The offline comparison runs only these two reviewed sources:
+
+```console
+python run_owned_source_comparison.py --out results/new-owned-comparison
+```
+
+The retained run is in `results/owned-source-comparison/`. All eight concrete
+choice completions agree with BFIL direct interpretation and checked Horn
+permission projections. Runtime traces confirm a heap-base alias, two distinct
+returning helper call sites and object identity through both helper returns.
+On the old source, field or context merging introduces `P_B`; the changing
+revision selects the second return, and transport reuses 24 nodes and adds four.
+The driver retains completion rows, controlled variants, transport counts and
+both translated sources. It performs no network access and is not an execution
+sandbox. The result covers two designed single-store fixtures and one changing
+revision, not full relation equivalence, general Python/Java translation,
+framework extraction, or a representative benchmark. The historical campaign,
+12 AOSP lexical anchors and their limited claims remain unchanged.
 
 ## Licenses and external material
 

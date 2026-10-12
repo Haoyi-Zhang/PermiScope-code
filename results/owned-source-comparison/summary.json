@@ -1,0 +1,583 @@
+{
+  "changing_revision_transport": {
+    "checker_steps": 2035,
+    "completed_nodes": 4,
+    "conservative_exact": false,
+    "conservative_reason": "closure-violation",
+    "new_certificate_nodes": 28,
+    "reused_nodes": 24,
+    "rule_scans": 2472,
+    "skipped_old_nodes": 3
+  },
+  "completions": [
+    {
+      "direct_permissions": [
+        [
+          "API",
+          "P_A"
+        ]
+      ],
+      "direct_reachable_contexts": 5,
+      "enabled_sites": [],
+      "ground_accepted": true,
+      "heap_aliases": {
+        "alias_same_box": true,
+        "other_same_b": true,
+        "selected_same_a": true
+      },
+      "horn_permissions": [
+        [
+          "API",
+          "P_A"
+        ]
+      ],
+      "native_permissions": [
+        [
+          "API",
+          "P_A"
+        ]
+      ],
+      "relay_calls": [
+        {
+          "argument_class": "GuardA",
+          "caller_line": 38,
+          "returned_same_object": true
+        },
+        {
+          "argument_class": "GuardB",
+          "caller_line": 39,
+          "returned_same_object": true
+        }
+      ],
+      "version": "old"
+    },
+    {
+      "direct_permissions": [
+        [
+          "API",
+          "P_A"
+        ]
+      ],
+      "direct_reachable_contexts": 5,
+      "enabled_sites": [
+        "opaque.inner"
+      ],
+      "ground_accepted": true,
+      "heap_aliases": {
+        "alias_same_box": true,
+        "other_same_b": true,
+        "selected_same_a": true
+      },
+      "horn_permissions": [
+        [
+          "API",
+          "P_A"
+        ]
+      ],
+      "native_permissions": [
+        [
+          "API",
+          "P_A"
+        ]
+      ],
+      "relay_calls": [
+        {
+          "argument_class": "GuardA",
+          "caller_line": 38,
+          "returned_same_object": true
+        },
+        {
+          "argument_class": "GuardB",
+          "caller_line": 39,
+          "returned_same_object": true
+        }
+      ],
+      "version": "old"
+    },
+    {
+      "direct_permissions": [
+        [
+          "API",
+          "P_A"
+        ]
+      ],
+      "direct_reachable_contexts": 6,
+      "enabled_sites": [
+        "opaque.outer"
+      ],
+      "ground_accepted": true,
+      "heap_aliases": {
+        "alias_same_box": true,
+        "other_same_b": true,
+        "selected_same_a": true
+      },
+      "horn_permissions": [
+        [
+          "API",
+          "P_A"
+        ]
+      ],
+      "native_permissions": [
+        [
+          "API",
+          "P_A"
+        ]
+      ],
+      "relay_calls": [
+        {
+          "argument_class": "GuardA",
+          "caller_line": 38,
+          "returned_same_object": true
+        },
+        {
+          "argument_class": "GuardB",
+          "caller_line": 39,
+          "returned_same_object": true
+        }
+      ],
+      "version": "old"
+    },
+    {
+      "direct_permissions": [
+        [
+          "API",
+          "P_A"
+        ],
+        [
+          "API",
+          "P_C"
+        ]
+      ],
+      "direct_reachable_contexts": 6,
+      "enabled_sites": [
+        "opaque.inner",
+        "opaque.outer"
+      ],
+      "ground_accepted": true,
+      "heap_aliases": {
+        "alias_same_box": true,
+        "other_same_b": true,
+        "selected_same_a": true
+      },
+      "horn_permissions": [
+        [
+          "API",
+          "P_A"
+        ],
+        [
+          "API",
+          "P_C"
+        ]
+      ],
+      "native_permissions": [
+        [
+          "API",
+          "P_A"
+        ],
+        [
+          "API",
+          "P_C"
+        ]
+      ],
+      "relay_calls": [
+        {
+          "argument_class": "GuardA",
+          "caller_line": 38,
+          "returned_same_object": true
+        },
+        {
+          "argument_class": "GuardB",
+          "caller_line": 39,
+          "returned_same_object": true
+        }
+      ],
+      "version": "old"
+    },
+    {
+      "direct_permissions": [
+        [
+          "API",
+          "P_A"
+        ],
+        [
+          "API",
+          "P_B"
+        ]
+      ],
+      "direct_reachable_contexts": 5,
+      "enabled_sites": [],
+      "ground_accepted": true,
+      "heap_aliases": {
+        "alias_same_box": true,
+        "other_same_b": true,
+        "selected_same_a": true
+      },
+      "horn_permissions": [
+        [
+          "API",
+          "P_A"
+        ],
+        [
+          "API",
+          "P_B"
+        ]
+      ],
+      "native_permissions": [
+        [
+          "API",
+          "P_A"
+        ],
+        [
+          "API",
+          "P_B"
+        ]
+      ],
+      "relay_calls": [
+        {
+          "argument_class": "GuardA",
+          "caller_line": 38,
+          "returned_same_object": true
+        },
+        {
+          "argument_class": "GuardB",
+          "caller_line": 39,
+          "returned_same_object": true
+        }
+      ],
+      "version": "new"
+    },
+    {
+      "direct_permissions": [
+        [
+          "API",
+          "P_A"
+        ],
+        [
+          "API",
+          "P_B"
+        ]
+      ],
+      "direct_reachable_contexts": 5,
+      "enabled_sites": [
+        "opaque.inner"
+      ],
+      "ground_accepted": true,
+      "heap_aliases": {
+        "alias_same_box": true,
+        "other_same_b": true,
+        "selected_same_a": true
+      },
+      "horn_permissions": [
+        [
+          "API",
+          "P_A"
+        ],
+        [
+          "API",
+          "P_B"
+        ]
+      ],
+      "native_permissions": [
+        [
+          "API",
+          "P_A"
+        ],
+        [
+          "API",
+          "P_B"
+        ]
+      ],
+      "relay_calls": [
+        {
+          "argument_class": "GuardA",
+          "caller_line": 38,
+          "returned_same_object": true
+        },
+        {
+          "argument_class": "GuardB",
+          "caller_line": 39,
+          "returned_same_object": true
+        }
+      ],
+      "version": "new"
+    },
+    {
+      "direct_permissions": [
+        [
+          "API",
+          "P_A"
+        ],
+        [
+          "API",
+          "P_B"
+        ]
+      ],
+      "direct_reachable_contexts": 6,
+      "enabled_sites": [
+        "opaque.outer"
+      ],
+      "ground_accepted": true,
+      "heap_aliases": {
+        "alias_same_box": true,
+        "other_same_b": true,
+        "selected_same_a": true
+      },
+      "horn_permissions": [
+        [
+          "API",
+          "P_A"
+        ],
+        [
+          "API",
+          "P_B"
+        ]
+      ],
+      "native_permissions": [
+        [
+          "API",
+          "P_A"
+        ],
+        [
+          "API",
+          "P_B"
+        ]
+      ],
+      "relay_calls": [
+        {
+          "argument_class": "GuardA",
+          "caller_line": 38,
+          "returned_same_object": true
+        },
+        {
+          "argument_class": "GuardB",
+          "caller_line": 39,
+          "returned_same_object": true
+        }
+      ],
+      "version": "new"
+    },
+    {
+      "direct_permissions": [
+        [
+          "API",
+          "P_A"
+        ],
+        [
+          "API",
+          "P_B"
+        ],
+        [
+          "API",
+          "P_C"
+        ]
+      ],
+      "direct_reachable_contexts": 6,
+      "enabled_sites": [
+        "opaque.inner",
+        "opaque.outer"
+      ],
+      "ground_accepted": true,
+      "heap_aliases": {
+        "alias_same_box": true,
+        "other_same_b": true,
+        "selected_same_a": true
+      },
+      "horn_permissions": [
+        [
+          "API",
+          "P_A"
+        ],
+        [
+          "API",
+          "P_B"
+        ],
+        [
+          "API",
+          "P_C"
+        ]
+      ],
+      "native_permissions": [
+        [
+          "API",
+          "P_A"
+        ],
+        [
+          "API",
+          "P_B"
+        ],
+        [
+          "API",
+          "P_C"
+        ]
+      ],
+      "relay_calls": [
+        {
+          "argument_class": "GuardA",
+          "caller_line": 38,
+          "returned_same_object": true
+        },
+        {
+          "argument_class": "GuardB",
+          "caller_line": 39,
+          "returned_same_object": true
+        }
+      ],
+      "version": "new"
+    }
+  ],
+  "concrete_completions": 8,
+  "lower_endpoint_ablations": [
+    {
+      "false_negatives": [],
+      "false_positives": [],
+      "gold": [
+        [
+          "API",
+          "P_A"
+        ]
+      ],
+      "reported": [
+        [
+          "API",
+          "P_A"
+        ]
+      ],
+      "variant": "full",
+      "version": "old"
+    },
+    {
+      "false_negatives": [],
+      "false_positives": [
+        [
+          "API",
+          "P_B"
+        ]
+      ],
+      "gold": [
+        [
+          "API",
+          "P_A"
+        ]
+      ],
+      "reported": [
+        [
+          "API",
+          "P_A"
+        ],
+        [
+          "API",
+          "P_B"
+        ]
+      ],
+      "variant": "field-insensitive",
+      "version": "old"
+    },
+    {
+      "false_negatives": [],
+      "false_positives": [
+        [
+          "API",
+          "P_B"
+        ]
+      ],
+      "gold": [
+        [
+          "API",
+          "P_A"
+        ]
+      ],
+      "reported": [
+        [
+          "API",
+          "P_A"
+        ],
+        [
+          "API",
+          "P_B"
+        ]
+      ],
+      "variant": "context-insensitive",
+      "version": "old"
+    },
+    {
+      "false_negatives": [],
+      "false_positives": [],
+      "gold": [
+        [
+          "API",
+          "P_A"
+        ],
+        [
+          "API",
+          "P_B"
+        ]
+      ],
+      "reported": [
+        [
+          "API",
+          "P_A"
+        ],
+        [
+          "API",
+          "P_B"
+        ]
+      ],
+      "variant": "full",
+      "version": "new"
+    },
+    {
+      "false_negatives": [],
+      "false_positives": [],
+      "gold": [
+        [
+          "API",
+          "P_A"
+        ],
+        [
+          "API",
+          "P_B"
+        ]
+      ],
+      "reported": [
+        [
+          "API",
+          "P_A"
+        ],
+        [
+          "API",
+          "P_B"
+        ]
+      ],
+      "variant": "field-insensitive",
+      "version": "new"
+    },
+    {
+      "false_negatives": [],
+      "false_positives": [],
+      "gold": [
+        [
+          "API",
+          "P_A"
+        ],
+        [
+          "API",
+          "P_B"
+        ]
+      ],
+      "reported": [
+        [
+          "API",
+          "P_A"
+        ],
+        [
+          "API",
+          "P_B"
+        ]
+      ],
+      "variant": "context-insensitive",
+      "version": "new"
+    }
+  ],
+  "mismatches": 0,
+  "scope": "two owned annotated Python fixtures; permission projections only; not Android/Java"
+}

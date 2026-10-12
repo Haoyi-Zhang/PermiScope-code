@@ -1,0 +1,152 @@
+{
+  "classes": [
+    {
+      "fields": [],
+      "methods": [
+        {
+          "body": [
+            {
+              "id": "H0_base_return",
+              "op": "return",
+              "src": null
+            }
+          ],
+          "locals": [],
+          "name": "api",
+          "params": [],
+          "returns": null
+        }
+      ],
+      "name": "H0_BaseService",
+      "super": null
+    },
+    {
+      "fields": [],
+      "methods": [
+        {
+          "body": [
+            {
+              "args": [],
+              "dst": null,
+              "id": "H0_A_call_preserving_noop",
+              "op": "direct",
+              "target": "H0_ImplA.preserving_noop"
+            },
+            {
+              "id": "H0_A_check",
+              "op": "check",
+              "permission": "PERM_A"
+            },
+            {
+              "candidates": [
+                {
+                  "args": [],
+                  "dst": null,
+                  "op": "direct",
+                  "target": "H0_ImplA.opaque_step_1"
+                }
+              ],
+              "id": "H0_A_opaque_0",
+              "op": "opaque",
+              "summary": "declared unknown helper dispatch"
+            },
+            {
+              "id": "H0_A_api_return",
+              "op": "return",
+              "src": null
+            }
+          ],
+          "locals": [],
+          "name": "api",
+          "params": [],
+          "returns": null
+        },
+        {
+          "body": [
+            {
+              "candidates": [
+                {
+                  "op": "check",
+                  "permission": "PERM_C"
+                }
+              ],
+              "id": "H0_A_opaque_1",
+              "op": "opaque",
+              "summary": "declared unknown helper effect"
+            },
+            {
+              "id": "H0_A_opaque_return_1",
+              "op": "return",
+              "src": null
+            }
+          ],
+          "locals": [],
+          "name": "opaque_step_1",
+          "params": [],
+          "returns": null
+        },
+        {
+          "body": [
+            {
+              "id": "H0_A_noop_return",
+              "op": "return",
+              "src": null
+            }
+          ],
+          "locals": [],
+          "name": "preserving_noop",
+          "params": [],
+          "returns": null
+        }
+      ],
+      "name": "H0_ImplA",
+      "super": "H0_BaseService"
+    },
+    {
+      "fields": [],
+      "methods": [
+        {
+          "body": [
+            {
+              "id": "H0_B_check",
+              "op": "check",
+              "permission": "PERM_B"
+            },
+            {
+              "id": "H0_B_api_return",
+              "op": "return",
+              "src": null
+            }
+          ],
+          "locals": [],
+          "name": "api",
+          "params": [],
+          "returns": null
+        }
+      ],
+      "name": "H0_ImplB",
+      "super": "H0_BaseService"
+    }
+  ],
+  "entries": [
+    {
+      "arg_classes": [],
+      "name": "H0_API",
+      "selector": "api",
+      "service": "H0_svc"
+    }
+  ],
+  "language": "bfil-1",
+  "permissions": [
+    "PERM_A",
+    "PERM_B",
+    "PERM_C"
+  ],
+  "services": [
+    {
+      "declared_class": "H0_BaseService",
+      "implementation_class": "H0_ImplA",
+      "name": "H0_svc"
+    }
+  ]
+}

@@ -328,9 +328,9 @@ def validate_source_evidence(source: Any, evidence: Any) -> SourceVerdict:
         if type(item) is not dict or set(item)!=required:
             return bad(label+"-schema")
         steps+=1
-        if item["ir"]!=expected["ir"]: return bad(label+"-ir-mismatch")
-        if item["program"]!=expected["program"]: return bad(label+"-program-mismatch")
-        if item["coverage"]!=expected["coverage"]: return bad(label+"-coverage-mismatch")
+        if not _exact_json_equal(item["ir"],expected["ir"]): return bad(label+"-ir-mismatch")
+        if not _exact_json_equal(item["program"],expected["program"]): return bad(label+"-program-mismatch")
+        if not _exact_json_equal(item["coverage"],expected["coverage"]): return bad(label+"-coverage-mismatch")
         verdict=validate_ground(item["program"],item["certificate"]);steps+=verdict.steps
         if not verdict.accepted:return bad(label+"-certificate-"+verdict.reason)
         if label=="upper":
@@ -338,9 +338,27 @@ def validate_source_evidence(source: Any, evidence: Any) -> SourceVerdict:
             wv=validate_weighted(item["program"],weights,item["minimum"]);steps+=wv.steps
             if not wv.accepted:return bad("upper-minimum-"+wv.reason)
     expected_classification=classify_from_certificates(evidence["lower"],evidence["upper"],evidence["upper"]["minimum"])
-    if evidence["classification"]!=expected_classification:
+    if not _exact_json_equal(evidence["classification"],expected_classification):
         return bad("classification-mismatch")
     return SourceVerdict(True,"accepted",steps)
+
+
+def _exact_json_equal(actual: Any, expected: Any) -> bool:
+    """Compare reconstructed JSON records without Python numeric coercion.
+
+    False, 0 and 0.0 are distinct, as are True, 1 and 1.0.
+    Dictionary order is immaterial; list order and every scalar type matter.
+    The expected object is a freshly reconstructed, finite JSON record.
+    """
+    if type(actual) is not type(expected):
+        return False
+    if type(expected) is dict:
+        return (actual.keys() == expected.keys() and
+                all(_exact_json_equal(actual[k], v) for k, v in expected.items()))
+    if type(expected) is list:
+        return (len(actual) == len(expected) and
+                all(_exact_json_equal(a, e) for a, e in zip(actual, expected)))
+    return actual == expected
 
 
 def classify_from_certificates(lower: dict[str,Any], upper: dict[str,Any],
