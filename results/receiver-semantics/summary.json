@@ -1,0 +1,636 @@
+{
+  "completions": [
+    {
+      "agreement": true,
+      "direct_permissions": [
+        [
+          "API",
+          "P_A"
+        ]
+      ],
+      "enabled_sites": [],
+      "heap_aliases": {
+        "alias_same_box": true,
+        "other_same_b": true,
+        "selected_same_a": true
+      },
+      "horn_permissions": [
+        [
+          "API",
+          "P_A"
+        ]
+      ],
+      "native_permissions": [
+        [
+          "API",
+          "P_A"
+        ]
+      ],
+      "receiver_dispatch": [
+        {
+          "method": "GuardA.permission",
+          "receiver_class": "GuardA"
+        },
+        {
+          "method": "GuardA.permission",
+          "receiver_class": "GuardA"
+        }
+      ],
+      "relay_calls": [
+        {
+          "argument_class": "GuardA",
+          "caller_line": 42,
+          "returned_same_object": true
+        },
+        {
+          "argument_class": "GuardB",
+          "caller_line": 43,
+          "returned_same_object": true
+        }
+      ],
+      "static_self_agreement": false,
+      "static_self_permissions": [
+        [
+          "API",
+          "P_BASE"
+        ]
+      ],
+      "version": "old"
+    },
+    {
+      "agreement": true,
+      "direct_permissions": [
+        [
+          "API",
+          "P_A"
+        ],
+        [
+          "API",
+          "P_C"
+        ]
+      ],
+      "enabled_sites": [
+        "dispatch.outer"
+      ],
+      "heap_aliases": {
+        "alias_same_box": true,
+        "other_same_b": true,
+        "selected_same_a": true
+      },
+      "horn_permissions": [
+        [
+          "API",
+          "P_A"
+        ],
+        [
+          "API",
+          "P_C"
+        ]
+      ],
+      "native_permissions": [
+        [
+          "API",
+          "P_A"
+        ],
+        [
+          "API",
+          "P_C"
+        ]
+      ],
+      "receiver_dispatch": [
+        {
+          "method": "GuardA.permission",
+          "receiver_class": "GuardA"
+        },
+        {
+          "method": "Guard.extra",
+          "receiver_class": "GuardA"
+        },
+        {
+          "method": "GuardA.permission",
+          "receiver_class": "GuardA"
+        },
+        {
+          "method": "Guard.extra",
+          "receiver_class": "GuardA"
+        }
+      ],
+      "relay_calls": [
+        {
+          "argument_class": "GuardA",
+          "caller_line": 42,
+          "returned_same_object": true
+        },
+        {
+          "argument_class": "GuardB",
+          "caller_line": 43,
+          "returned_same_object": true
+        }
+      ],
+      "static_self_agreement": false,
+      "static_self_permissions": [
+        [
+          "API",
+          "P_BASE"
+        ],
+        [
+          "API",
+          "P_C"
+        ]
+      ],
+      "version": "old"
+    },
+    {
+      "agreement": true,
+      "direct_permissions": [
+        [
+          "API",
+          "P_A"
+        ]
+      ],
+      "enabled_sites": [],
+      "heap_aliases": {
+        "alias_same_box": true,
+        "other_same_b": true,
+        "selected_same_a": true
+      },
+      "horn_permissions": [
+        [
+          "API",
+          "P_A"
+        ]
+      ],
+      "native_permissions": [
+        [
+          "API",
+          "P_A"
+        ]
+      ],
+      "receiver_dispatch": [
+        {
+          "method": "GuardA.permission",
+          "receiver_class": "GuardA"
+        },
+        {
+          "method": "GuardA.permission",
+          "receiver_class": "GuardA"
+        }
+      ],
+      "relay_calls": [
+        {
+          "argument_class": "GuardA",
+          "caller_line": 46,
+          "returned_same_object": true
+        },
+        {
+          "argument_class": "GuardB",
+          "caller_line": 47,
+          "returned_same_object": true
+        }
+      ],
+      "static_self_agreement": false,
+      "static_self_permissions": [
+        [
+          "API",
+          "P_BASE"
+        ]
+      ],
+      "version": "new"
+    },
+    {
+      "agreement": true,
+      "direct_permissions": [
+        [
+          "API",
+          "P_A"
+        ]
+      ],
+      "enabled_sites": [
+        "dispatch.inner"
+      ],
+      "heap_aliases": {
+        "alias_same_box": true,
+        "other_same_b": true,
+        "selected_same_a": true
+      },
+      "horn_permissions": [
+        [
+          "API",
+          "P_A"
+        ]
+      ],
+      "native_permissions": [
+        [
+          "API",
+          "P_A"
+        ]
+      ],
+      "receiver_dispatch": [
+        {
+          "method": "GuardA.permission",
+          "receiver_class": "GuardA"
+        },
+        {
+          "method": "GuardA.permission",
+          "receiver_class": "GuardA"
+        }
+      ],
+      "relay_calls": [
+        {
+          "argument_class": "GuardA",
+          "caller_line": 46,
+          "returned_same_object": true
+        },
+        {
+          "argument_class": "GuardB",
+          "caller_line": 47,
+          "returned_same_object": true
+        }
+      ],
+      "static_self_agreement": false,
+      "static_self_permissions": [
+        [
+          "API",
+          "P_BASE"
+        ]
+      ],
+      "version": "new"
+    },
+    {
+      "agreement": true,
+      "direct_permissions": [
+        [
+          "API",
+          "P_A"
+        ]
+      ],
+      "enabled_sites": [
+        "dispatch.outer"
+      ],
+      "heap_aliases": {
+        "alias_same_box": true,
+        "other_same_b": true,
+        "selected_same_a": true
+      },
+      "horn_permissions": [
+        [
+          "API",
+          "P_A"
+        ]
+      ],
+      "native_permissions": [
+        [
+          "API",
+          "P_A"
+        ]
+      ],
+      "receiver_dispatch": [
+        {
+          "method": "GuardA.permission",
+          "receiver_class": "GuardA"
+        },
+        {
+          "method": "GuardA.extra",
+          "receiver_class": "GuardA"
+        },
+        {
+          "method": "GuardA.permission",
+          "receiver_class": "GuardA"
+        },
+        {
+          "method": "GuardA.extra",
+          "receiver_class": "GuardA"
+        }
+      ],
+      "relay_calls": [
+        {
+          "argument_class": "GuardA",
+          "caller_line": 46,
+          "returned_same_object": true
+        },
+        {
+          "argument_class": "GuardB",
+          "caller_line": 47,
+          "returned_same_object": true
+        }
+      ],
+      "static_self_agreement": false,
+      "static_self_permissions": [
+        [
+          "API",
+          "P_BASE"
+        ],
+        [
+          "API",
+          "P_C"
+        ]
+      ],
+      "version": "new"
+    },
+    {
+      "agreement": true,
+      "direct_permissions": [
+        [
+          "API",
+          "P_A"
+        ],
+        [
+          "API",
+          "P_C"
+        ]
+      ],
+      "enabled_sites": [
+        "dispatch.inner",
+        "dispatch.outer"
+      ],
+      "heap_aliases": {
+        "alias_same_box": true,
+        "other_same_b": true,
+        "selected_same_a": true
+      },
+      "horn_permissions": [
+        [
+          "API",
+          "P_A"
+        ],
+        [
+          "API",
+          "P_C"
+        ]
+      ],
+      "native_permissions": [
+        [
+          "API",
+          "P_A"
+        ],
+        [
+          "API",
+          "P_C"
+        ]
+      ],
+      "receiver_dispatch": [
+        {
+          "method": "GuardA.permission",
+          "receiver_class": "GuardA"
+        },
+        {
+          "method": "GuardA.extra",
+          "receiver_class": "GuardA"
+        },
+        {
+          "method": "GuardA.permission",
+          "receiver_class": "GuardA"
+        },
+        {
+          "method": "GuardA.extra",
+          "receiver_class": "GuardA"
+        }
+      ],
+      "relay_calls": [
+        {
+          "argument_class": "GuardA",
+          "caller_line": 46,
+          "returned_same_object": true
+        },
+        {
+          "argument_class": "GuardB",
+          "caller_line": 47,
+          "returned_same_object": true
+        }
+      ],
+      "static_self_agreement": false,
+      "static_self_permissions": [
+        [
+          "API",
+          "P_BASE"
+        ],
+        [
+          "API",
+          "P_C"
+        ]
+      ],
+      "version": "new"
+    }
+  ],
+  "concrete_completions": 6,
+  "endpoint_transports": {
+    "lower": {
+      "checker_steps": 2363,
+      "completed_nodes": 0,
+      "conservative_exact": true,
+      "conservative_reason": "accepted",
+      "new_certificate_nodes": 29,
+      "reused_nodes": 29,
+      "revised_source_accepted": true,
+      "rule_scans": 721,
+      "skipped_old_nodes": 0
+    },
+    "upper": {
+      "checker_steps": 2532,
+      "completed_nodes": 4,
+      "conservative_exact": false,
+      "conservative_reason": "closure-violation",
+      "new_certificate_nodes": 35,
+      "reused_nodes": 31,
+      "revised_source_accepted": true,
+      "rule_scans": 2310,
+      "skipped_old_nodes": 3
+    }
+  },
+  "environment": {
+    "implementation": "CPython",
+    "machine": "AMD64",
+    "processor_identifier": "Intel64 Family 6 Model 151 Stepping 2, GenuineIntel",
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "system": "Windows-11-10.0.28000-SP0"
+  },
+  "lower_endpoint_ablations": [
+    {
+      "false_negatives": [],
+      "false_positives": [],
+      "gold": [
+        [
+          "API",
+          "P_A"
+        ]
+      ],
+      "reported": [
+        [
+          "API",
+          "P_A"
+        ]
+      ],
+      "variant": "full",
+      "version": "old"
+    },
+    {
+      "false_negatives": [],
+      "false_positives": [
+        [
+          "API",
+          "P_B"
+        ]
+      ],
+      "gold": [
+        [
+          "API",
+          "P_A"
+        ]
+      ],
+      "reported": [
+        [
+          "API",
+          "P_A"
+        ],
+        [
+          "API",
+          "P_B"
+        ]
+      ],
+      "variant": "field-insensitive",
+      "version": "old"
+    },
+    {
+      "false_negatives": [],
+      "false_positives": [
+        [
+          "API",
+          "P_B"
+        ]
+      ],
+      "gold": [
+        [
+          "API",
+          "P_A"
+        ]
+      ],
+      "reported": [
+        [
+          "API",
+          "P_A"
+        ],
+        [
+          "API",
+          "P_B"
+        ]
+      ],
+      "variant": "context-insensitive",
+      "version": "old"
+    },
+    {
+      "false_negatives": [],
+      "false_positives": [],
+      "gold": [
+        [
+          "API",
+          "P_A"
+        ]
+      ],
+      "reported": [
+        [
+          "API",
+          "P_A"
+        ]
+      ],
+      "variant": "full",
+      "version": "new"
+    },
+    {
+      "false_negatives": [],
+      "false_positives": [
+        [
+          "API",
+          "P_B"
+        ]
+      ],
+      "gold": [
+        [
+          "API",
+          "P_A"
+        ]
+      ],
+      "reported": [
+        [
+          "API",
+          "P_A"
+        ],
+        [
+          "API",
+          "P_B"
+        ]
+      ],
+      "variant": "field-insensitive",
+      "version": "new"
+    },
+    {
+      "false_negatives": [],
+      "false_positives": [
+        [
+          "API",
+          "P_B"
+        ]
+      ],
+      "gold": [
+        [
+          "API",
+          "P_A"
+        ]
+      ],
+      "reported": [
+        [
+          "API",
+          "P_A"
+        ],
+        [
+          "API",
+          "P_B"
+        ]
+      ],
+      "variant": "context-insensitive",
+      "version": "new"
+    }
+  ],
+  "mismatches": 0,
+  "negative_controls": [
+    {
+      "correct_source_accepts_wrong_evidence": false,
+      "correct_source_rejection": "lower-ir-mismatch",
+      "self_consistent_wrong_source_accepted": true,
+      "version": "old"
+    },
+    {
+      "correct_source_accepts_wrong_evidence": false,
+      "correct_source_rejection": "lower-ir-mismatch",
+      "self_consistent_wrong_source_accepted": true,
+      "version": "new"
+    }
+  ],
+  "opaque_explanations": {
+    "new": {
+      "inclusion_minimal_opaque_sites": [
+        "dispatch.inner",
+        "dispatch.outer"
+      ],
+      "minimum_opaque_uses": 2,
+      "query": "P:e0:p3",
+      "status": "unresolved",
+      "witness_opaque_sites": [
+        "dispatch.inner",
+        "dispatch.outer"
+      ]
+    },
+    "old": {
+      "inclusion_minimal_opaque_sites": [
+        "dispatch.outer"
+      ],
+      "minimum_opaque_uses": 1,
+      "query": "P:e0:p3",
+      "status": "unresolved",
+      "witness_opaque_sites": [
+        "dispatch.outer"
+      ]
+    }
+  },
+  "scope": "two fixed owned receiver-dispatch sources; permission projections, not a Python theorem",
+  "static_self_mismatches": 6
+}

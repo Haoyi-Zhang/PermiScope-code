@@ -1,0 +1,416 @@
+{
+  "classes": [
+    {
+      "fields": [],
+      "methods": [
+        {
+          "body": [
+            {
+              "args": [],
+              "dst": null,
+              "id": "Guard:enforce:0",
+              "op": "invoke",
+              "recv": "this",
+              "selector": "permission",
+              "span": {
+                "end_line": 4,
+                "start_line": 4,
+                "unit": "old.py"
+              }
+            },
+            {
+              "candidates": [
+                {
+                  "args": [],
+                  "dst": null,
+                  "op": "invoke",
+                  "recv": "this",
+                  "selector": "extra"
+                }
+              ],
+              "id": "dispatch.outer",
+              "op": "opaque",
+              "span": {
+                "end_line": 6,
+                "start_line": 5,
+                "unit": "old.py"
+              }
+            }
+          ],
+          "locals": [],
+          "name": "enforce",
+          "params": [],
+          "returns": null
+        },
+        {
+          "body": [
+            {
+              "id": "Guard:permission:0",
+              "op": "check",
+              "permission": "P_BASE",
+              "span": {
+                "end_line": 9,
+                "start_line": 9,
+                "unit": "old.py"
+              }
+            }
+          ],
+          "locals": [],
+          "name": "permission",
+          "params": [],
+          "returns": null
+        },
+        {
+          "body": [
+            {
+              "id": "Guard:extra:0",
+              "op": "check",
+              "permission": "P_C",
+              "span": {
+                "end_line": 12,
+                "start_line": 12,
+                "unit": "old.py"
+              }
+            }
+          ],
+          "locals": [],
+          "name": "extra",
+          "params": [],
+          "returns": null
+        }
+      ],
+      "name": "Guard",
+      "super": null
+    },
+    {
+      "fields": [],
+      "methods": [
+        {
+          "body": [
+            {
+              "id": "GuardA:permission:0",
+              "op": "check",
+              "permission": "P_A",
+              "span": {
+                "end_line": 17,
+                "start_line": 17,
+                "unit": "old.py"
+              }
+            }
+          ],
+          "locals": [],
+          "name": "permission",
+          "params": [],
+          "returns": null
+        }
+      ],
+      "name": "GuardA",
+      "super": "Guard"
+    },
+    {
+      "fields": [],
+      "methods": [
+        {
+          "body": [
+            {
+              "id": "GuardB:permission:0",
+              "op": "check",
+              "permission": "P_B",
+              "span": {
+                "end_line": 22,
+                "start_line": 22,
+                "unit": "old.py"
+              }
+            }
+          ],
+          "locals": [],
+          "name": "permission",
+          "params": [],
+          "returns": null
+        }
+      ],
+      "name": "GuardB",
+      "super": "Guard"
+    },
+    {
+      "fields": [
+        {
+          "name": "selected",
+          "type": "Guard"
+        },
+        {
+          "name": "other",
+          "type": "Guard"
+        }
+      ],
+      "methods": [],
+      "name": "Box",
+      "super": null
+    },
+    {
+      "fields": [],
+      "methods": [
+        {
+          "body": [
+            {
+              "dst": "alias",
+              "id": "Service:relay:0",
+              "op": "move",
+              "span": {
+                "end_line": 32,
+                "start_line": 32,
+                "unit": "old.py"
+              },
+              "src": "value"
+            },
+            {
+              "id": "Service:relay:1",
+              "op": "return",
+              "span": {
+                "end_line": 33,
+                "start_line": 33,
+                "unit": "old.py"
+              },
+              "src": "alias"
+            }
+          ],
+          "locals": [
+            {
+              "name": "alias",
+              "type": "Guard"
+            }
+          ],
+          "name": "relay",
+          "params": [
+            {
+              "name": "value",
+              "type": "Guard"
+            }
+          ],
+          "returns": "Guard"
+        },
+        {
+          "body": [
+            {
+              "class": "Box",
+              "dst": "box",
+              "id": "Service:run:0",
+              "op": "new",
+              "span": {
+                "end_line": 36,
+                "start_line": 36,
+                "unit": "old.py"
+              }
+            },
+            {
+              "class": "GuardA",
+              "dst": "a",
+              "id": "Service:run:1",
+              "op": "new",
+              "span": {
+                "end_line": 37,
+                "start_line": 37,
+                "unit": "old.py"
+              }
+            },
+            {
+              "class": "GuardB",
+              "dst": "b",
+              "id": "Service:run:2",
+              "op": "new",
+              "span": {
+                "end_line": 38,
+                "start_line": 38,
+                "unit": "old.py"
+              }
+            },
+            {
+              "dst": "alias",
+              "id": "Service:run:3",
+              "op": "move",
+              "span": {
+                "end_line": 39,
+                "start_line": 39,
+                "unit": "old.py"
+              },
+              "src": "box"
+            },
+            {
+              "base": "alias",
+              "field": {
+                "member": "selected",
+                "owner": "Box"
+              },
+              "id": "Service:run:4",
+              "op": "store",
+              "span": {
+                "end_line": 40,
+                "start_line": 40,
+                "unit": "old.py"
+              },
+              "src": "a"
+            },
+            {
+              "base": "box",
+              "field": {
+                "member": "other",
+                "owner": "Box"
+              },
+              "id": "Service:run:5",
+              "op": "store",
+              "span": {
+                "end_line": 41,
+                "start_line": 41,
+                "unit": "old.py"
+              },
+              "src": "b"
+            },
+            {
+              "args": [
+                "a"
+              ],
+              "dst": "first",
+              "id": "Service:run:6",
+              "op": "invoke",
+              "recv": "this",
+              "selector": "relay",
+              "span": {
+                "end_line": 42,
+                "start_line": 42,
+                "unit": "old.py"
+              }
+            },
+            {
+              "args": [
+                "b"
+              ],
+              "dst": "second",
+              "id": "Service:run:7",
+              "op": "invoke",
+              "recv": "this",
+              "selector": "relay",
+              "span": {
+                "end_line": 43,
+                "start_line": 43,
+                "unit": "old.py"
+              }
+            },
+            {
+              "dst": "target",
+              "id": "Service:run:8",
+              "op": "move",
+              "span": {
+                "end_line": 44,
+                "start_line": 44,
+                "unit": "old.py"
+              },
+              "src": "first"
+            },
+            {
+              "base": "alias",
+              "dst": "loaded",
+              "field": {
+                "member": "selected",
+                "owner": "Box"
+              },
+              "id": "Service:run:9",
+              "op": "load",
+              "span": {
+                "end_line": 45,
+                "start_line": 45,
+                "unit": "old.py"
+              }
+            },
+            {
+              "args": [],
+              "dst": null,
+              "id": "Service:run:10",
+              "op": "invoke",
+              "recv": "loaded",
+              "selector": "enforce",
+              "span": {
+                "end_line": 46,
+                "start_line": 46,
+                "unit": "old.py"
+              }
+            },
+            {
+              "args": [],
+              "dst": null,
+              "id": "Service:run:11",
+              "op": "invoke",
+              "recv": "target",
+              "selector": "enforce",
+              "span": {
+                "end_line": 47,
+                "start_line": 47,
+                "unit": "old.py"
+              }
+            }
+          ],
+          "locals": [
+            {
+              "name": "box",
+              "type": "Box"
+            },
+            {
+              "name": "a",
+              "type": "Guard"
+            },
+            {
+              "name": "b",
+              "type": "Guard"
+            },
+            {
+              "name": "alias",
+              "type": "Box"
+            },
+            {
+              "name": "first",
+              "type": "Guard"
+            },
+            {
+              "name": "second",
+              "type": "Guard"
+            },
+            {
+              "name": "target",
+              "type": "Guard"
+            },
+            {
+              "name": "loaded",
+              "type": "Guard"
+            }
+          ],
+          "name": "run",
+          "params": [],
+          "returns": null
+        }
+      ],
+      "name": "Service",
+      "super": null
+    }
+  ],
+  "entries": [
+    {
+      "arg_classes": [],
+      "name": "API",
+      "selector": "run",
+      "service": "service"
+    }
+  ],
+  "language": "bfil-1",
+  "permissions": [
+    "P_A",
+    "P_B",
+    "P_BASE",
+    "P_C"
+  ],
+  "services": [
+    {
+      "declared_class": "Service",
+      "implementation_class": "Service",
+      "name": "service"
+    }
+  ]
+}

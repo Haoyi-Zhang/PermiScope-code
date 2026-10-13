@@ -1,4 +1,4 @@
-"""A deliberately narrow source translator for the two owned Python fixtures.
+"""A deliberately narrow source translator for reviewed owned Python fixtures.
 
 This is an experimental bridge, not a Python or Java coverage guarantee and
 not an execution sandbox. It consumes class/method syntax rather than a BFIL
@@ -110,9 +110,9 @@ def translate_owned(text: str, unit: str) -> dict[str, Any]:
                 if isinstance(node.func, ast.Attribute):
                     recv = _name(node.func.value)
                     call_args = [_name(x) for x in node.args]
-                    if recv == "this":
-                        return dict(op="direct", dst=dst,
-                            target={"owner": owner, "member": node.func.attr}, args=call_args)
+                    # Python self.method() dispatches on the runtime receiver,
+                    # including inside an inherited method and opaque choice.
+                    # A BFIL direct call would bypass subclass overrides.
                     return dict(op="invoke", dst=dst, recv=recv,
                                 selector=node.func.attr, args=call_args)
                 raise ValueError("owned subset call target")

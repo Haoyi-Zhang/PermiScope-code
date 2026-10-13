@@ -165,6 +165,47 @@ revision, not full relation equivalence, general Python/Java translation,
 framework extraction, or a representative benchmark. The historical campaign,
 12 AOSP lexical anchors and their limited claims remain unchanged.
 
+### Inherited receiver dispatch and opaque evolution
+
+`pcpe/owned_subset.py` lowers all `receiver.method()` calls, including
+`self.method()` and calls inside an independent choice, as virtual BFIL
+invocations. Python self calls dispatch on the runtime receiver; translating
+them as fixed `direct` targets bypasses subclass overrides. The source checker
+can reject evidence against the correct BFIL source, but cannot recover
+semantics already lost by an external translator.
+
+Two additional fixed owned sources in `inputs/receiver-semantics/` exercise
+inherited self dispatch, heap aliases and two returning relay call sites.
+Their six completions agree across concrete execution, direct BFIL evaluation
+and ground-checked Horn projections after this repair. The static-self
+negative control disagrees on all six, despite accepted certificates against
+its own incorrect translations; comparing that evidence with the correct
+source rejects it at `lower-ir-mismatch` in both versions.
+
+The revision adds a conditional override: both permission endpoints stay the
+same, but `P_C` changes from requiring `dispatch.outer` to requiring both
+`dispatch.outer` and `dispatch.inner`. Its minimum occurrence cost and
+inclusion-minimal core size increase from one to two. Lower transport reuses
+29/29 nodes; upper transport reuses 31/35, skips three old nodes, and adds four
+before complete revised source checking. Field-insensitive and
+context-insensitive controls each still add `P_B` in both versions.
+
+```console
+python -B run_owned_receiver_comparison.py --out replay-receiver
+python -B -m unittest discover -s tests -p test_owned_receiver_comparison.py -v
+```
+
+The current retained comparison is in `results/receiver-semantics/`, including
+the Python, operating-system and processor identifiers reported by its host.
+The driver executes only these two reviewed paths and writes row-level runtime
+traces, both translations and both complete evidence objects to a new output
+directory. It performs no network access and is not an execution sandbox.
+These two small source pairs do not establish general Python semantics,
+flow-sensitive update handling, Java/AOSP translation or representative
+framework evolution. The original eight-completion pair still agrees and
+retains its 24 reused / four added node result; historical result collections
+are not rewritten.
+
 ## Licenses and external material
 
 The retained ground scale times are end-to-end wall observations including input construction, extraction, validation and JSON output. At 12,800 atoms, the 190.4 ms unseeded row accepts an empty certificate; the 212.0 ms seeded row accepts a complete certificate on a different input. No empty-certificate rejection time is reported. The source site-core checker performs `u+k+2 <= 2u+2` closures, including its final sufficiency/minimality audits.
