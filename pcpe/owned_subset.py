@@ -90,11 +90,17 @@ def translate_owned(text: str, unit: str) -> dict[str, Any]:
             locals_ = []
             body = []
 
+            def initialized(node: ast.AST) -> str:
+                name = _name(node)
+                if name not in variables:
+                    raise ValueError("owned subset requires an initialized variable")
+                return name
+
             def effect(node: ast.AST, dst: str | None = None):
                 if isinstance(node, ast.Name) and dst is not None:
-                    return dict(op="move", dst=dst, src=_name(node))
+                    return dict(op="move", dst=dst, src=initialized(node))
                 if isinstance(node, ast.Attribute) and dst is not None:
-                    base = _name(node.value)
+                    base = initialized(node.value)
                     return dict(op="load", dst=dst, base=base,
                                 field=field_ref(base, node.attr, variables))
                 if not isinstance(node, ast.Call) or node.keywords:
@@ -108,8 +114,8 @@ def translate_owned(text: str, unit: str) -> dict[str, Any]:
                         return dict(op="check", permission=permission)
                     raise ValueError("owned subset free call")
                 if isinstance(node.func, ast.Attribute):
-                    recv = _name(node.func.value)
-                    call_args = [_name(x) for x in node.args]
+                    recv = initialized(node.func.value)
+                    call_args = [initialized(x) for x in node.args]
                     # Python self.method() dispatches on the runtime receiver,
                     # including inside an inherited method and opaque choice.
                     # A BFIL direct call would bypass subclass overrides.
@@ -123,18 +129,18 @@ def translate_owned(text: str, unit: str) -> dict[str, Any]:
                     dst = _name(node.target)
                     if dst in variables:
                         raise ValueError("owned subset forbids local reassignment")
+                    out = effect(node.value, dst)
                     variables[dst] = _type(node.annotation)
                     locals_.append(dict(name=dst, type=variables[dst]))
-                    out = effect(node.value, dst)
                 elif isinstance(node, ast.Assign) and len(node.targets) == 1 and isinstance(node.targets[0], ast.Attribute):
                     target = node.targets[0]
-                    base = _name(target.value)
+                    base = initialized(target.value)
                     out = dict(op="store", base=base,
-                               field=field_ref(base, target.attr, variables), src=_name(node.value))
+                               field=field_ref(base, target.attr, variables), src=initialized(node.value))
                 elif isinstance(node, ast.Expr):
                     out = effect(node.value)
                 elif isinstance(node, ast.Return):
-                    out = dict(op="return", src=None if node.value is None else _name(node.value))
+                    out = dict(op="return", src=None if node.value is None else initialized(node.value))
                 elif isinstance(node, ast.If):
                     test = node.test
                     if (node.orelse or not isinstance(test, ast.Call) or

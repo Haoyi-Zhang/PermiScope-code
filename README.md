@@ -146,7 +146,11 @@ with harmless decoded-JSON substitutions; no external target is involved.
 
 `inputs/source-semantics/old.py` and `new.py` are owned executable examples, not
 AOSP excerpts. `pcpe/owned_subset.py` translates a narrow annotated class/method
-subset to BFIL. The offline comparison runs only these two reviewed sources:
+subset to BFIL. Each local becomes available after its initializer has been
+translated. Receivers, call arguments, field bases, stored values and returns
+must refer to initialized parameters or earlier locals. Syntax-only negative
+controls reject self-reference and forward reference without executing them.
+The offline comparison runs only these two reviewed sources:
 
 ```console
 python run_owned_source_comparison.py --out results/new-owned-comparison
