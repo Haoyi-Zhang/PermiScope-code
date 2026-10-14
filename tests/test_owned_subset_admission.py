@@ -42,6 +42,50 @@ class OwnedSubsetAdmissionTests(unittest.TestCase):
         service = next(c for c in document["classes"] if c["name"] == "Service")
         self.assertEqual([s["op"] for s in service["methods"][-1]["body"]], ["new", "invoke", "invoke"])
 
+    def test_local_check_cannot_shadow_primitive(self):
+        with self.assertRaises(ValueError):
+            translate_owned(PREFIX + '        check: Guard = Guard()\n        check("P_A")\n',
+                            "owned-shadow-negative.py")
+
+    def test_local_enabled_cannot_shadow_primitive(self):
+        with self.assertRaises(ValueError):
+            translate_owned(PREFIX + '        enabled: Guard = Guard()\n        if enabled("site"):\n            check("P_A")\n',
+                            "owned-shadow-negative.py")
+
+    def test_parameter_cannot_shadow_primitive(self):
+        source = '''class Guard:
+    def enforce(self) -> None:
+        check("P_A")
+class Service:
+    def helper(self, check: Guard) -> None:
+        check("P_A")
+    def run(self) -> None:
+        guard: Guard = Guard()
+        self.helper(guard)
+'''
+        with self.assertRaises(ValueError):
+            translate_owned(source, "owned-shadow-negative.py")
+
+    def test_class_cannot_shadow_primitive(self):
+        source = '''class check:
+    def enforce(self) -> None:
+        check("P_A")
+class Service:
+    def run(self) -> None:
+        check("P_A")
+'''
+        with self.assertRaises(ValueError):
+            translate_owned(source, "owned-shadow-negative.py")
+
+    def test_unshadowed_primitives_are_accepted(self):
+        document = translate_owned(PREFIX +
+            '        check("P_A")\n        if enabled("site"):\n            check("P_A")\n',
+            "owned-admission-positive.py")
+        service = next(c for c in document["classes"] if c["name"] == "Service")
+        self.assertEqual([s["op"] for s in service["methods"][-1]["body"]],
+                         ["check", "opaque"])
+        self.assertEqual(service["methods"][-1]["body"][-1]["candidates"][0]["op"], "check")
+
     def test_all_four_retained_sources_still_translate(self):
         inputs = Path(__file__).resolve().parents[1] / "inputs"
         for directory in ("source-semantics", "receiver-semantics"):

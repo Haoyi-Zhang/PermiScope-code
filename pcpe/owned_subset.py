@@ -39,10 +39,12 @@ def translate_owned(text: str, unit: str) -> dict[str, Any]:
     if type(text) is not str or len(text) > 32_768:
         raise ValueError("owned source text bound")
     tree = ast.parse(text, filename=unit)
+    primitives = {"check", "enabled"}
     declarations = {}
     for node in tree.body:
         if (not isinstance(node, ast.ClassDef) or node.decorator_list or
             node.keywords or len(node.bases) > 1 or node.name.startswith("__") or
+            node.name in primitives or
             getattr(node, "type_params", ()) or node.name in declarations):
             raise ValueError("owned subset class declaration")
         declarations[node.name] = node
@@ -86,6 +88,8 @@ def translate_owned(text: str, unit: str) -> dict[str, Any]:
                 args.args[0].annotation is not None):
                 raise ValueError("owned subset method signature")
             params = [{"name": x.arg, "type": _type(x.annotation)} for x in args.args[1:]]
+            if any(p["name"] in primitives for p in params):
+                raise ValueError("owned subset primitive name shadowed")
             variables = {"this": owner, **{p["name"]: p["type"] for p in params}}
             locals_ = []
             body = []
@@ -127,6 +131,8 @@ def translate_owned(text: str, unit: str) -> dict[str, Any]:
                 sid = f"{owner}:{method.name}:{index}"
                 if isinstance(node, ast.AnnAssign) and node.simple and node.value is not None:
                     dst = _name(node.target)
+                    if dst in primitives:
+                        raise ValueError("owned subset primitive name shadowed")
                     if dst in variables:
                         raise ValueError("owned subset forbids local reassignment")
                     out = effect(node.value, dst)
