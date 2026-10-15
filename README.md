@@ -46,7 +46,7 @@ The checker is structurally separate from the producer but was developed in the 
 - `tests/` — unit and adversarial tests.
 - `docs/` — model/proof, frozen protocol, literature calibration, and reproduction notes.
 - `claim_evidence_ledger.csv` — claim-to-proof/test/result mapping.
-- `reference_audit.csv` — one row for every manuscript reference, including persistent identifier, verification source, relevance role, and access date.
+- `reference_audit.csv` — one row for every main-article reference, including persistent identifier, verification source, relevance role, and access date.
 - `public_source_audit.csv` — immutable source provenance for all 12 AOSP anchors, including blob and excerpt digests.
 - `external_resources.csv` — external source, license, access, and integration inventory.
 
@@ -115,7 +115,7 @@ The ground comparator excludes four named timing/RSS fields from JSON and no CSV
 - Full lowering is exact on 300/300 new generated documents. Field-insensitive and context-insensitive variants each add 100 permission false positives; class-hierarchy dispatch adds 300. These are designed separators, not production precision estimates.
 - The suite contains 150 permission-preserving and 150 permission-changing revisions. The mapped prefix plus all new facts is already exact in 99 cases; the remaining 201 require rule completion before full checking. The current replay reuses 5,220 of 6,518 certificate nodes (80.09%); the historical local-token count was 4,794/6,518 (73.55%). No checker-speedup claim is made.
 - The retained Windows semantic-catalog replay records 2,919,349 checker steps, 2,289,440 graph operations, 51.578 process CPU seconds, 54.328 wall seconds, and 46.73 MiB peak working set, with one worker and zero downloads. These measurements precede the emission-limit and weighted-boundary changes and are not timings of those changes. POSIX process limits were unavailable. The older source observation (17.399 CPU seconds, 17.403 wall seconds, 117.17 MiB peak RSS) remains in `framework-observed` and is not a timing of the semantic-catalog implementation.
-- The offline manuscript/provenance audit accepts exactly 68 unique, cited references and all 12 source records; every retained excerpt digest is recomputed from the packaged text.
+- The offline main-article/provenance audit accepts exactly 68 unique, cited main-article references and all 12 source records; every retained excerpt digest is recomputed from the packaged text.
 
 ## Later Linux replay
 
