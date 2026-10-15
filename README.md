@@ -55,9 +55,9 @@ The checker is structurally separate from the producer but was developed in the 
 Run from this repository root with Python 3.11 or later. The implementation uses only the Python standard library.
 
 ```bash
-python -m unittest discover -s tests -v
-python -O -m unittest discover -s tests -v
-python audit_manuscript.py
+python -B -m unittest discover -s tests -v
+python -B -O -m unittest discover -s tests -v
+python -B audit_manuscript.py
 ```
 
 Coverage rows are accumulated by source identity in one pass in each lowering
@@ -117,20 +117,15 @@ The ground comparator excludes four named timing/RSS fields from JSON and no CSV
 - The retained Windows semantic-catalog replay records 2,919,349 checker steps, 2,289,440 graph operations, 51.578 process CPU seconds, 54.328 wall seconds, and 46.73 MiB peak working set, with one worker and zero downloads. These measurements precede the emission-limit and weighted-boundary changes and are not timings of those changes. POSIX process limits were unavailable. The older source observation (17.399 CPU seconds, 17.403 wall seconds, 117.17 MiB peak RSS) remains in `framework-observed` and is not a timing of the semantic-catalog implementation.
 - The offline main-article/provenance audit accepts exactly 68 unique, cited main-article references and all 12 source records; every retained excerpt digest is recomputed from the packaged text.
 
-## Later Linux replay
+## Retained Linux replay
 
-GitHub run `37433546102`, head `b0d4ef6d570845168e53847615b7bd2b7104eb1a`, ran the boundary-repaired artifact in the configured Ubuntu 24.04/Python 3.12 workflow. Its downloaded raw archive was compared locally as data, without executing archive code or rerunning the campaigns. All 69 kernel JSON/CSV files and all 18 framework result files (five CSV files, 12 representative JSON files and the semantic summary) match their retained references. That includes 122,693 kernel CSV rows and 1,836 framework CSV rows. The source resource block was inspected separately: one worker and zero downloads agree with the reference; platform is now POSIX and OS resource limits are available.
-
-| Campaign | Process CPU seconds | Recorded wall seconds | Process peak RSS |
-| --- | ---: | ---: | ---: |
-| Finite ground kernel | 12.956 | 12.952 (sum of 26 chunk timers) | 53,172 KiB (51.93 MiB) |
-| BFIL-1 source | 47.353 | 47.362 (driver body) | 46,140 KiB (45.06 MiB) |
-
-Normal and optimized logs each show all 84 tests passing without skips, failures or errors, in 6.423 and 6.000 seconds respectively. Both reconciliation logs have zero errors; the offline audit accepts 68 reference records and 12 packaged public-source records. This is not full-text verification of every citation or a live upstream-source audit.
-
-`results/measurements/summary.json` retains the exact resource observations and configured caps; adjacent files retain the command list, test logs and selected check logs. The complete scientific outputs remain in their existing reference directories rather than being duplicated here. Paper-data export still uses those reference directories, so its historical measurements are unchanged.
-
-The workflow has a 20-minute job deadline and a 900-second scientific-shell deadline with 15-second kill grace. The shell inherits a 3 GiB address-space cap and an 840-second CPU cap **per process**; the ground driver tightens these to 2 GiB and 600 seconds. The source driver keeps 3 GiB and the inherited 840-second CPU cap. Raw-output upload remains `always()`, including failures. The archive does not contain exact runtime limit values, whole-workflow elapsed time, individual command exit-code records, or the runner image/Python patch version. Run identity comes from the supplied completed-run record, not metadata embedded in the archive. These are single-run Linux observations, separate from the historical Windows working-set measurements above; no cross-host speedup or independent replication is claimed.
+`results/measurements/summary.json` and adjacent logs retain the later Ubuntu
+24.04/Python 3.12 run. Its69 kernel files and18 framework files match the
+corresponding semantic references. Normal and optimized runs passed84 methods
+in that historical inventory. Those counts are not the current test inventory.
+Timing, platform and available resource limits belong to that recorded run;
+they do not replace the earlier Windows results or imply a cross-host speedup.
+The current commands above report their actual inventory and outcomes.
 
 ## Strict JSON admission and owned executable source comparison
 
